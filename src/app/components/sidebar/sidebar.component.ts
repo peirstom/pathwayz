@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { LoginComponent } from 'src/app/pages/login/login.component';
 declare interface RouteInfo {
     path: string;
     title: string;
@@ -39,6 +39,8 @@ export const SUPPLIER_ROUTES: RouteInfo[] = [
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
+
+
 export class SidebarComponent implements OnInit {
 
   public menuItems: any[];
@@ -46,6 +48,13 @@ export class SidebarComponent implements OnInit {
   public isCollapsed = true;
 
   constructor(private router: Router) { }
+
+  @ViewChild(LoginComponent)
+    public login: LoginComponent;
+
+  openLogin(content, type, modalDimension) {
+    this.login.open(content, type, modalDimension);
+  }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
