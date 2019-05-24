@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, TemplateRef } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,31 +7,19 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-
+  @ViewChild('classic1')
+  public content: TemplateRef<any>;
   closeResult: string;
 
   constructor(private modalService: NgbModal) {}
 
-  open(content, type, modalDimension) {
-    if (modalDimension === 'sm' && type === 'modal_mini') {
+  open() {
+    const content = this.content;
       this.modalService.open(content, { windowClass: 'modal-mini', size: 'sm', centered: true }).result.then((result) => {
         this.closeResult = 'Closed with: $result';
       }, (reason) => {
         this.closeResult = 'Dismissed $this.getDismissReason(reason)';
       });
-    } else if (modalDimension === '' && type === 'Notification') {
-      this.modalService.open(content, { windowClass: 'modal-danger', centered: true }).result.then((result) => {
-        this.closeResult = 'Closed with: $result';
-      }, (reason) => {
-        this.closeResult = 'Dismissed $this.getDismissReason(reason)';
-      });
-    } else {
-      this.modalService.open(content, { centered: true }).result.then((result) => {
-        this.closeResult = 'Closed with: $result';
-      }, (reason) => {
-        this.closeResult = 'Dismissed $this.getDismissReason(reason)';
-      });
-    }
   }
 
   private getDismissReason(reason: any): string {

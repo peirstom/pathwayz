@@ -52,8 +52,8 @@ export class SidebarComponent implements OnInit {
   @ViewChild(LoginComponent)
     public login: LoginComponent;
 
-  openLogin(content, type, modalDimension) {
-    this.login.open(content, type, modalDimension);
+  openLogin() {
+    this.login.open();
   }
 
   ngOnInit() {

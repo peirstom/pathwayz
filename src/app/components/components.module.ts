@@ -5,28 +5,24 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginModule } from '../pages/login/login.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    LoginModule
   ],
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent,
-    LoginComponent,
-    RegisterComponent
+    SidebarComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent,
-    LoginComponent,
-    RegisterComponent
+    SidebarComponent
   ]
 })
 export class ComponentsModule { }

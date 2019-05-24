@@ -15,6 +15,15 @@
 <!--      </div>-->
 <!--    </form>-->
     <!-- User -->
+    <div class="btn-login-navbar">
+      <button class="btn  btn-secondary btn-sm ">
+        Register
+      </button>
+    <button class="btn  btn-primary btn-sm " (click)="openLogin()">
+      Log in
+    </button>
+    </div>
+
     <ul class="navbar-nav align-items-center d-none d-md-flex">
       <li class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
@@ -57,3 +66,5 @@
     </ul>
   </div>
 </nav>
+
+<app-login></app-login>
