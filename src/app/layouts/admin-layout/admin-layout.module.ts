@@ -14,6 +14,13 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from '../../pages/home/home.component';
+import { TendersComponent } from 'src/app/pages/tenders/tenders.component';
+import { MessagesComponent } from 'src/app/pages/messages/messages.component';
+import { FavoritesComponent } from 'src/app/pages/favorites/favorites.component';
+import { HistoryComponent } from 'src/app/pages/history/history.component';
+import { CatalogComponent } from 'src/app/pages/catalog/catalog.component';
+import { QuotationsComponent } from 'src/app/pages/quotations/quotations.component';
+import { InsightsComponent } from 'src/app/pages/insights/insights.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -31,7 +38,14 @@ import { HomeComponent } from '../../pages/home/home.component';
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    HomeComponent
+    HomeComponent,
+    TendersComponent,
+    MessagesComponent,
+    FavoritesComponent,
+    HistoryComponent,
+    CatalogComponent,
+    QuotationsComponent,
+    InsightsComponent
   ]
 })
 

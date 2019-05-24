@@ -8,17 +8,30 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/home', title: 'Home',  icon: 'ni-shop text-primary', class: '' },
+    { path: '/home', title: 'Home',  icon: 'ni-tv-2 text-primary', class: '' },
+    { path: '/tenders', title: 'Tenders',  icon: 'ni-send text-green', class: '' },
+    { path: '/messages', title: 'Messages',  icon: 'ni-email-83 text-warning', class: '' },
+    { path: '/favorites', title: 'Favorites',  icon: 'ni-favourite-28 text-red', class: '' },
+    { path: '/history', title: 'History',  icon: 'ni-archive-2 text-dark', class: '' },
+    { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
+    { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' }, //TODO: Only show login or Register button if not logged in.
+    { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }, //TODO: Only show login or Register button if not logged in.
 
 
 
+    // TODO: The paths below are not needed but kept as reference for now.
+    { path: '/', title: '',  icon: '', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
     { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
     { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
-    { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
-    { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
-    { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
-    { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
+    { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' }
+
+];
+
+export const SUPPLIER_ROUTES: RouteInfo[] = [
+  { path: '/catalog', title: 'Catalog',  icon: 'ni-box-2 text-primary', class: '' },
+  { path: '/quotations', title: 'Quotations',  icon: 'ni-send text-green', class: '' },
+  { path: '/insights', title: 'Insights',  icon: 'ni-chart-bar-32 text-warning', class: '' }
 ];
 
 @Component({
@@ -29,12 +42,14 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
 
   public menuItems: any[];
+  public menuSupplierItems: any[];
   public isCollapsed = true;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuSupplierItems = SUPPLIER_ROUTES.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
