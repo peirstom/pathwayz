@@ -2,7 +2,9 @@
   <div class="container-fluid">
     <div class="header-body">
       <!-- Search -->
+      <form >
       <div class="row justify-content-center no-gutters">
+
         <div class="col-lg-4">
 
 
@@ -36,11 +38,12 @@
 
         <div class="col-lg-1 ml-lg-3">
           <div class="form-group">
-          <button type="button" class="btn btn-default pathwayz-search-button" (click)="onSearch(search.value, distance.value)"><i class="fas fa-search" [routerLink]="'/search'"></i> Search</button>
+          <button type="submit" class="btn btn-default pathwayz-search-button" (click)="onSearch(search.value, distance.value)"><i class="fas fa-search" [routerLink]="'/search'"></i> Search</button>
           </div>
         </div>
-      </div>
 
+      </div>
+      </form>
 
     </div>
   </div>
@@ -57,7 +60,8 @@
     <div class="col">
       <div class="card shadow">
         <app-spinner [display]="searching"></app-spinner>
-        <app-search [searchResult]="searchResult"></app-search>
+        <app-search *ngIf="searchResult" [searchResult]="searchResult"></app-search>
+        <app-not-found *ngIf="!searchResult"></app-not-found>
       </div>
     </div>
   </div>

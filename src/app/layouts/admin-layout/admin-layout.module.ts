@@ -24,6 +24,7 @@ import { InsightsComponent } from 'src/app/pages/insights/insights.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { SearchComponent } from '../../pages/search/search.component';
 import { SpinnerModule } from '../../components/shared/spinner/spinner.module';
+import { NotFoundComponent } from '../../pages/not-found/not-found.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -51,7 +52,8 @@ import { SpinnerModule } from '../../components/shared/spinner/spinner.module';
     CatalogComponent,
     QuotationsComponent,
     InsightsComponent,
-    SearchComponent
+    SearchComponent,
+    NotFoundComponent
   ]
 })
 

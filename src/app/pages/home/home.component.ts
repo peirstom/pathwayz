@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   public searching = false;
 
-  public searchResult: SearchResult[] = [
+  private homePage: SearchResult[] =  [
     {
       title: 'Featured Products',
       type: 'products',
@@ -106,6 +106,147 @@ export class HomeComponent implements OnInit {
       ]
     }
   ];
+  private fruitSearchResult: SearchResult[] = [
+    {
+      title: 'Products',
+      type: 'products',
+      children: [
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'Apples',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/products/fruits1.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'Oranges',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/products/fruits2.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/products/fruits3.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/products/fruits4.jpg'
+        }
+      ]
+    },
+    {
+      title: 'Suppliers',
+      type: 'suppliers',
+      children: [
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/suppliers/supplier1.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/suppliers/supplier2.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/suppliers/supplier3.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/suppliers/supplier4.jpg'
+        }
+      ]
+    }
+  ];
+  private seedSearchResult: SearchResult[] = [
+    {
+      title: 'Featured Products',
+      type: 'products',
+      children: [
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/products/seeds1.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/products/seeds2.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/products/seeds3.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/products/seeds4.jpg'
+        }
+      ]
+    },
+    {
+      title: 'Featured Suppliers',
+      type: 'suppliers',
+      children: [
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/suppliers/supplier1.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/suppliers/supplier2.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/suppliers/supplier3.jpg'
+        },
+        {
+          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
+          title: 'DOWNLOAD ARGON',
+          id: '1',
+          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          image: '../../assets/img/suppliers/supplier4.jpg'
+        }
+      ]
+    }
+  ];
+  public searchResult: SearchResult[] = this.homePage;
 
   constructor() {
   }
@@ -115,9 +256,25 @@ export class HomeComponent implements OnInit {
 
   onSearch(search: HTMLInputElement | string, distance: HTMLSelectElement | string) {
     console.log(search, distance);
+    if(!search) { return; }
     this.searching = true;
     setTimeout(() => {
+      switch (search) {
+        case 'fruit':
+        case 'fruits':
+          this.searchResult = [...this.fruitSearchResult];
+          break;
+        case 'seed':
+        case 'seeds':
+          this.searchResult = [...this.seedSearchResult];
+          break;
+        default:
+          this.searchResult = undefined;
+      }
       this.searching = false;
     }, 800);
+
+
+
   }
 }
