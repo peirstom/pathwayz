@@ -1,9 +1,10 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
+import { ROUTES, SUPPLIER_ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
+import { concat } from 'rxjs';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
+    const routes = ROUTES.concat(SUPPLIER_ROUTES);
+    this.listTitles = routes.filter(listTitle => listTitle);
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());

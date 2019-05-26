@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
   searchResult: SearchResult[];
 
   products: SearchResult;
-  suppliers: SearchResult
+  suppliers: SearchResult;
 
   ngOnInit() {
     this.products = this.searchResult[0];
