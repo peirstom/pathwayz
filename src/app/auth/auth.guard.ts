@@ -1,16 +1,16 @@
-import { CanLoad, Route, UrlSegment } from '@angular/router';
+import { CanLoad, Route, Router, UrlSegment } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { take, switchMap, tap } from 'rxjs/operators';
 
 import { AuthService } from './auth.service';
-import { RoutingService } from '../helpers/routing.service';
+
 
 @Injectable()
 export class AuthGuard implements CanLoad {
   constructor(
     private authService: AuthService,
-    private routingService: RoutingService
+    private router: Router
   ) {}
 
   canLoad(
@@ -27,7 +27,7 @@ export class AuthGuard implements CanLoad {
       }),
       tap(isAuth => {
         if (!isAuth) {
-          this.routingService.replace(['/login']);//TODO dit kan niet werken willen geen replace want is een modal
+          this.router.navigate(['/home']);
         }
       })
     );

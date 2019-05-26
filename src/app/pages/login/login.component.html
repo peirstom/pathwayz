@@ -1,6 +1,9 @@
-<div class="col-md-4">
+
+<div class="col-md-4 pr">
+
   <ng-template #classic1 let-c="close" let-d="dismiss">
     <div class="modal-content">
+      <app-spinner [display]="loading"></app-spinner>
       <div class="modal-body p-0">
         <div class="card bg-secondary shadow border-0">
           <div class="card-header bg-white pb-5">
@@ -32,7 +35,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Email" type="email">
+                  <input class="form-control" placeholder="Email" type="email" #email>
                 </div>
               </div>
               <div class="form-group">
@@ -40,17 +43,17 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Password" type="password">
+                  <input class="form-control" placeholder="Password" type="password" #password>
                 </div>
               </div>
               <div class="custom-control custom-control-alternative custom-checkbox">
-                <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                <input class="custom-control-input" id=" customCheckLogin" type="checkbox" >
                 <label class="custom-control-label" for=" customCheckLogin">
                   <span>Remember me</span>
                 </label>
               </div>
               <div class="text-center">
-                <button type="button" class="btn btn-primary my-4">Sign in</button>
+                <button type="button" class="btn btn-primary my-4" (click)="onSignIn(email.value, password.value)">Sign in</button>
               </div>
             </form>
           </div>

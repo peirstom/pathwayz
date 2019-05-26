@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
 import { concat } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({
@@ -17,14 +18,19 @@ export class NavbarComponent implements OnInit {
   public listTitles: any[];
   public location: Location;
 
+  public isAuthenticated = false;
+
   @ViewChild(LoginComponent)
   public login: LoginComponent;
 
   @ViewChild(RegisterComponent)
   public register: RegisterComponent;
 
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor(location: Location,  private authService: AuthService) {
     this.location = location;
+    this.authService.isAuthenticated.subscribe((res) => {
+      this.isAuthenticated = res;
+    });
   }
 
   ngOnInit() {
@@ -52,4 +58,7 @@ export class NavbarComponent implements OnInit {
     this.register.open();
   }
 
+  onLogout() {
+    this.authService.logout();
+  }
 }

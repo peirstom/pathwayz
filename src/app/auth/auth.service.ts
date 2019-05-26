@@ -4,11 +4,11 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject, of } from 'rxjs';
 
 import { User } from './user.model';
-import { RoutingService } from '../helpers/routing.service';
-import { DialogService } from '../helpers/dialog.service'; // probably have to style this better.
+import { Router } from '@angular/router';
 import { StorageService } from '../helpers/storage.service';
+import { DialogService } from '../helpers/dialog.service';
 
-const FIREBASE_API_KEY = 'AIzaSyAFJWqaLcuSmSTsELHYVFDuKxGUKV_a-v0';
+const FIREBASE_API_KEY = 'AIzaSyCnbBwGpb_FtqiUvpT7thSDWSKPLTvyRSQ';
 
 interface AuthResponseData {
   kind: string;
@@ -24,16 +24,21 @@ interface AuthResponseData {
 export class AuthService {
   private _user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
+  private _isAuthenticated = new BehaviorSubject(false);
 
   constructor(
     private http: HttpClient,
-    private routingService: RoutingService,
-    private dialogService: DialogService,
-    private storageService: StorageService
+    private router: Router,
+    private storageService: StorageService,
+    private dialogService: DialogService
   ) {}
 
   get user() {
     return this._user.asObservable();
+  }
+
+  get isAuthenticated() {
+    return this._isAuthenticated;
   }
 
   signUp(email: string, password: string) {
@@ -61,36 +66,44 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http
-      .post<AuthResponseData>(
-        `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${FIREBASE_API_KEY}`,
-        { email: email, password: password, returnSecureToken: true }
-      )
-      .pipe(
-        catchError(errorRes => {
-          this.handleError(errorRes.error.error.message);
-          return throwError(errorRes);
-        }),
-        tap(resData => {
-          if (resData && resData.idToken) {
-            this.handleLogin(
-              email,
-              resData.idToken,
-              resData.localId,
-              parseInt(resData.expiresIn, 10)
-            );
-          }
-        })
-      );
+    console.log('test')
+    this._isAuthenticated.next(true);
+    return;
+
+
+    // return this.http
+    //   .post<AuthResponseData>(
+    //     `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${FIREBASE_API_KEY}`,
+    //     { email: email, password: password, returnSecureToken: true }
+    //   )
+    //   .pipe(
+    //     catchError(errorRes => {
+    //       console.log('error login')
+    //       this.handleError(errorRes.error.error.message);
+    //       return throwError(errorRes);
+    //     }),
+    //     tap(resData => {
+    //       if (resData && resData.idToken) {
+    //         console.log('handlelogin')
+    //         this.handleLogin(
+    //           email,
+    //           resData.idToken,
+    //           resData.localId,
+    //           parseInt(resData.expiresIn, 10)
+    //         );
+    //       }
+    //     })
+    //   );
   }
 
   logout() {
     this._user.next(null);
+    this._isAuthenticated.next(false);
     this.storageService.remove('userData');
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
-    this.routingService.replace(['/auth']);
+    this.router.navigate(['/home']);
   }
 
   autoLogin() {
@@ -134,6 +147,7 @@ export class AuthService {
     this.storageService.storeString('userData', JSON.stringify(user));
     this.autoLogout(user.timeToExpiry);
     this._user.next(user);
+    this._isAuthenticated.next(true);
   }
 
   private handleError(errorMessage: string) {

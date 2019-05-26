@@ -272,7 +272,7 @@ export class HomeComponent implements OnInit {
           this.searchResult = undefined;
       }
       this.searching = false;
-    }, 800);
+    }, 400);
 
 
 

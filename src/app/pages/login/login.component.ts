@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, TemplateRef } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   @ViewChild('classic1')
   public content: TemplateRef<any>;
   closeResult: string;
+  public loading = false;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private authService: AuthService) {}
 
   open() {
     const content = this.content;
@@ -37,4 +39,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
+  onSignIn(email: any, password: any) {
+    console.log('email', email, 'password', password);
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.authService.login(email, password);
+      this.modalService.dismissAll();
+    }, 500)
+
+  }
 }
