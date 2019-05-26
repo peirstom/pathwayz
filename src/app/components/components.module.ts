@@ -6,13 +6,15 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginModule } from '../pages/login/login.module';
+import { RegisterModule } from '../pages/register/register.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     NgbModule,
-    LoginModule
+    LoginModule,
+    RegisterModule
   ],
   declarations: [
     FooterComponent,
