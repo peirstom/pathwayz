@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/pages/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Subscription } from 'rxjs';
 declare interface RouteInfo {
     path: string;
     title: string;
@@ -43,8 +45,16 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public menuSupplierItems: any[];
   public isCollapsed = true;
+  //public isAuthenticated = false;
 
-  constructor(private router: Router) { }
+  loggedIn = false;
+  loggedInSubsription: Subscription;
+
+  constructor(private router: Router, private authService: AuthService){
+  //this.authService.isAuthenticated.subscribe((res) => {
+   // this.isAuthenticated = res;
+  //});
+}
 
   @ViewChild(LoginComponent)
     public login: LoginComponent;
@@ -66,5 +76,15 @@ export class SidebarComponent implements OnInit {
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
+   this.loggedInSubsription = this.authService.user.subscribe(user => {
+    this.loggedIn = !!(user && user.token) ;
+  });
   }
+
+  ngOnDestroy() {
+    if (this.loggedInSubsription) {
+      this.loggedInSubsription.unsubscribe();
+    }
+  }
+
 }

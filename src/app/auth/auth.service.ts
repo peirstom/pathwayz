@@ -66,34 +66,29 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    console.log('test')
-    this._isAuthenticated.next(true);
-    return;
-
-
-    // return this.http
-    //   .post<AuthResponseData>(
-    //     `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${FIREBASE_API_KEY}`,
-    //     { email: email, password: password, returnSecureToken: true }
-    //   )
-    //   .pipe(
-    //     catchError(errorRes => {
-    //       console.log('error login')
-    //       this.handleError(errorRes.error.error.message);
-    //       return throwError(errorRes);
-    //     }),
-    //     tap(resData => {
-    //       if (resData && resData.idToken) {
-    //         console.log('handlelogin')
-    //         this.handleLogin(
-    //           email,
-    //           resData.idToken,
-    //           resData.localId,
-    //           parseInt(resData.expiresIn, 10)
-    //         );
-    //       }
-    //     })
-    //   );
+    return this.http
+      .post<AuthResponseData>(
+        `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${FIREBASE_API_KEY}`,
+        { email: email, password: password, returnSecureToken: true }
+      )
+      .pipe(
+        catchError(errorRes => {
+          console.log('error login')
+          this.handleError(errorRes.error.error.message);
+          return throwError(errorRes);
+        }),
+        tap(resData => {
+          if (resData && resData.idToken) {
+            console.log('handlelogin')
+            this.handleLogin(
+              email,
+              resData.idToken,
+              resData.localId,
+              parseInt(resData.expiresIn, 10)
+            );
+          }
+        })
+      );
   }
 
   logout() {

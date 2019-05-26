@@ -15,7 +15,7 @@
 <!--      </div>-->
 <!--    </form>-->
     <!-- User -->
-    <div class="btn-login-navbar" *ngIf="!isAuthenticated">
+    <div class="btn-login-navbar" *ngIf="!loggedIn">
       <button class="btn  btn-secondary btn-sm "(click)="openRegistration()">
         Register
       </button>
@@ -24,7 +24,7 @@
     </button>
     </div>
 
-    <ul class="navbar-nav align-items-center d-none d-md-flex" *ngIf="isAuthenticated">
+    <ul class="navbar-nav align-items-center d-none d-md-flex" *ngIf="loggedIn">
       <li class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
           <div class="media align-items-center">

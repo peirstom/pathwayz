@@ -40,13 +40,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onSignIn(email: any, password: any) {
-    console.log('email', email, 'password', password);
-    this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-      this.authService.login(email, password);
-      this.modalService.dismissAll();
-    }, 500)
-
+    this.authService.login(email, password).subscribe(
+      resData => {
+        this.loading = false;
+        this.modalService.dismissAll();
+      },
+      err => {
+        console.log(err);
+        this.loading = false;
+      }
+    );
   }
 }

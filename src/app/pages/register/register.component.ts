@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +10,10 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class RegisterComponent implements OnInit {
   @ViewChild('classicRegister')
   public content: TemplateRef<any>;
+  public isLoading = false;
   closeResult: string;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private authService: AuthService) { }
 
   open() {
     const content = this.content;
@@ -30,6 +32,20 @@ export class RegisterComponent implements OnInit {
     } else {
       return  'with: $reason';
     }
+  }
+
+  onRegister(email: any, password: any) {
+
+    this.authService.signUp(email, password).subscribe(
+      resData => {
+        this.isLoading = false;
+        this.modalService.dismissAll();
+      },
+      err => {
+        console.log(err);
+        this.isLoading = false;
+      }
+    );
   }
 
   ngOnInit() {

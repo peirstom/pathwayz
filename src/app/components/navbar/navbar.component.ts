@@ -1,10 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { ROUTES, SUPPLIER_ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
-import { concat } from 'rxjs';
+import { concat, Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 
 
@@ -18,7 +18,9 @@ export class NavbarComponent implements OnInit {
   public listTitles: any[];
   public location: Location;
 
-  public isAuthenticated = false;
+  //public isAuthenticated = false;
+  loggedIn = false;
+  loggedInSubsription: Subscription;
 
   @ViewChild(LoginComponent)
   public login: LoginComponent;
@@ -28,14 +30,17 @@ export class NavbarComponent implements OnInit {
 
   constructor(location: Location,  private authService: AuthService) {
     this.location = location;
-    this.authService.isAuthenticated.subscribe((res) => {
-      this.isAuthenticated = res;
-    });
+    //this.authService.isAuthenticated.subscribe((res) => {
+      //this.isAuthenticated = res;
+    //});
   }
 
   ngOnInit() {
     const routes = ROUTES.concat(SUPPLIER_ROUTES);
     this.listTitles = routes.filter(listTitle => listTitle);
+    this.loggedInSubsription = this.authService.user.subscribe(user => {
+      this.loggedIn = !!(user && user.token) ;
+    });
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -60,5 +65,11 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+  }
+
+  ngOnDestroy() {
+    if (this.loggedInSubsription) {
+      this.loggedInSubsription.unsubscribe();
+    }
   }
 }
