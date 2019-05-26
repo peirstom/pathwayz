@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   private _searchResult: SearchResult[];
 
   products: SearchResult;
-  suppliers: SearchResult
+  suppliers: SearchResult;
 
   ngOnInit() {
 
