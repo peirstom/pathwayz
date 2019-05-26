@@ -12,13 +12,13 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-search"></i></span>
               </div>
-              <input class="form-control form-control-alternative" placeholder="Search" type="text">
+              <input class="form-control form-control-alternative" placeholder="Search" type="text" #search>
             </div>
           </div>
         </div>
         <div class="col-lg-2 ml-lg-3">
           <div class="form-group">
-            <select class="form-control" id="distance">
+            <select class="form-control" id="distance" #distance>
               <option>All distances</option>
               <option>+ 0 km</option>
               <option>+ 1 km</option>
@@ -36,7 +36,7 @@
 
         <div class="col-lg-1 ml-lg-3">
           <div class="form-group">
-          <button type="button" class="btn btn-default pathwayz-search-button"><i class="fas fa-search"></i> Search</button>
+          <button type="button" class="btn btn-default pathwayz-search-button" (click)="onSearch(search.value, distance.value)"><i class="fas fa-search" [routerLink]="'/search'"></i> Search</button>
           </div>
         </div>
       </div>
@@ -52,163 +52,12 @@
 
 
 
-  <!-- Dark table -->
+  <!-- Featured products -->
   <div class="row mt-5">
     <div class="col">
       <div class="card shadow">
-        <div class="card-header border-0">
-          <div class="row align-items-center">
-            <div class="col">
-              <h3 class="mb-0">Featured products</h3>
-            </div>
-            <div class="col text-right">
-              <a class="btn btn-sm btn-success" href="#!">See all</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row row-grid">
-            <div class="col-lg-3">
-                  <div class="card card-lift--hover shadow border-0">
-                    <img class="card-img-top" src="https://source.unsplash.com/1600x900/?nature,water" alt="Card image cap">
-                    <div class="card-body py-5">
-                      <h6  class="text-success text-uppercase">Download Argon</h6>
-                      <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                      <div>
-                        <span  class="badge badge-pill badge-success">angular</span>
-                        <span class="badge badge-pill badge-success">ng-bootstrap</span>
-                        <span  class="badge badge-pill badge-success">creative</span>
-                      </div>
-                      <a class="btn btn-success mt-4" href="javascript:void(0)">Learn more</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card card-lift--hover shadow border-0">
-                <img class="card-img-top" src="https://source.unsplash.com/1600x900/?nature,water" alt="Card image cap">
-                <div class="card-body py-5">
-                  <h6  class="text-success text-uppercase">Download Argon</h6>
-                  <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                  <div>
-                    <span  class="badge badge-pill badge-success">angular</span>
-                    <span class="badge badge-pill badge-success">ng-bootstrap</span>
-                    <span  class="badge badge-pill badge-success">creative</span>
-                  </div>
-                  <a class="btn btn-success mt-4" href="javascript:void(0)">Learn more</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card card-lift--hover shadow border-0">
-                <img class="card-img-top" src="https://source.unsplash.com/1600x900/?nature,water" alt="Card image cap">
-                <div class="card-body py-5">
-                  <h6  class="text-success text-uppercase">Download Argon</h6>
-                  <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                  <div>
-                    <span  class="badge badge-pill badge-success">angular</span>
-                    <span class="badge badge-pill badge-success">ng-bootstrap</span>
-                    <span  class="badge badge-pill badge-success">creative</span>
-                  </div>
-                  <a class="btn btn-success mt-4" href="javascript:void(0)">Learn more</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card card-lift--hover shadow border-0">
-                <img class="card-img-top" src="https://source.unsplash.com/1600x900/?nature,water" alt="Card image cap">
-                <div class="card-body py-5">
-                  <h6  class="text-success text-uppercase">Download Argon</h6>
-                  <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                  <div>
-                    <span  class="badge badge-pill badge-success">angular</span>
-                    <span class="badge badge-pill badge-success">ng-bootstrap</span>
-                    <span  class="badge badge-pill badge-success">creative</span>
-                  </div>
-                  <a class="btn btn-success mt-4" href="javascript:void(0)">Learn more</a>
-                </div>
-              </div>
-            </div>
-          </div>
-<!--          your cards here-->
-<!--          <img src="https://source.unsplash.com/1600x900/?nature,water" alt="">-->
-        </div>
-
-        <div class="card-header border-0 mt-3">
-          <div class="row align-items-center">
-            <div class="col">
-              <h3 class="mb-0">Featured sellers</h3>
-            </div>
-            <div class="col text-right">
-              <a class="btn btn-sm btn-primary" href="#!">See all</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row row-grid">
-            <div class="col-lg-3">
-              <div class="card card-lift--hover shadow border-0">
-                <img class="card-img-top" src="https://source.unsplash.com/1600x900/?nature,water" alt="Card image cap">
-                <div class="card-body py-5">
-                  <h6  class="text-primary text-uppercase">Download Argon</h6>
-                  <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                  <div>
-                    <span  class="badge badge-pill badge-primary">angular</span>
-                    <span class="badge badge-pill badge-primary">ng-bootstrap</span>
-                    <span  class="badge badge-pill badge-primary">creative</span>
-                  </div>
-                  <a class="btn btn-primary mt-4" href="javascript:void(0)">Learn more</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card card-lift--hover shadow border-0">
-                <img class="card-img-top" src="https://source.unsplash.com/1600x900/?nature,water" alt="Card image cap">
-                <div class="card-body py-5">
-                  <h6  class="text-primary text-uppercase">Download Argon</h6>
-                  <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                  <div>
-                    <span  class="badge badge-pill badge-primary">angular</span>
-                    <span class="badge badge-pill badge-primary">ng-bootstrap</span>
-                    <span  class="badge badge-pill badge-primary">creative</span>
-                  </div>
-                  <a class="btn btn-primary mt-4" href="javascript:void(0)">Learn more</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card card-lift--hover shadow border-0">
-                <img class="card-img-top" src="https://source.unsplash.com/1600x900/?nature,water" alt="Card image cap">
-                <div class="card-body py-5">
-                  <h6  class="text-primary text-uppercase">Download Argon</h6>
-                  <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                  <div>
-                    <span  class="badge badge-pill badge-primary">angular</span>
-                    <span class="badge badge-pill badge-primary">ng-bootstrap</span>
-                    <span  class="badge badge-pill badge-primary">creative</span>
-                  </div>
-                  <a class="btn btn-primary mt-4" href="javascript:void(0)">Learn more</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card card-lift--hover shadow border-0">
-                <img class="card-img-top" src="https://source.unsplash.com/1600x900/?nature,water" alt="Card image cap">
-                <div class="card-body py-5">
-                  <h6  class="text-primary text-uppercase">Download Argon</h6>
-                  <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most important components and features.</p>
-                  <div>
-                    <span  class="badge badge-pill badge-primary">angular</span>
-                    <span class="badge badge-pill badge-primary">ng-bootstrap</span>
-                    <span  class="badge badge-pill badge-primary">creative</span>
-                  </div>
-                  <a class="btn btn-primary mt-4" href="javascript:void(0)">Learn more</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--          your cards here-->
-          <!--          <img src="https://source.unsplash.com/1600x900/?nature,water" alt="">-->
-        </div>
+        <app-spinner [display]="searching"></app-spinner>
+        <app-search [searchResult]="searchResult"></app-search>
       </div>
     </div>
   </div>

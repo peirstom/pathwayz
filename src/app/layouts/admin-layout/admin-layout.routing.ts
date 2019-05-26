@@ -15,17 +15,17 @@ import { QuotationsComponent } from 'src/app/pages/quotations/quotations.compone
 import { InsightsComponent } from 'src/app/pages/insights/insights.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'tables',         component: TablesComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'home',           component: HomeComponent },
-    { path: 'tenders',        component: TendersComponent },
-    { path: 'messages',       component: MessagesComponent },
-    { path: 'favorites',      component: FavoritesComponent },
-    { path: 'history',        component: HistoryComponent },
-    { path: 'catalog',       component: CatalogComponent },
-    { path: 'quotations',      component: QuotationsComponent },
-    { path: 'insights',        component: InsightsComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'tables', component: TablesComponent },
+  { path: 'icons', component: IconsComponent },
+  { path: 'maps', component: MapsComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'tenders', component: TendersComponent },
+  { path: 'messages', component: MessagesComponent },
+  { path: 'favorites', component: FavoritesComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: 'catalog', component: CatalogComponent },
+  { path: 'quotations', component: QuotationsComponent },
+  { path: 'insights', component: InsightsComponent }
 ];

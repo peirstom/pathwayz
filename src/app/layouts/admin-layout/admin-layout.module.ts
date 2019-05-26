@@ -22,6 +22,8 @@ import { CatalogComponent } from 'src/app/pages/catalog/catalog.component';
 import { QuotationsComponent } from 'src/app/pages/quotations/quotations.component';
 import { InsightsComponent } from 'src/app/pages/insights/insights.component';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { SearchComponent } from '../../pages/search/search.component';
+import { SpinnerModule } from '../../components/shared/spinner/spinner.module';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -32,7 +34,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    ComponentsModule
+    ComponentsModule,
+    SpinnerModule
   ],
   declarations: [
     DashboardComponent,
@@ -47,7 +50,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     HistoryComponent,
     CatalogComponent,
     QuotationsComponent,
-    InsightsComponent
+    InsightsComponent,
+    SearchComponent
   ]
 })
 
