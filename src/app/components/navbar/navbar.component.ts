@@ -3,6 +3,8 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../../pages/login/login.component';
+import { RegisterComponent } from 'src/app/pages/register/register.component';
+
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +18,9 @@ export class NavbarComponent implements OnInit {
 
   @ViewChild(LoginComponent)
   public login: LoginComponent;
+
+  @ViewChild(RegisterComponent)
+  public register: RegisterComponent;
 
   constructor(location: Location,  private element: ElementRef, private router: Router) {
     this.location = location;
@@ -39,6 +44,10 @@ export class NavbarComponent implements OnInit {
 
   openLogin() {
     this.login.open();
+  }
+
+  openRegistration() {
+    this.register.open();
   }
 
 }

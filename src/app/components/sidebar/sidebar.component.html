@@ -95,7 +95,18 @@
                   {{menuItem.title}}
               </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="openLogin()">
+              <i class="ni ni-key-25 text-info"></i> Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="openRegistration()">
+              <i class="ni ni-circle-08 text-pink"></i> Register
+            </a>
+          </li>
       </ul>
+
       <!-- Divider -->
       <hr class="my-3">
       <!-- Heading -->
@@ -109,22 +120,10 @@
             </a>
         </li>
     </ul>
-
-    <button class="btn btn-block btn-default" (click)="openLogin()">
-      Form
-   </button>
-
-
-
-
-
-
-
-
-
     </div>
   </div>
 </nav>
 
 
 <app-login></app-login>
+<app-register></app-register>
