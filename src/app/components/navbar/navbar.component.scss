@@ -5,3 +5,9 @@
 .pr-0 {
   padding-right: 0 !important;
 }
+
+@media screen and (max-width: 568px){
+  .btn-login-navbar {
+    display: none;
+  }
+}
