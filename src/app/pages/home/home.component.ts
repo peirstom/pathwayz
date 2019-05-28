@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   public searching = false;
 
-  private homePage: SearchResult[] =  [
+  private homePage: SearchResult[] = [
     {
       title: 'Featured Products',
       type: 'products',
@@ -254,12 +254,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSearch(search: HTMLInputElement | string, distance: HTMLSelectElement | string) {
+  onSearch(search: string, distance: string) {
     console.log(search, distance);
-    if(!search) { return; }
+    if (!search) {
+      return;
+    }
     this.searching = true;
     setTimeout(() => {
-      switch (search) {
+      switch (search.toLowerCase()) {
         case 'fruit':
         case 'fruits':
           this.searchResult = [...this.fruitSearchResult];
@@ -273,7 +275,6 @@ export class HomeComponent implements OnInit {
       }
       this.searching = false;
     }, 400);
-
 
 
   }
