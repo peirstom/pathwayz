@@ -1,0 +1,28 @@
+<div class="card  shadow border-0"> <!--card-lift--hover-->
+  <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
+  <div class="card-body py-5">
+    <h6  class="text-success text-uppercase">{{product.title}}</h6>
+    <p class="description mt-3">{{product.description}}</p>
+    <div>
+      <span *ngFor="let tag of product.tags" class="badge badge-pill badge-success">{{tag}}</span>
+    </div>
+    <a class="btn btn-success mt-4" href="javascript:void(0)">Learn more</a>
+  </div>
+<!--  <div class="card-footer d-flex justify-content-between">-->
+<!--        <small class="text-muted">Last updated 3 mins ago</small>-->
+<!--        <div>heart icon</div>-->
+<!--  </div>-->
+  <div class="card-footer d-flex justify-content-end">
+    <div class="cell-container">
+      <div class="animation-container">
+        <lottie-animation-view
+          [options]="animationConfig"
+          (animCreated)="handleAnimation($event)"
+          (click)="toggle()">
+        </lottie-animation-view>
+      </div>
+    </div>
+
+  </div>
+
+</div>

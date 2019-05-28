@@ -1,0 +1,11 @@
+<div class="card card-lift--hover shadow border-0">
+  <img class="card-img-top" src="{{supplier.image}}" alt="Card image cap">
+  <div class="card-body py-5">
+    <h6  class="text-primary text-uppercase">{{supplier.title}}</h6>
+    <p class="description mt-3">{{supplier.description}}</p>
+    <div>
+      <span *ngFor="let tag of supplier.tags" class="badge badge-pill badge-primary">{{tag}}</span>
+    </div>
+    <a class="btn btn-primary mt-4" href="javascript:void(0)">Learn more</a>
+  </div>
+</div>

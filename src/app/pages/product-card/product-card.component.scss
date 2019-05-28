@@ -1,0 +1,11 @@
+.cell-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.animation-container {
+  cursor: pointer;
+  position: absolute;
+  width: 160px;
+}

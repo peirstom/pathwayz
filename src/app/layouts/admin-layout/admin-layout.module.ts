@@ -25,6 +25,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { SearchComponent } from '../../pages/search/search.component';
 import { SpinnerModule } from '../../components/shared/spinner/spinner.module';
 import { NotFoundComponent } from '../../pages/not-found/not-found.component';
+import { ProductCardModule } from '../../pages/product-card/product-card.module';
+import { SupplierCardModule } from '../../pages/supplier-card/supplier-card.module';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -36,7 +38,9 @@ import { NotFoundComponent } from '../../pages/not-found/not-found.component';
     NgbModule,
     ClipboardModule,
     ComponentsModule,
-    SpinnerModule
+    SpinnerModule,
+    ProductCardModule,
+    SupplierCardModule
   ],
   declarations: [
     DashboardComponent,
