@@ -27,6 +27,7 @@ import { SpinnerModule } from '../../components/shared/spinner/spinner.module';
 import { NotFoundComponent } from '../../pages/not-found/not-found.component';
 import { ProductCardModule } from '../../pages/product-card/product-card.module';
 import { SupplierCardModule } from '../../pages/supplier-card/supplier-card.module';
+import { SupplierComponent } from '../../pages/supplier/supplier.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -57,7 +58,8 @@ import { SupplierCardModule } from '../../pages/supplier-card/supplier-card.modu
     QuotationsComponent,
     InsightsComponent,
     SearchComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SupplierComponent
   ]
 })
 

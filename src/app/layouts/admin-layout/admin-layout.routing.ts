@@ -13,6 +13,7 @@ import { HistoryComponent } from 'src/app/pages/history/history.component';
 import { CatalogComponent } from 'src/app/pages/catalog/catalog.component';
 import { QuotationsComponent } from 'src/app/pages/quotations/quotations.component';
 import { InsightsComponent } from 'src/app/pages/insights/insights.component';
+import { SupplierComponent } from '../../pages/supplier/supplier.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -27,5 +28,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'history', component: HistoryComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'quotations', component: QuotationsComponent },
-  { path: 'insights', component: InsightsComponent }
+  { path: 'insights', component: InsightsComponent },
+  { path: 'supplier', component: SupplierComponent }
 ];
