@@ -8,4 +8,16 @@
     </div>
     <a class="btn btn-primary mt-4" href="javascript:void(0)">Learn more</a>
   </div>
+  <div class="card-footer d-flex justify-content-end">
+    <div class="cell-container">
+      <div class="animation-container">
+        <lottie-animation-view
+          [options]="animationConfig"
+          (animCreated)="handleAnimation($event)"
+          (click)="toggle()">
+        </lottie-animation-view>
+      </div>
+    </div>
+
+  </div>
 </div>

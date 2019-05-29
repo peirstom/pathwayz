@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { LottieAnimationViewModule } from 'ng-lottie';
+import { DataService } from './services/data.service';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     AdminLayoutComponent,
     AuthLayoutComponent,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

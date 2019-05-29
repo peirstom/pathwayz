@@ -1,20 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Product } from '../home/home.component';
 import { LottieAnimations } from '../../lottie/lottie-animations';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent implements OnInit {
+export class ProductCardComponent implements OnInit, AfterViewInit {
   @Input() product: Product;
 
   public animationConfig: Object;
   private animation: any;
- public favorite = false;
 
-  constructor() {
+  constructor(private dataService: DataService) {
     this.animationConfig = {
       animationData: LottieAnimations.heartIcon,
       renderer: 'svg',
@@ -24,7 +24,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   toggle() {
-    if (this.favorite) {
+    if (this.product.fav) {
       this.animation.setDirection(-1);
       this.animation.stop();
     } else {
@@ -32,7 +32,7 @@ export class ProductCardComponent implements OnInit {
       this.animation.setSpeed(1);
       this.animation.play();
     }
-    this.favorite = !this.favorite;
+    this.dataService.setFavorite('product', this.product.id);
     console.log('animation before loaded', this.animation);
 
     console.log('animation loaded', this.animation);
@@ -48,6 +48,17 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  ngAfterViewInit(): void {
+    if (this.product.fav) {
+      setTimeout(() => {
+        this.animation.goToAndStop(this.animation.totalFrames -1 , true);
+      }, 100);
+
+//      this.animation.play();
+    }
   }
 
 }

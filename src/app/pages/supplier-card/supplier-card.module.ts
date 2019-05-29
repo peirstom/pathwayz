@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SupplierCardComponent } from './supplier-card.component';
+import { LottieAnimationViewModule } from 'ng-lottie';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    LottieAnimationViewModule
   ],
   declarations: [
     SupplierCardComponent

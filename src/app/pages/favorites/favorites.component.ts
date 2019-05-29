@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchResult } from '../home/home.component';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-favorites',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
-
-  constructor() { }
+  products: SearchResult;
+  suppliers: SearchResult;
+  constructor(private dataService: DataService) {
+    console.log('hi');
+    this.products = this.dataService.getFavoriteProducts();
+    this.suppliers = this.dataService.getFavoriteSuppliers();
+  }
 
   ngOnInit() {
   }
