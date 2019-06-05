@@ -14,6 +14,7 @@ import { CatalogComponent } from 'src/app/pages/catalog/catalog.component';
 import { QuotationsComponent } from 'src/app/pages/quotations/quotations.component';
 import { InsightsComponent } from 'src/app/pages/insights/insights.component';
 import { SupplierComponent } from '../../pages/supplier/supplier.component';
+import { ProductComponent } from 'src/app/pages/product/product.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -29,5 +30,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'catalog', component: CatalogComponent },
   { path: 'quotations', component: QuotationsComponent },
   { path: 'insights', component: InsightsComponent },
-  { path: 'supplier', component: SupplierComponent }
+  { path: 'supplier', component: SupplierComponent },
+  { path: 'product', component: ProductComponent },
 ];
