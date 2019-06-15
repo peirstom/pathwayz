@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-tender-form',
@@ -12,9 +12,9 @@ export class TenderFormComponent implements OnInit {
   closeResult: string;
 
   step = 1;
-  stepWidth = '30';
-
-  constructor(private modalService: NgbModal) { }
+  stepWidth = '1';
+  constructor(private modalService: NgbModal) {
+   }
   open() {
     const content = this.content;
     this.modalService.open(content, { windowClass: 'modal-mini', size: 'lg', centered: true }).result.then((result) => {
@@ -30,13 +30,13 @@ export class TenderFormComponent implements OnInit {
   setStep(step) {
     switch(step) {
       case 1:
-        this.stepWidth = '30';
+        this.stepWidth = '1';
         break;
       case 2:
-        this.stepWidth = '60';
+        this.stepWidth = '2';
         break;
       case 3:
-        this.stepWidth = '80';
+        this.stepWidth = '3';
         break;
     }
     this.step = step;
@@ -44,6 +44,6 @@ export class TenderFormComponent implements OnInit {
 
   resetForm() {
     this.step = 1;
-    this.stepWidth = '30';
+    this.stepWidth = '1';
   }
 }
