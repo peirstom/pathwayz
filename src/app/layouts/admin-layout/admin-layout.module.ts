@@ -29,6 +29,7 @@ import { ProductCardModule } from '../../pages/product-card/product-card.module'
 import { SupplierCardModule } from '../../pages/supplier-card/supplier-card.module';
 import { SupplierComponent } from '../../pages/supplier/supplier.component';
 import { ProductComponent } from 'src/app/pages/product/product.component';
+import { TenderFormComponent } from '../../pages/tender-form/tender-form.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ProductComponent } from 'src/app/pages/product/product.component';
     SearchComponent,
     NotFoundComponent,
     SupplierComponent,
-    ProductComponent
+    ProductComponent,
+    TenderFormComponent
   ]
 })
 
