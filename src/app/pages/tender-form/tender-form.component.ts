@@ -52,7 +52,7 @@ export class TenderFormComponent implements OnInit {
 
     setTimeout(() => {
       this.modalService.dismissAll();
-    }, 500)
+    }, 650);
   }
   ngOnInit() {
   }
