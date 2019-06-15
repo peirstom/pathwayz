@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal, NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { LottieAnimations } from '../../lottie/lottie-animations';
 
 @Component({
   selector: 'app-tender-form',
@@ -9,11 +10,25 @@ import { NgbModal, NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 export class TenderFormComponent implements OnInit {
   @ViewChild('tenderForm')
   public content: TemplateRef<any>;
+
+  @ViewChild('successTemplate')
+  public successTemplate: TemplateRef<any>;
   closeResult: string;
 
   step = 1;
   stepWidth = '1';
+
+
+  private sucessAnimationConfig: object;
+  private successAnimation: any;
+
   constructor(private modalService: NgbModal) {
+    this.sucessAnimationConfig = {
+      animationData: LottieAnimations.completeIcon,
+      renderer: 'svg',
+      autoplay: false,
+      loop: false,
+    };
    }
   open() {
     const content = this.content;
@@ -23,6 +38,21 @@ export class TenderFormComponent implements OnInit {
       this.resetForm();
       this.closeResult = 'Dismissed $this.getDismissReason(reason)';
     });
+  }
+
+  openSuccessModal() {
+    this.modalService.dismissAll();
+    const content = this.successTemplate;
+    this.modalService.open(content, { windowClass: 'modal-mini', size: 'sm', centered: true }).result.then((result) => {
+      this.closeResult = 'Closed with: $result';
+    }, (reason) => {
+
+      this.closeResult = 'Dismissed $this.getDismissReason(reason)';
+    });
+
+    setTimeout(() => {
+      this.modalService.dismissAll();
+    }, 500)
   }
   ngOnInit() {
   }
@@ -45,5 +75,10 @@ export class TenderFormComponent implements OnInit {
   resetForm() {
     this.step = 1;
     this.stepWidth = '1';
+  }
+
+  handleAnimation(successAnimation) {
+    this.successAnimation = successAnimation;
+      this.successAnimation.play();
   }
 }

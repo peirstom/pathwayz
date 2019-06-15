@@ -31,6 +31,7 @@ import { SupplierComponent } from '../../pages/supplier/supplier.component';
 import { ProductComponent } from 'src/app/pages/product/product.component';
 import { TenderFormComponent } from '../../pages/tender-form/tender-form.component';
 import { LoginModule } from '../../pages/login/login.module';
+import { LottieAnimationViewModule } from 'ng-lottie';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -45,7 +46,8 @@ import { LoginModule } from '../../pages/login/login.module';
     SpinnerModule,
     ProductCardModule,
     SupplierCardModule,
-    LoginModule
+    LoginModule,
+    LottieAnimationViewModule
   ],
   declarations: [
     DashboardComponent,
