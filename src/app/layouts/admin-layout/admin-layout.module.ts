@@ -39,6 +39,7 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
     ClipboardModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal, NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { LottieAnimations } from '../../lottie/lottie-animations';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tender-form',
@@ -18,11 +19,22 @@ export class TenderFormComponent implements OnInit {
   step = 1;
   stepWidth = '1';
 
+  private form: FormGroup;
+
 
   private sucessAnimationConfig: object;
   private successAnimation: any;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private fb: FormBuilder) {
+
+    this.form = this.fb.group({
+      name: null,
+      lastName: null,
+      email: null
+    });
+
+
+
     this.sucessAnimationConfig = {
       animationData: LottieAnimations.completeIcon,
       renderer: 'svg',
