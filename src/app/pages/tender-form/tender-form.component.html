@@ -40,20 +40,20 @@
                     </div>
                   <div class="form-group">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    <input type="text" class="form-control" formControlName="address" id="inputAddress" placeholder="1234 Main St">
                   </div>
                   <div class="form-group">
                     <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <input type="text" class="form-control" formControlName="address2" id="inputAddress2" placeholder="Apartment, studio, or floor">
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="inputCity">City</label>
-                      <input type="text" class="form-control" id="inputCity">
+                      <input type="text" class="form-control" formControlName="city" id="inputCity">
                     </div>
                     <div class="form-group col-md-4">
                       <label for="inputState">State</label>
-                      <select id="inputState" class="form-control">
+                      <select id="inputState" class="form-control" formControlName="state">
                         <option selected>Choose...</option>
                         <option>Antigua and Barbuda</option>
                         <option>The Bahamas</option>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group col-md-2">
                       <label for="inputZip">Zip</label>
-                      <input type="text" class="form-control" id="inputZip">
+                      <input type="text" class="form-control" formControlName="zip" id="inputZip">
                     </div>
                   </div>
                 </form>
@@ -83,25 +83,25 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="inputProductName">Product Name</label>
-                          <input type="text" class="form-control" id="inputProductName" placeholder="Product Name">
+                          <input type="text" class="form-control" formControlName="productName" id="inputProductName" placeholder="Product Name">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputProductName">Price Per Unit</label>
-                            <input type="number" class="form-control" id="inputProductName" value="0.00">
+                            <input type="number" class="form-control" formControlName="price" id="inputProductName" value="0.00">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="inputProductDescription">Product Description</label>
-                          <textarea class="form-control" id="inputProductDescription" rows="3" placeholder="Write an accurate description of the product you are looking for ..."></textarea>
+                          <textarea class="form-control" id="inputProductDescription" formControlName="productDescription" rows="3" placeholder="Write an accurate description of the product you are looking for ..."></textarea>
                         </div>
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="inputQuantity">Quantity</label>
-                          <input type="input" class="form-control" id="inputQuantity" value="0">
+                          <input type="input" class="form-control" formControlName="quantity" id="inputQuantity" value="0">
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputUnit">Unit</label>
-                            <select id="inputUnit" class="form-control">
+                            <select id="inputUnit" class="form-control" formControlName="unit">
                                 <option selected>KG</option>
                                 <option>Liter</option>
                                 <option>Meter</option>
@@ -116,29 +116,29 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="inputWidth">Width</label>
-                          <input type="number" class="form-control" id="inputWidth" value="0">
+                          <input type="number" class="form-control" formControlName="width" id="inputWidth" value="0">
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputHeight">Height</label>
-                          <input type="number" class="form-control" id="inputHeight" value="0">
+                          <input type="number" class="form-control" formControlName="height" id="inputHeight" value="0">
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputLength">Lenght</label>
-                          <input type="number" class="form-control" id="inputLength" value="0">
+                          <input type="number" class="form-control" formControlName="length" id="inputLength" value="0">
                         </div>
                       </div>
                       <div class="form-row">
                           <div class="form-group col-md-6">
                               <label for="inputImage">Attach File</label>
                               <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="customFile">
+                                  <input type="file" class="custom-file-input" id="customFile" formControlName="fileName">
                                   <label class="custom-file-label" for="customFile">Choose File</label>
                               </div>
                             </div>
                           <div class="form-group col-md-6">
                             <label for="inputImage">Attach Image</label>
                             <div class="custom-file">
-                                <input type="image" class="custom-file-input" id="customFile">
+                                <input type="image" class="custom-file-input" id="customFile" formControlName="imageName">
                                 <label class="custom-file-label" for="customFile">Choose Image</label>
                             </div>
                           </div>
@@ -157,25 +157,59 @@
                           <div class="col-sm-4">
                             <input type="text" formControlName="name" readonly class="form-control-plaintext" id="staticName" >
                           </div>
-                          <label for="staticName" class="col-sm-2 col-form-label">Last Name</label>
+                          <label for="staticLastname" class="col-sm-2 col-form-label">Last Name</label>
                             <div class="col-sm-4">
-                              <input type="text" formControlName="lastName" readonly class="form-control-plaintext" id="staticName" >
+                              <input type="text" formControlName="lastName" readonly class="form-control-plaintext" id="staticLastname" >
                             </div>
                         </div>
                           <div class="form-group row">
-                              <label for="staticName" class="col-sm-2 col-form-label">Email</label>
-                              <div class="col-sm-10">
-                                <input type="text" formControlName="email" readonly class="form-control-plaintext" id="staticName" >
+                              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                              <div class="col-sm-4">
+                                <input type="text" formControlName="email" readonly class="form-control-plaintext" id="staticEmail" >
                               </div>
-
-                            <label for="staticName" class="col-sm-2 col-form-label">Due Date</label>
-                            <div class="col-sm-10">
-                              <input id="inputDate" name="inputDate" readonly formControlName="dueDate" type="date" class="form-control-plaintext">
                             </div>
-
-                            </div>
+                            <div class="form-group row">
+                                <label for="staticAddress" class="col-sm-2 col-form-label">Address</label>
+                                <div class="col-sm-4">
+                                    <input id="staticAddress" name="address" readonly formControlName="address" type="text" class="form-control-plaintext">
+                                  </div>
+                                <label for="staticAddress2" class="col-sm-2 col-form-label">Address 2</label>
+                                <div class="col-sm-4">
+                                    <input id="staticAddress2" name="address2" readonly formControlName="address2" type="text" class="form-control-plaintext">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="staticCity" class="col-sm-2 col-form-label">City</label>
+                                  <div class="col-sm-2">
+                                    <input type="text" formControlName="city" readonly class="form-control-plaintext" id="staticCity" >
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticState" class="col-sm-2 col-form-label">State</label>
+                                      <div class="col-sm-2">
+                                        <input type="text" formControlName="state" readonly class="form-control-plaintext" id="staticState" >
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label for="staticZip" class="col-sm-2 col-form-label">Zip</label>
+                                      <div class="col-sm-2">
+                                        <input type="text" formControlName="zip" readonly class="form-control-plaintext" id="staticZip" >
+                                      </div>
+                                    </div>
                             <hr>
                             <div class="text-muted text-center mt-2 mb-4"><small>Product Details</small></div>
+                            <div class="form-group row">
+                                <label for="staticProductName" class="col-sm-2 col-form-label">Product Name</label>
+                                <div class="col-sm-4">
+                                  <input type="text" formControlName="productName" readonly class="form-control-plaintext" id="staticProductName" >
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="staticProductDescription" class="col-sm-2 col-form-label">Product Description</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" formControlName="productDescription" readonly class="form-control-plaintext" id="staticProductDescription" >
+                                  </div>
+                                </div>
                     </form>
                   <div class="text-center">
                       <button type="button" class="btn btn-primary mt-4" (click)="setStep(2)">Previous Step</button>
