@@ -13,7 +13,7 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   public focus;
   public listTitles: any[];
   public location: Location;

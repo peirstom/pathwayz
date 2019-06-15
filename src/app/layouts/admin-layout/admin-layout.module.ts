@@ -30,6 +30,7 @@ import { SupplierCardModule } from '../../pages/supplier-card/supplier-card.modu
 import { SupplierComponent } from '../../pages/supplier/supplier.component';
 import { ProductComponent } from 'src/app/pages/product/product.component';
 import { TenderFormComponent } from '../../pages/tender-form/tender-form.component';
+import { LoginModule } from '../../pages/login/login.module';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -44,6 +45,7 @@ import { TenderFormComponent } from '../../pages/tender-form/tender-form.compone
     SpinnerModule,
     ProductCardModule,
     SupplierCardModule,
+    LoginModule
   ],
   declarations: [
     DashboardComponent,
