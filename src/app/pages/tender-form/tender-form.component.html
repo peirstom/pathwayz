@@ -85,6 +85,10 @@
                           <label for="inputProductName">Product Name</label>
                           <input type="text" class="form-control" id="inputProductName" placeholder="Product Name">
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputProductName">Price Per Unit</label>
+                            <input type="number" class="form-control" id="inputProductName" value="0.00">
+                          </div>
                       </div>
                       <div class="form-group">
                           <label for="inputProductDescription">Product Description</label>
@@ -93,7 +97,7 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="inputQuantity">Quantity</label>
-                          <input type="text" class="form-control" id="inputQuantity" placeholder="">
+                          <input type="input" class="form-control" id="inputQuantity" value="0">
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputUnit">Unit</label>
@@ -112,15 +116,15 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="inputWidth">Width</label>
-                          <input type="text" class="form-control" id="inputWidth">
+                          <input type="number" class="form-control" id="inputWidth" value="0">
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputHeight">Height</label>
-                          <input type="text" class="form-control" id="inputHeight">
+                          <input type="number" class="form-control" id="inputHeight" value="0">
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputLength">Lenght</label>
-                          <input type="text" class="form-control" id="inputLength">
+                          <input type="number" class="form-control" id="inputLength" value="0">
                         </div>
                       </div>
                       <div class="form-row">
@@ -134,7 +138,7 @@
                           <div class="form-group col-md-6">
                             <label for="inputImage">Attach Image</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
+                                <input type="image" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">Choose Image</label>
                             </div>
                           </div>
@@ -146,6 +150,27 @@
                   </div>
               </ng-container>
               <ng-container *ngIf="step == 3">
+                  <form>
+                      <div class="text-muted text-center mt-2 mb-4"><small>Contact Details</small></div>
+                      <div class="form-group row">
+                          <label for="staticName" class="col-sm-2 col-form-label">Name</label>
+                          <div class="col-sm-4">
+                            <input type="text" readonly class="form-control-plaintext" id="staticName" value="XXXXXXXXXXx">
+                          </div>
+                          <label for="staticName" class="col-sm-2 col-form-label">Last Name</label>
+                            <div class="col-sm-4">
+                              <input type="text" readonly class="form-control-plaintext" id="staticName" value="XXXXXXXXXXx">
+                            </div>
+                        </div>
+                          <div class="form-group row">
+                              <label for="staticName" class="col-sm-2 col-form-label">Email</label>
+                              <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="staticName" value="XXXXXXXXXXx">
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="text-muted text-center mt-2 mb-4"><small>Product Details</small></div>
+                    </form>
                   <div class="text-center">
                       <button type="button" class="btn btn-primary mt-4" (click)="setStep(2)">Previous Step</button>
                       <button type="button" class="btn btn-primary mt-4" (click)="openSuccessModal()">Submit Tender</button>
