@@ -24,7 +24,7 @@
     </button>
     </div>
 
-    <ul class="navbar-nav align-items-center d-none d-md-flex" *ngIf="loggedIn">
+    <ul id="profile-dropdown-menu" class="navbar-nav align-items-center d-none d-md-flex" *ngIf="loggedIn">
       <li class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
           <div class="media align-items-center">
@@ -32,8 +32,11 @@
               <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg">
             </span>
             <div class="media-body ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+              <span class="mb-0 text-sm  font-weight-bold">Jessica Jones </span>
             </div>
+            <span>
+              <i class="mb-0 text-sm fas fa-chevron-down" style="margin-left: 10px;"></i>
+            </span>
           </div>
         </a>
         <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>

@@ -11,12 +11,12 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/home', title: 'Home',  icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/tenders', title: 'Tenders',  icon: 'ni-send text-green', class: '' },
-    { path: '/messages', title: 'Messages',  icon: 'ni-email-83 text-warning', class: '' },
-    { path: '/favorites', title: 'Favorites',  icon: 'ni-favourite-28 text-red', class: '' },
-    { path: '/history', title: 'History',  icon: 'ni-archive-2 text-dark', class: '' },
-    { path: '/user-profile', title: 'User profile',  icon: 'ni-single-02 text-yellow', class: '' },
+    { path: '/home', title: 'Home',  icon: 'fas fa-tv', class: '' },
+    { path: '/tenders', title: 'Tenders',  icon: 'far fa-paper-plane', class: '' },
+    { path: '/messages', title: 'Messages',  icon: 'far fa-envelope', class: '' },
+    { path: '/favorites', title: 'Favorites',  icon: 'far fa-heart', class: '' },
+    { path: '/history', title: 'History',  icon: 'ni-archive-2', class: '' },
+   // { path: '/user-profile', title: 'User profile',  icon: 'far fa-user', class: '' },
 
     // TODO: The paths below are not needed but kept as reference for now.
   //  { path: '/', title: '',  icon: '', class: '' },
@@ -28,9 +28,9 @@ export const ROUTES: RouteInfo[] = [
 ];
 
 export const SUPPLIER_ROUTES: RouteInfo[] = [
-  { path: '/catalog', title: 'Catalog',  icon: 'ni-box-2 text-primary', class: '' },
-  { path: '/quotations', title: 'Quotations',  icon: 'ni-send text-green', class: '' },
-  { path: '/insights', title: 'Insights',  icon: 'ni-chart-bar-32 text-warning', class: '' }
+  { path: '/catalog', title: 'Catalog',  icon: 'ni-box-2', class: '' },
+  { path: '/quotations', title: 'Quotations',  icon: 'far fa-paper-plane', class: '' },
+  { path: '/insights', title: 'Insights',  icon: 'far fa-chart-bar', class: '' }
 ];
 
 @Component({

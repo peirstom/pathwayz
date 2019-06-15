@@ -10,10 +10,10 @@ export class DataService {
       children: [
         {
           description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          title: 'Special Mango',
           id: '1',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
-          image: 'https://source.unsplash.com/600x300/?nature,water',
+          tags: ['Fruit', 'Mango'],
+          image: '../../assets/img/products/mango.jpg',
           fav: false
         },
         {
