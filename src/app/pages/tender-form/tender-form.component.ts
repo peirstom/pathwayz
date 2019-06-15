@@ -30,7 +30,8 @@ export class TenderFormComponent implements OnInit {
     this.form = this.fb.group({
       name: null,
       lastName: null,
-      email: null
+      email: null,
+      dueDate: null
     });
 
 
