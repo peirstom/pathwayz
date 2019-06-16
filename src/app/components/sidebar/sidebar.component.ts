@@ -72,6 +72,10 @@ export class SidebarComponent implements OnInit {
   });
   }
 
+  openProfile() {
+    this.router.navigate(['/user-profile']);
+  }
+
   ngOnDestroy() {
     if (this.loggedInSubsription) {
       this.loggedInSubsription.unsubscribe();
