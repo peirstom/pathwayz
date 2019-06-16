@@ -9,37 +9,37 @@ export class DataService {
       type: 'products',
       children: [
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'Special Mango',
+          description: 'refreshing tasting herb, good for teas and cooking.',
+          title: 'mint',
           id: '1',
-          tags: ['Fruit', 'Mango'],
-          image: '../../assets/img/products/mango.jpg',
-          fav: false
-        },
-        {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
-          id: '2',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
-          image: 'https://source.unsplash.com/600x300/?nature,water',
+          tags: ['herbs', 'mint', 'restaurant', 'fresh'],
+          image: '../../assets/img/products/fruits1.jpg',
           fav: true
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
-          id: '3',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
-          image: 'https://source.unsplash.com/600x300/?nature,water',
+          description: 'aromatic herbs used in italian cooking.',
+          title: 'thyme',
+          id: '2',
+          tags: ['herbs', 'italian', 'thyme' , 'restaurant'],
+          image: '../../assets/img/products/fruits4.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
-          id: '4',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
-          image: 'https://source.unsplash.com/600x300/?nature,water',
+          description: 'A not hot but sweet flavoured pepper.',
+          title: 'bell pepper',
+          id: '3',
+          tags: ['pepper', 'sweet', 'red', 'yellow'],
+          image: '../../assets/img/products/seeds4.jpg',
           fav: false
-        }
+        },
+        {
+          description: 'world\'s hottest naturally gorwn pepper.',
+          title: 'scorpion pepper',
+          id: '4',
+          tags: ['pepper', 'extreme', 'hot'],
+          image: '../../assets/img/products/seeds3.jpg',
+          fav: false
+        },
       ]
     },
     {
@@ -47,74 +47,74 @@ export class DataService {
       type: 'suppliers',
       children: [
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Farm located in the East of Trinidad, in teh Malabar area..',
+          title: 'Picker Farm',
           id: '5',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
-          image: 'https://source.unsplash.com/600x300/?nature,water',
+          tags: ['peppers', 'herbs'],
+          image: '../../assets/img/suppliers/supplier1.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Supplier of produce and canned goods in the Diego Martin area..',
+          title: 'fresh foods',
           id: '6',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
-          image: 'https://source.unsplash.com/600x300/?nature,water',
+          tags: ['fresh', 'peppers', 'herbs', 'italian'],
+          image: '../../assets/img/suppliers/supplier2.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Aquaculture farm suppling high quality hearbs and spice for restaurants.',
+          title: 'Trini produce',
           id: '7',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
-          image: 'https://source.unsplash.com/600x300/?nature,water',
+          tags: ['peppers', 'herbs', 'mediterranean'],
+          image: '../../assets/img/suppliers/supplier3.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Small vegetable and fruit grower in Couva.',
+          title: 'the right foods',
           id: '8',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
-          image: 'https://source.unsplash.com/600x300/?nature,water',
+          tags: ['peppers', 'herbs', 'italian'],
+          image: '../../assets/img/suppliers/supplier4.jpg',
           fav: false
         }
       ]
     }
   ];
-  private fruitSearchResult: SearchResult[] = [
+  private herbSearchResult: SearchResult[] = [
     {
       title: 'Products',
       type: 'products',
       children: [
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'Apples',
+          description: 'refreshing tasting herb, good for teas and cooking.',
+          title: 'mint',
           id: '9',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['herbs', 'mint', 'restaurant', 'fresh'],
           image: '../../assets/img/products/fruits1.jpg',
           fav: true
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'Oranges',
+          description: 'herb used in italian cooking.',
+          title: 'basil',
           id: '10',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['herbs', 'restaurant', 'italian', 'basil'],
           image: '../../assets/img/products/fruits2.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Mediterranean herb used in cooking.',
+          title: 'parsley',
           id: '11',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['herbs', 'parsley', 'restaurant', 'meditarian'],
           image: '../../assets/img/products/fruits3.jpg',
           fav: true
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'aromatic herbs used in italian cooking.',
+          title: 'thyme',
           id: '12',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['herbs', 'italian', 'thyme' , 'restaurant'],
           image: '../../assets/img/products/fruits4.jpg',
           fav: false
         }
@@ -125,74 +125,74 @@ export class DataService {
       type: 'suppliers',
       children: [
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Farm located in the East of Trinidad, in teh Malabar area..',
+          title: 'Picker Farm',
           id: '13',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['peppers', 'herbs'],
           image: '../../assets/img/suppliers/supplier1.jpg',
-          fav: true
+          fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Supplier of produce and canned goods in the Diego Martin area..',
+          title: 'fresh foods',
           id: '14',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['fresh', 'peppers', 'herbs', 'italian'],
           image: '../../assets/img/suppliers/supplier2.jpg',
-          fav: true
+          fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Aquaculture farm suppling high quality hearbs and spice for restaurants.',
+          title: 'Trini produce',
           id: '15',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['peppers', 'herbs', 'mediterranean'],
           image: '../../assets/img/suppliers/supplier3.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Small vegetable and fruit grower in Couva.',
+          title: 'the right foods',
           id: '16',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['peppers', 'herbs', 'italian'],
           image: '../../assets/img/suppliers/supplier4.jpg',
           fav: false
         }
       ]
     }
   ];
-  private seedSearchResult: SearchResult[] = [
+  private pepperSearchResult: SearchResult[] = [
     {
       title: 'Featured Products',
       type: 'products',
       children: [
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'medium-sized chili pepper.',
+          title: 'jalapeno pepper',
           id: '17',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['pepper', 'medium', 'hot'],
           image: '../../assets/img/products/seeds1.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'a hot variety of chili pepper.',
+          title: 'habanero pepper',
           id: '18',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['pepper', 'very', 'hot'],
           image: '../../assets/img/products/seeds2.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'world\'s hottest naturally gorwn pepper.',
+          title: 'scorpion pepper',
           id: '19',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['pepper', 'extreme', 'hot'],
           image: '../../assets/img/products/seeds3.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'A not hot but sweet flavoured pepper.',
+          title: 'bell pepper',
           id: '20',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['pepper', 'sweet', 'red', 'yellow'],
           image: '../../assets/img/products/seeds4.jpg',
           fav: false
         }
@@ -203,34 +203,34 @@ export class DataService {
       type: 'suppliers',
       children: [
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Farm located in the East of Trinidad, in teh Malabar area..',
+          title: 'Picker Farm',
           id: '21',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['peppers', 'herbs'],
           image: '../../assets/img/suppliers/supplier1.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Supplier of produce and canned goods in the Diego Martin area..',
+          title: 'fresh foods',
           id: '22',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['fresh', 'peppers', 'herbs', 'italian'],
           image: '../../assets/img/suppliers/supplier2.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Aquaculture farm suppling high quality hearbs and spice for restaurants.',
+          title: 'Trini produce',
           id: '23',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['peppers', 'herbs', 'mediterranean'],
           image: '../../assets/img/suppliers/supplier3.jpg',
           fav: false
         },
         {
-          description: 'Argon is a great free UI package based on Angular that includes the most important components and features.',
-          title: 'DOWNLOAD ARGON',
+          description: 'Small vegetable and fruit grower in Couva.',
+          title: 'the right foods',
           id: '24',
-          tags: ['ANGULAR', 'NG-BOOTSTRAP', 'CREATIVE'],
+          tags: ['peppers', 'herbs', 'italian'],
           image: '../../assets/img/suppliers/supplier4.jpg',
           fav: false
         }
@@ -248,12 +248,20 @@ export class DataService {
 
   getSearchResult(searchQuery: string): SearchResult[] {
     switch (searchQuery.toLowerCase()) {
-      case 'fruit':
-      case 'fruits':
-        return this.fruitSearchResult;
-      case 'seed':
-      case 'seeds':
-        return this.seedSearchResult;
+      case 'herb':
+      case 'herbs':
+      case 'restaurant':
+      case 'mint':
+      case 'basil':
+      case 'parsley':
+      case 'thyme':
+        return this.herbSearchResult;
+      case 'pepper':
+      case 'peppers':
+      case 'jalapeno':
+      case 'bell pepper':
+      case 'scorpion pepper':
+        return this.pepperSearchResult;
       default:
         return undefined;
     }
@@ -267,12 +275,12 @@ export class DataService {
             product.fav = !product.fav;
           }
         }
-        for (const product of this.fruitSearchResult[0].children) {
+        for (const product of this.herbSearchResult[0].children) {
           if (product.id === id) {
             product.fav = !product.fav;
           }
         }
-        for (const product of this.seedSearchResult[0].children) {
+        for (const product of this.pepperSearchResult[0].children) {
           if (product.id === id) {
             product.fav = !product.fav;
           }
@@ -284,12 +292,12 @@ export class DataService {
             supplier.fav = !supplier.fav;
           }
         }
-        for (const supplier of this.fruitSearchResult[1].children) {
+        for (const supplier of this.herbSearchResult[1].children) {
           if (supplier.id === id) {
             supplier.fav = !supplier.fav;
           }
         }
-        for (const supplier of this.seedSearchResult[1].children) {
+        for (const supplier of this.pepperSearchResult[1].children) {
           if (supplier.id === id) {
             supplier.fav = !supplier.fav;
           }
@@ -309,12 +317,12 @@ export class DataService {
         favoriteProducts.children.push(product);
       }
     }
-    for (const product of this.fruitSearchResult[0].children) {
+    for (const product of this.herbSearchResult[0].children) {
       if (product.fav) {
         favoriteProducts.children.push(product);
       }
     }
-    for (const product of this.seedSearchResult[0].children) {
+    for (const product of this.pepperSearchResult[0].children) {
       if (product.fav) {
         favoriteProducts.children.push(product);
       }
@@ -333,12 +341,12 @@ export class DataService {
         favoriteSuppliers.children.push(supplier);
       }
     }
-    for (const supplier of this.fruitSearchResult[1].children) {
+    for (const supplier of this.herbSearchResult[1].children) {
       if (supplier.fav) {
         favoriteSuppliers.children.push(supplier);
       }
     }
-    for (const supplier of this.seedSearchResult[1].children) {
+    for (const supplier of this.pepperSearchResult[1].children) {
       if (supplier.fav) {
         favoriteSuppliers.children.push(supplier);
       }
