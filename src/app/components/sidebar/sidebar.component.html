@@ -117,7 +117,13 @@
           </div>
           <!-- Show link to create a supplier profile-->
           <div *ngIf="!isSupplier">
-test
+            <!-- Divider -->
+            <hr class="my-3">
+              <ul class="navbar-nav align-items-center">
+                  <li class= "nav-item">
+                      <button type="button" class="btn btn-sm btn-outline-primary" (click)="openProfile()">Become a supplier?</button>
+                  </li>
+                </ul>
           </div>
 
 
