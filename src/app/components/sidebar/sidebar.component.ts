@@ -66,8 +66,9 @@ export class SidebarComponent implements OnInit {
    });
    this.loggedInSubsription = this.authService.user.subscribe(user => {
     this.loggedIn = !!(user && user.token) ;
-     this.isSupplier = this.dataService.isSupplier(user.id);
-     console.log(this.isSupplier);
+    if (user) {
+      this.isSupplier = this.dataService.isSupplier(user.id);
+    }
   });
   }
 

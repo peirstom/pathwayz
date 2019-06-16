@@ -7,7 +7,7 @@ export const products: Product[] = [
     image: '../../assets/img/products/mint.jpg',
     tags: ['herbs', 'mint', 'restaurant', 'fresh'],
     featured: true,
-    supplierId: '1'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
   },
   {
     id: '2',
@@ -16,7 +16,7 @@ export const products: Product[] = [
     image: '../../assets/img/products/thyme.jpg',
     tags: ['herbs', 'italian', 'thyme' , 'restaurant'],
     featured: true,
-    supplierId: '1'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
   },
   {
     id: '5',
@@ -25,7 +25,7 @@ export const products: Product[] = [
     image: '../../assets/img/products/basil.jpg',
     tags: ['herbs', 'restaurant', 'italian', 'basil'],
     featured: false,
-    supplierId: '1'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
   },
   {
     id: '6',
@@ -34,7 +34,7 @@ export const products: Product[] = [
     image: '../../assets/img/products/parsley.jpg',
     tags: ['herbs', 'parsley', 'restaurant', 'meditarian'],
     featured: false,
-    supplierId: '1'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
   },
   {
     id: '3',
@@ -43,7 +43,7 @@ export const products: Product[] = [
     image: '../../assets/img/products/bellpepper.jpg',
     tags: ['pepper', 'sweet', 'red', 'yellow'],
     featured: true,
-    supplierId: '1'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
   },
   {
     id: '4',
@@ -52,7 +52,7 @@ export const products: Product[] = [
     image: '../../assets/img/products/scorpion.jpg',
     tags: ['pepper', 'extreme', 'hot'],
     featured: false,
-    supplierId: '1'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
   },
   {
     id: '7',
@@ -61,7 +61,7 @@ export const products: Product[] = [
     image: '../../assets/img/products/jalapeno.jpg',
     tags: ['pepper', 'medium', 'hot'],
     featured: true,
-    supplierId: '1'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
   },
   {
     id: '8',
@@ -70,6 +70,6 @@ export const products: Product[] = [
     image: '../../assets/img/products/habanero.jpg',
     tags: ['pepper', 'very', 'hot'],
     featured: false,
-    supplierId: '1'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
   }
 ];

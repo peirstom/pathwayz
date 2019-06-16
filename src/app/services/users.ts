@@ -2,7 +2,7 @@ import { User } from './data.service';
 
 export const users: User[] = [
   {
-    id: '0',
+    id: '2doBbUNZtEcqsuPIRxe4Wfc7Z9C3',
     isSupplier: false,
     lastName: 'Doe',
     name: 'John',
@@ -14,7 +14,7 @@ export const users: User[] = [
     tendersSent: []
   },
   {
-    id: '1',
+    id: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
     email: 'pickerfarm@gmail.com',
     title: 'Picker Farm',
     description: '',
