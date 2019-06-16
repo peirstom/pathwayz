@@ -85,276 +85,65 @@ export class DataService {
     });
   }
 
+  getSearchResultProducts(query) {
+    return this.state.products.filter(product => {
+      return product.tags.toString().toUpperCase().indexOf(query) > -1;
+    });
+  }
+
+  getSearchResultSuppliers(query) {
+    return this.state.users.filter(user => {
+      return user.isSupplier && (user.tags.toString().toUpperCase().indexOf(query) > -1);
+    });
+  }
+
+  getFeatured() {
+    const result: SearchResult[] =  [
+      {
+        title: 'Featured Products',
+        type: 'products',
+        children: this.getFeaturedProducts()
+      },
+      {
+        title: 'Featured Suppliers',
+        type: 'suppliers',
+        children: this.getFeaturedSuppliers()
+      }
+    ];
+    return result;
+  }
+
   isSupplier(id: string) {
     const userIsSupplier = this.state.users.filter(user => {
       return user.id === id && user.isSupplier;
     });
-    console.log('isspullier', userIsSupplier.length >= 1)
     return userIsSupplier.length >= 1;
   }
-
-  // private homePage: SearchResult[] = [
-  //   {
-  //     title: 'Featured Products',
-  //     type: 'products',
-  //     children: [
-  //       {
-  //         description: 'refreshing tasting herb, good for teas and cooking.',
-  //         title: 'mint',
-  //         id: '1',
-  //         tags: ['herbs', 'mint', 'restaurant', 'fresh'],
-  //         image: '../../assets/img/products/fruits1.jpg',
-  //         fav: true
-  //       },
-  //       {
-  //         description: 'aromatic herbs used in italian cooking.',
-  //         title: 'thyme',
-  //         id: '2',
-  //         tags: ['herbs', 'italian', 'thyme' , 'restaurant'],
-  //         image: '../../assets/img/products/fruits4.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'A not hot but sweet flavoured pepper.',
-  //         title: 'bell pepper',
-  //         id: '3',
-  //         tags: ['pepper', 'sweet', 'red', 'yellow'],
-  //         image: '../../assets/img/products/seeds4.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'world\'s hottest naturally gorwn pepper.',
-  //         title: 'scorpion pepper',
-  //         id: '4',
-  //         tags: ['pepper', 'extreme', 'hot'],
-  //         image: '../../assets/img/products/seeds3.jpg',
-  //         fav: false
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     title: 'Featured Suppliers',
-  //     type: 'suppliers',
-  //     children: [
-  //       {
-  //         description: 'Farm located in the East of Trinidad, in teh Malabar area..',
-  //         title: 'Picker Farm',
-  //         id: '5',
-  //         tags: ['peppers', 'herbs'],
-  //         image: '../../assets/img/suppliers/supplier1.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Supplier of produce and canned goods in the Diego Martin area..',
-  //         title: 'fresh foods',
-  //         id: '6',
-  //         tags: ['fresh', 'peppers', 'herbs', 'italian'],
-  //         image: '../../assets/img/suppliers/supplier2.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Aquaculture farm suppling high quality hearbs and spice for restaurants.',
-  //         title: 'Trini produce',
-  //         id: '7',
-  //         tags: ['peppers', 'herbs', 'mediterranean'],
-  //         image: '../../assets/img/suppliers/supplier3.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Small vegetable and fruit grower in Couva.',
-  //         title: 'the right foods',
-  //         id: '8',
-  //         tags: ['peppers', 'herbs', 'italian'],
-  //         image: '../../assets/img/suppliers/supplier4.jpg',
-  //         fav: false
-  //       }
-  //     ]
-  //   }
-  // ];
-  // private herbSearchResult: SearchResult[] = [
-  //   {
-  //     title: 'Products',
-  //     type: 'products',
-  //     children: [
-  //       {
-  //         description: 'refreshing tasting herb, good for teas and cooking.',
-  //         title: 'mint',
-  //         id: '9',
-  //         tags: ['herbs', 'mint', 'restaurant', 'fresh'],
-  //         image: '../../assets/img/products/fruits1.jpg',
-  //         fav: true
-  //       },
-  //       {
-  //         description: 'herb used in italian cooking.',
-  //         title: 'basil',
-  //         id: '10',
-  //         tags: ['herbs', 'restaurant', 'italian', 'basil'],
-  //         image: '../../assets/img/products/fruits2.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Mediterranean herb used in cooking.',
-  //         title: 'parsley',
-  //         id: '11',
-  //         tags: ['herbs', 'parsley', 'restaurant', 'meditarian'],
-  //         image: '../../assets/img/products/fruits3.jpg',
-  //         fav: true
-  //       },
-  //       {
-  //         description: 'aromatic herbs used in italian cooking.',
-  //         title: 'thyme',
-  //         id: '12',
-  //         tags: ['herbs', 'italian', 'thyme' , 'restaurant'],
-  //         image: '../../assets/img/products/fruits4.jpg',
-  //         fav: false
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     title: 'Suppliers',
-  //     type: 'suppliers',
-  //     children: [
-  //       {
-  //         description: 'Farm located in the East of Trinidad, in teh Malabar area..',
-  //         title: 'Picker Farm',
-  //         id: '13',
-  //         tags: ['peppers', 'herbs'],
-  //         image: '../../assets/img/suppliers/supplier1.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Supplier of produce and canned goods in the Diego Martin area..',
-  //         title: 'fresh foods',
-  //         id: '14',
-  //         tags: ['fresh', 'peppers', 'herbs', 'italian'],
-  //         image: '../../assets/img/suppliers/supplier2.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Aquaculture farm suppling high quality hearbs and spice for restaurants.',
-  //         title: 'Trini produce',
-  //         id: '15',
-  //         tags: ['peppers', 'herbs', 'mediterranean'],
-  //         image: '../../assets/img/suppliers/supplier3.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Small vegetable and fruit grower in Couva.',
-  //         title: 'the right foods',
-  //         id: '16',
-  //         tags: ['peppers', 'herbs', 'italian'],
-  //         image: '../../assets/img/suppliers/supplier4.jpg',
-  //         fav: false
-  //       }
-  //     ]
-  //   }
-  // ];
-  // private pepperSearchResult: SearchResult[] = [
-  //   {
-  //     title: 'Featured Products',
-  //     type: 'products',
-  //     children: [
-  //       {
-  //         description: 'medium-sized chili pepper.',
-  //         title: 'jalapeno pepper',
-  //         id: '17',
-  //         tags: ['pepper', 'medium', 'hot'],
-  //         image: '../../assets/img/products/seeds1.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'a hot variety of chili pepper.',
-  //         title: 'habanero pepper',
-  //         id: '18',
-  //         tags: ['pepper', 'very', 'hot'],
-  //         image: '../../assets/img/products/seeds2.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'world\'s hottest naturally gorwn pepper.',
-  //         title: 'scorpion pepper',
-  //         id: '19',
-  //         tags: ['pepper', 'extreme', 'hot'],
-  //         image: '../../assets/img/products/seeds3.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'A not hot but sweet flavoured pepper.',
-  //         title: 'bell pepper',
-  //         id: '20',
-  //         tags: ['pepper', 'sweet', 'red', 'yellow'],
-  //         image: '../../assets/img/products/seeds4.jpg',
-  //         fav: false
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     title: 'Featured Suppliers',
-  //     type: 'suppliers',
-  //     children: [
-  //       {
-  //         description: 'Farm located in the East of Trinidad, in teh Malabar area..',
-  //         title: 'Picker Farm',
-  //         id: '21',
-  //         tags: ['peppers', 'herbs'],
-  //         image: '../../assets/img/suppliers/supplier1.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Supplier of produce and canned goods in the Diego Martin area..',
-  //         title: 'fresh foods',
-  //         id: '22',
-  //         tags: ['fresh', 'peppers', 'herbs', 'italian'],
-  //         image: '../../assets/img/suppliers/supplier2.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Aquaculture farm suppling high quality hearbs and spice for restaurants.',
-  //         title: 'Trini produce',
-  //         id: '23',
-  //         tags: ['peppers', 'herbs', 'mediterranean'],
-  //         image: '../../assets/img/suppliers/supplier3.jpg',
-  //         fav: false
-  //       },
-  //       {
-  //         description: 'Small vegetable and fruit grower in Couva.',
-  //         title: 'the right foods',
-  //         id: '24',
-  //         tags: ['peppers', 'herbs', 'italian'],
-  //         image: '../../assets/img/suppliers/supplier4.jpg',
-  //         fav: false
-  //       }
-  //     ]
-  //   }
-  // ];
 
   constructor() {
 
   }
 
-  // getDefaultHomePageData(): SearchResult[] {
-  //   // return this.homePage;
-  // }
-
   getSearchResult(searchQuery: string): SearchResult[] {
-    switch (searchQuery.toLowerCase()) {
-      case 'herb':
-      case 'herbs':
-      case 'restaurant':
-      case 'mint':
-      case 'basil':
-      case 'parsley':
-      case 'thyme':
-        // return this.herbSearchResult;
-      case 'pepper':
-      case 'peppers':
-      case 'jalapeno':
-      case 'bell pepper':
-      case 'scorpion pepper':
-        // return this.pepperSearchResult;
-      default:
-        return undefined;
+    searchQuery = searchQuery.toUpperCase();
+
+    const result: SearchResult[] =  [
+      {
+        title: 'Products',
+        type: 'products',
+        children: this.getSearchResultProducts(searchQuery)
+      },
+      {
+        title: 'Suppliers',
+        type: 'suppliers',
+        children: this.getSearchResultSuppliers(searchQuery)
+      }
+    ];
+
+    if (result[0].children.length === 0) {
+      return undefined;
     }
+    return result;
   }
 
   // setFavorite(type, id) {
