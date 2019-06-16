@@ -89,7 +89,8 @@ export class DataService {
     const userIsSupplier = this.state.users.filter(user => {
       return user.id === id && user.isSupplier;
     });
-    return !!userIsSupplier;
+    console.log('isspullier', userIsSupplier.length >= 1)
+    return userIsSupplier.length >= 1;
   }
 
   // private homePage: SearchResult[] = [
