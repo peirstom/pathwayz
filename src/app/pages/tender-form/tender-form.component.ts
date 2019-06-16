@@ -103,6 +103,7 @@ export class TenderFormComponent implements OnInit {
   resetForm() {
     this.step = 1;
     this.stepWidth = '1';
+    this.form.reset();
   }
 
   handleAnimation(successAnimation) {
