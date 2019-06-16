@@ -17,15 +17,6 @@ export const ROUTES: RouteInfo[] = [
     { path: '/messages', title: 'Messages',  icon: 'far fa-envelope', class: '' },
     { path: '/favorites', title: 'Favorites',  icon: 'far fa-heart', class: '' },
     { path: '/history', title: 'History',  icon: 'ni-archive-2', class: '' },
-   // { path: '/user-profile', title: 'User profile',  icon: 'far fa-user', class: '' },
-
-    // TODO: The paths below are not needed but kept as reference for now.
-  //  { path: '/', title: '',  icon: '', class: '' },
-  //  { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
-  //  { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
-  //  { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
- //   { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' }
-
 ];
 
 export const SUPPLIER_ROUTES: RouteInfo[] = [
@@ -51,11 +42,7 @@ export class SidebarComponent implements OnInit {
   loggedInSubsription: Subscription;
   isSupplier = false;
   constructor(private router: Router, private authService: AuthService, private dataService: DataService){
-
-  //this.authService.isAuthenticated.subscribe((res) => {
-   // this.isAuthenticated = res;
-  //});
-}
+  }
 
   @ViewChild(LoginComponent)
     public login: LoginComponent;
@@ -79,7 +66,8 @@ export class SidebarComponent implements OnInit {
    });
    this.loggedInSubsription = this.authService.user.subscribe(user => {
     this.loggedIn = !!(user && user.token) ;
-     this.isSupplier = this.dataService.isSupplier('hier id tom');
+     this.isSupplier = this.dataService.isSupplier(user.id);
+     console.log(this.isSupplier);
   });
   }
 

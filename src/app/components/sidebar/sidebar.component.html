@@ -99,19 +99,27 @@
 
       <!-- Shop Manager items -->
       <div *ngIf="loggedIn">
-      <!-- Divider -->
-      <hr class="my-3">
-      <!-- Heading -->
-      <h6 class="navbar-heading text-muted">Shop manager</h6>
-      <!-- Navigation -->
-      <ul class="navbar-nav">
-        <li *ngFor="let menuItem of menuSupplierItems" class="{{menuItem.class}} nav-item">
-            <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
-                <i class="ni {{menuItem.icon}}"></i>
-                {{menuItem.title}}
-            </a>
-        </li>
-    </ul>
+          <!-- Show shop manager if you have a supplier profile-->
+          <div *ngIf="isSupplier">
+              <!-- Divider -->
+              <hr class="my-3">
+              <!-- Heading -->
+              <h6 class="navbar-heading text-muted">Shop manager</h6>
+              <!-- Navigation -->
+              <ul class="navbar-nav">
+                <li *ngFor="let menuItem of menuSupplierItems" class="{{menuItem.class}} nav-item">
+                    <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+                        <i class="ni {{menuItem.icon}}"></i>
+                        {{menuItem.title}}
+                    </a>
+                </li>
+              </ul>
+          </div>
+          <!-- Show link to create a supplier profile-->
+          <div *ngIf="!isSupplier">
+test
+          </div>
+
 
       </div>
 
