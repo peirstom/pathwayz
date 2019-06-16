@@ -46,13 +46,12 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public menuSupplierItems: any[];
   public isCollapsed = true;
-  //public isAuthenticated = false;
 
   loggedIn = false;
   loggedInSubsription: Subscription;
   isSupplier = false;
   constructor(private router: Router, private authService: AuthService, private dataService: DataService){
-    this.isSupplier = this.dataService.isSupplier('hier id tom');
+
   //this.authService.isAuthenticated.subscribe((res) => {
    // this.isAuthenticated = res;
   //});
@@ -80,6 +79,7 @@ export class SidebarComponent implements OnInit {
    });
    this.loggedInSubsription = this.authService.user.subscribe(user => {
     this.loggedIn = !!(user && user.token) ;
+     this.isSupplier = this.dataService.isSupplier('hier id tom');
   });
   }
 
