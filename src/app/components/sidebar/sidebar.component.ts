@@ -45,15 +45,11 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public menuSupplierItems: any[];
   public isCollapsed = true;
-  //public isAuthenticated = false;
 
   loggedIn = false;
   loggedInSubsription: Subscription;
 
   constructor(private router: Router, private authService: AuthService){
-  //this.authService.isAuthenticated.subscribe((res) => {
-   // this.isAuthenticated = res;
-  //});
 }
 
   @ViewChild(LoginComponent)
