@@ -86,10 +86,10 @@ export class DataService {
   }
 
   isSupplier(id: string) {
-    return this.state.users.filter(user => {
+    const userIsSupplier = this.state.users.filter(user => {
       return user.id === id && user.isSupplier;
     });
-
+    return !!userIsSupplier;
   }
 
   // private homePage: SearchResult[] = [
