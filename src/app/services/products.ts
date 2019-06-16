@@ -3,7 +3,8 @@ export const products: Product[] = [
   {
     id: '1',
     title: 'Mint',
-    description: 'Refreshing tasting herb, good for teas and cooking.',
+    description: 'Mint makes a great garnish for summertime drinks, fruit platters and frozen desserts.' +
+    ' It\'s excellent when paired with lamb and is found in many Middle Eastern, Thai and Vietnamese dishes. ',
     image: '../../assets/img/products/mint.jpg',
     tags: ['herbs', 'mint', 'restaurant', 'fresh'],
     featured: true,
@@ -12,7 +13,8 @@ export const products: Product[] = [
   {
     id: '2',
     title: 'Thyme',
-    description: 'Aromatic herbs used in italian cooking.',
+    description: 'Thyme has a clove-like taste that enhances Creole and Cajun dishes.' +
+    ' It can also be used to season meat and in poultry stuffing. Its strong flavor requires sparing use.',
     image: '../../assets/img/products/thyme.jpg',
     tags: ['herbs', 'italian', 'thyme' , 'restaurant'],
     featured: true,
@@ -21,7 +23,8 @@ export const products: Product[] = [
   {
     id: '5',
     title: 'Basil',
-    description: 'Herb used in italian cooking.',
+    description: 'Basil works well with tomatoes, squash, cabbage, beans, pasta, poultry, pesto or spaghetti sauce, pizza or seafood.' +
+    ' Handle it with care as its leaves are delicate. Basil blends well with garlic, lemon, fennel, marjoram, oregano, thyme and curry.',
     image: '../../assets/img/products/basil.jpg',
     tags: ['herbs', 'restaurant', 'italian', 'basil'],
     featured: false,
