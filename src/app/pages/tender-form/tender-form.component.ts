@@ -24,6 +24,7 @@ export class TenderFormComponent implements OnInit {
 
   private sucessAnimationConfig: object;
   private successAnimation: any;
+  private submitting: boolean;
 
   constructor(private modalService: NgbModal, private fb: FormBuilder) {
 
@@ -111,5 +112,19 @@ export class TenderFormComponent implements OnInit {
   handleAnimation(successAnimation) {
     this.successAnimation = successAnimation;
       this.successAnimation.play();
+  }
+
+  onSubmit() {
+    this.submitting = true;
+
+    console.log('form values', this.form);
+
+
+    setTimeout(() => {
+      this.submitting = false;
+      this.openSuccessModal();
+    }, 500)
+
+
   }
 }

@@ -44,8 +44,8 @@
               </div>
             </div>
             <div class="card-body">
-              <div class="row row-grid" *ngIf="suppliers.children">
-                <div class="col-xl-3 col-lg-6" *ngFor="let supplier of suppliers.children.length > 0">
+              <div class="row row-grid" *ngIf="suppliers.children.length > 0">
+                <div class="col-xl-3 col-lg-6" *ngFor="let supplier of suppliers.children">
                   <app-supplier-card [supplier]="supplier"></app-supplier-card>
                 </div>
               </div>
