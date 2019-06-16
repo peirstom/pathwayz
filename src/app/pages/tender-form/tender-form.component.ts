@@ -34,21 +34,21 @@ export class TenderFormComponent implements OnInit {
       address : null,
       address2 : null,
       city : null,
-      state : null,
+      state : ['Choose...'],
       zip : null,
       productName: null,
       price: null,
       productDescription: null,
       quantity: null,
-      unit: null,
+      unit: ['KG'],
       dueDate: null,
       width: null,
       height: null,
       length: null,
       fileName: null,
       imageName: null,
-      productCategory: null,
-      subproductCategory : null
+      productCategory: ['Choose...'],
+      subproductCategory : ['Choose...']
     });
 
 
