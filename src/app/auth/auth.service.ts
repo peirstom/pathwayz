@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 import { StorageService } from '../helpers/storage.service';
 import { DialogService } from '../helpers/dialog.service';
 
-const FIREBASE_API_KEY = 'AIzaSyCnbBwGpb_FtqiUvpT7thSDWSKPLTvyRSQ';
+const FIREBASE_API_KEY = 'AIzaSyAFJWqaLcuSmSTsELHYVFDuKxGUKV_a-v0';
+
+
 
 interface AuthResponseData {
   kind: string;
