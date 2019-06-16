@@ -168,6 +168,18 @@ console.log('suppliers', user.favorites);
 
   }
 
+  public getProduct(productId) {
+    const productArray = this.state.products.filter(product => {
+      return product.id === productId;
+    });
+
+    if (productArray.length > 0) {
+      return productArray[0];
+    } else {
+      return undefined;
+    }
+  }
+
   public updateFavorite(id) {
     if (this.isFavorite(id)) {
       this.removeFavorite(id);

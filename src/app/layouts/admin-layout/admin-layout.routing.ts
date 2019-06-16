@@ -31,5 +31,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'quotations', component: QuotationsComponent },
   { path: 'insights', component: InsightsComponent },
   { path: 'supplier', component: SupplierComponent },
-  { path: 'product', component: ProductComponent },
+  { path: 'product', component: ProductComponent  },
 ];
