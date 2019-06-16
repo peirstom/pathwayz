@@ -52,6 +52,10 @@ export class TendersComponent implements OnInit, OnDestroy {
     }
   }
 
+  openLogin() {
+    this.login.open();
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe();
     this.loggedInSubsription.unsubscribe();

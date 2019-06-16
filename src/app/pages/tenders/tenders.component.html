@@ -26,11 +26,11 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
             <tr>
-              <th scope="col">Project</th>
-              <th scope="col">Budget</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Category</th>
               <th scope="col">Status</th>
-              <th scope="col">Users</th>
-              <th scope="col">Completion</th>
+              <th scope="col">Due Date</th>
+              <th scope="col">Actions</th>
               <th scope="col"></th>
             </tr>
             </thead>
@@ -95,7 +95,14 @@
             </tr>
             </tbody>
             <tbody *ngIf="!loggedIn">
-<!-- INSERT HERE TBODY IF NOT LOGGED IN-->
+              <tr class="text-center ">
+                <td colspan="6" class="pt-50 pb-50">
+                    <h1>Sign in to see your tenders & quotations.</h1>
+                    <button class="btn  btn-primary  "(click)="openLogin()">
+                      Log in
+                    </button>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -103,7 +110,7 @@
     </div>
   </div>
   <!-- Dark table -->
-  <div class="row mt-5">
+  <div class="row mt-5" *ngIf="loggedIn">
     <div class="col">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent border-0">
