@@ -23,26 +23,12 @@ export class HomeComponent implements OnInit {
   public searching = false;
 
   public searchResult: SearchResult[];
-  public featuredProducts: Product[];
-  public featuredSuppliers: User[];
   constructor(private dataService: DataService) {
     //this.searchResult = this.dataService.getDefaultHomePageData();
 
-    this.featuredProducts = this.dataService.getFeaturedProducts();
-    this.featuredSuppliers = this.dataService.getFeaturedSuppliers();
 
-    this.searchResult = [
-      {
-       title: 'Featured Products',
-       type: 'products',
-       children: this.featuredProducts
-      },
-      {
-        title: 'Featured Suppliers',
-        type: 'suppliers',
-        children: this.featuredSuppliers
-      }
-    ];
+
+    this.searchResult = this.dataService.getFeatured();
   }
 
   ngOnInit() {}
