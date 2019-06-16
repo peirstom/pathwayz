@@ -40,7 +40,16 @@ export class AuthService {
   }
 
   get isAuthenticated() {
-    return this._isAuthenticated;
+    return this._isAuthenticated.value;
+  }
+
+  get userId() {
+    if (this._user.value) {
+      return this._user.value.id;
+    } else {
+      return undefined;
+    }
+
   }
 
   signUp(email: string, password: string) {

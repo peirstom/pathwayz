@@ -7,7 +7,7 @@ export const users: User[] = [
     lastName: 'Doe',
     name: 'John',
     email: 'johndoe@gmail.com',
-    favorites: [],
+    favorites: ['3'],
     quotationsReceived: [],
     quotationsSent: [],
     tendersReceived: [],

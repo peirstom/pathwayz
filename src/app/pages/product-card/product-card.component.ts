@@ -1,7 +1,10 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 
 import { LottieAnimations } from '../../lottie/lottie-animations';
 import { DataService, Product } from '../../services/data.service';
+import { AuthService } from '../../auth/auth.service';
+import { LoginComponent } from '../login/login.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-card',
@@ -9,12 +12,17 @@ import { DataService, Product } from '../../services/data.service';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit, AfterViewInit {
+  @ViewChild(LoginComponent)
+  public login: LoginComponent;
+
   @Input() product: Product;
 
   public animationConfig: Object;
   private animation: any;
+private loggedInSubsription: Subscription;
 
-  constructor(private dataService: DataService) {
+
+  constructor(private dataService: DataService, private authService: AuthService) {
     this.animationConfig = {
       animationData: LottieAnimations.heartIcon,
       renderer: 'svg',
@@ -24,23 +32,21 @@ export class ProductCardComponent implements OnInit, AfterViewInit {
   }
 
   toggle() {
-    // if (this.product.fav) {
-    //   this.animation.setDirection(-1);
-    //   this.animation.stop();
-    // } else {
-    //   this.animation.setDirection(1);
-    //   this.animation.setSpeed(1);
-    //   this.animation.play();
-    // }
-    // this.dataService.setFavorite('product', this.product.id);
-    // console.log('animation before loaded', this.animation);
-    //
-    // console.log('animation loaded', this.animation);
-    //
-    // // let val: boolean = this.getValue();
-    // // this.updateRow(!val);
-
-
+    console.log('auth', this.authService.isAuthenticated)
+    if (!this.authService.isAuthenticated) {
+      this.login.open();
+    } else {
+      console.log('is favoriet?', this.dataService.isFavorite(this.product.id))
+      if (this.dataService.isFavorite(this.product.id)) {
+          this.animation.setDirection(-1);
+          this.animation.stop();
+      } else {
+          this.animation.setDirection(1);
+          this.animation.setSpeed(1);
+          this.animation.play();
+      }
+      this.dataService.updateFavorite(this.product.id);
+    }
   }
 
   handleAnimation(animation) {
@@ -52,13 +58,19 @@ export class ProductCardComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-//     if (this.product.fav) {
-//       setTimeout(() => {
-//         this.animation.goToAndStop(this.animation.totalFrames -1 , true);
-//       }, 100);
-//
-// //      this.animation.play();
-//     }
+    this.loggedInSubsription = this.authService.user.subscribe(user => {
+
+      if (this.dataService.isFavorite(this.product.id)) {
+        setTimeout(() => {
+          this.animation.goToAndStop(this.animation.totalFrames - 1 , true);
+        }, 100);
+      }
+    });
+
+  }
+
+  ngOnDestroy() {
+    this.loggedInSubsription.unsubscribe();
   }
 
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SearchResult } from '../pages/home/home.component';
 import { products } from './products';
 import { users } from './users';
+import { AuthService } from '../auth/auth.service';
 
 export interface Product {
   image: string;
@@ -71,7 +72,7 @@ export class DataService {
   private state: State = {
     products: products,
     users: users
-  }
+  };
 
   getFeaturedProducts() {
     return this.state.products.filter(product => {
@@ -98,7 +99,7 @@ export class DataService {
   }
 
   getFeatured() {
-    const result: SearchResult[] =  [
+    const result: SearchResult[] = [
       {
         title: 'Featured Products',
         type: 'products',
@@ -113,6 +114,50 @@ export class DataService {
     return result;
   }
 
+  public isFavorite(id): boolean {
+    const user = this.getUser();
+    if (user) {
+      console.log('user', user, user.favorites.indexOf(id) !== -1)
+      return user.favorites.indexOf(id) !== -1;
+    } else {
+      return false;
+    }
+
+  }
+
+  public updateFavorite(id) {
+    if (this.isFavorite(id)) {
+      this.removeFavorite(id);
+    } else {
+      this.addFavorite(id);
+    }
+  }
+
+  private addFavorite(id) {
+    const user = this.getUser();
+    user.favorites.push(id);
+  }
+
+  private removeFavorite(id) {
+    const user = this.getUser();
+    user.favorites.splice(user.favorites.indexOf(id), 1);
+  }
+
+  getUser(): User {
+    const userId = this.authService.userId;
+    const user = this.state.users.filter(usr => {
+      return usr.id === userId;
+    });
+
+    if (user.length >= 1) {
+      return user[0];
+    } else {
+      return undefined;
+    }
+
+
+  }
+
   isSupplier(id: string) {
     const userIsSupplier = this.state.users.filter(user => {
       return user.id === id && user.isSupplier;
@@ -120,14 +165,14 @@ export class DataService {
     return userIsSupplier.length >= 1;
   }
 
-  constructor() {
+  constructor(private authService: AuthService) {
 
   }
 
   getSearchResult(searchQuery: string): SearchResult[] {
     searchQuery = searchQuery.toUpperCase();
 
-    const result: SearchResult[] =  [
+    const result: SearchResult[] = [
       {
         title: 'Products',
         type: 'products',
@@ -145,6 +190,7 @@ export class DataService {
     }
     return result;
   }
+
 
   // setFavorite(type, id) {
   //   switch (type.toLowerCase()) {
