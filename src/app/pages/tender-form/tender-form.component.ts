@@ -19,7 +19,7 @@ export class TenderFormComponent implements OnInit {
   step = 1;
   stepWidth = '1';
 
-  private form: FormGroup;
+  public form: FormGroup;
 
 
   private sucessAnimationConfig: object;
@@ -46,7 +46,9 @@ export class TenderFormComponent implements OnInit {
       height: null,
       length: null,
       fileName: null,
-      imageName: null
+      imageName: null,
+      productCategory: null,
+      subproductCategory : null
     });
 
 

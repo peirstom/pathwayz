@@ -90,6 +90,26 @@
                             <input type="number" class="form-control" formControlName="price" id="inputProductName" value="0.00">
                           </div>
                       </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputProductCategory">Product Category</label>
+                          <select id="inputProductCategory" class="form-control" formControlName="productCategory">
+                            <option selected>Choose...</option>
+                            <option>Produce</option>
+                            <option>Beauty</option>
+                            <option>Construction</option>
+                          </select>
+                        </div>
+                        <div *ngIf="form.get('productCategory').value === 'Produce'" class="form-group col-md-6">
+                          <label for="inputSubProductCategory">Subcategory</label>
+                          <select id="inputSubProductCategory" class="form-control" formControlName="subProductCategory">
+                            <option selected>Choose...</option>
+                            <option>Herbs</option>
+                            <option>Restaurants</option>
+                            <option>Fresh</option>
+                          </select>
+                          </div>
+                      </div>
                       <div class="form-group">
                           <label for="inputProductDescription">Product Description</label>
                           <textarea class="form-control" id="inputProductDescription" formControlName="productDescription" rows="3" placeholder="Write an accurate description of the product you are looking for ..."></textarea>
