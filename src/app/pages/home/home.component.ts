@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
+import { DataService, Product, Supplier } from '../../services/data.service';
 
 export interface SearchResult {
   title: string;
@@ -7,23 +7,7 @@ export interface SearchResult {
   children?: Product[] | Supplier[];
 }
 
-export interface Product {
-  image: string;
-  title: string;
-  description: string;
-  tags: Array<string>;
-  id: string;
-  fav: boolean;
-}
 
-export interface Supplier {
-  image: string;
-  title: string;
-  description: string;
-  tags: Array<string>;
-  id: string;
-  fav: boolean;
-}
 
 
 @Component({

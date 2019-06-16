@@ -1,8 +1,73 @@
 import { Injectable } from '@angular/core';
 import { SearchResult } from '../pages/home/home.component';
 
+export interface Product {
+  image: string;
+  title: string;
+  description: string;
+  id: string;
+  supplierId: string;
+  tags: Array<string>;
+  featured: boolean;
+}
+
+export interface User {
+  id: string;
+  name: string;
+  lastName: string;
+  email: string;
+  favorites: Array<string>; //product ids
+  tendersReceived: Array<string> //tender ids
+  tendersSent: Array<string> //tender ids
+  quotationsReceived: Array<string> //quotation Ids
+  quotationsSent: Array<string> //quotation Ids
+  isSupplier: boolean;
+  title?: string;
+  description?: string;
+  image?: string;
+  tags?: Array<string>;
+  featured?: boolean;
+  category?: string;
+  subCategory?: string;
+}
+
+export interface Tender {
+  id: string;
+  productName: string;
+  buyerId: string;
+  category: string;
+  subCategory: string;
+}
+
+export interface Quotation {
+  id: string;
+  buyerId: string;
+  supplierId: string;
+  description: string;
+}
+
+export interface Supplier {
+  image: string;
+  title: string;
+  description: string;
+  tags: Array<string>;
+  id: string;
+  fav: boolean;
+}
+
+
+export interface State {
+  products: Product[];
+  users: User[];
+  tenders: Tender[];
+  quotations: Quotation[];
+}
+
 @Injectable()
 export class DataService {
+
+
+
   private homePage: SearchResult[] = [
     {
       title: 'Featured Products',

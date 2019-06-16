@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { Supplier } from '../home/home.component';
-import { DataService } from '../../services/data.service';
+
+import { DataService, Supplier } from '../../services/data.service';
 import { LottieAnimations } from '../../lottie/lottie-animations';
 
 @Component({

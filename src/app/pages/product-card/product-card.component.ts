@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { Product } from '../home/home.component';
+
 import { LottieAnimations } from '../../lottie/lottie-animations';
-import { DataService } from '../../services/data.service';
+import { DataService, Product } from '../../services/data.service';
 
 @Component({
   selector: 'app-product-card',
