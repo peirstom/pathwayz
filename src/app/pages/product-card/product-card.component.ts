@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { LottieAnimations } from '../../lottie/lottie-animations';
 import { DataService, Product } from '../../services/data.service';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent implements OnInit, AfterViewInit {
+export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(LoginComponent)
   public login: LoginComponent;
 
@@ -64,6 +64,9 @@ private loggedInSubsription: Subscription;
         setTimeout(() => {
           this.animation.goToAndStop(this.animation.totalFrames - 1 , true);
         }, 100);
+      } else {
+        this.animation.setDirection(-1);
+        this.animation.stop();
       }
     });
 

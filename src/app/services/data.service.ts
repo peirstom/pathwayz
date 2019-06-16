@@ -74,6 +74,7 @@ export class DataService {
     users: users
   };
 
+
   getFeaturedProducts() {
     return this.state.products.filter(product => {
       return product.featured;
@@ -114,10 +115,52 @@ export class DataService {
     return result;
   }
 
+  getFavoriteProducts() {
+    const user = this.getUser();
+    if (!user) {
+      return;
+    }
+    const prods = [];
+    for (const item of user.favorites) {
+      for (const product of this.state.products) {
+        if (product.id === item) {
+          prods.push(product);
+        }
+      }
+    }
+    return {
+      title: 'Favorite Products',
+        type: 'products',
+      children: prods
+    }
+  }
+
+  getFavoriteSuppliers() {
+    const user = this.getUser();
+    if (!user) {
+      return;
+    }
+    const sups = [];
+    for (const item of user.favorites) {
+      for (const supplier of this.state.users) {
+        if (supplier.id === item) {
+          sups.push(supplier);
+        }
+      }
+    }
+console.log('suppliers', user.favorites);
+    return {
+      title: 'Favorite Suppliers',
+      type: 'suppliers',
+      children:  sups
+    };
+  }
+
+
   public isFavorite(id): boolean {
     const user = this.getUser();
     if (user) {
-      console.log('user', user, user.favorites.indexOf(id) !== -1)
+      console.log('user', user, user.favorites.indexOf(id) !== -1);
       return user.favorites.indexOf(id) !== -1;
     } else {
       return false;
