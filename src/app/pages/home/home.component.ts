@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Product, Supplier } from '../../services/data.service';
+import { DataService, Product, Supplier, User } from '../../services/data.service';
 
 export interface SearchResult {
   title: string;
   type: 'products' | 'suppliers';
-  children?: Product[] | Supplier[];
+  children?: Product[] | User[];
 }
 
 
@@ -23,9 +23,26 @@ export class HomeComponent implements OnInit {
   public searching = false;
 
   public searchResult: SearchResult[];
-
+  public featuredProducts: Product[];
+  public featuredSuppliers: User[];
   constructor(private dataService: DataService) {
-    this.searchResult = this.dataService.getDefaultHomePageData();
+    //this.searchResult = this.dataService.getDefaultHomePageData();
+
+    this.featuredProducts = this.dataService.getFeaturedProducts();
+    this.featuredSuppliers = this.dataService.getFeaturedSuppliers();
+
+    this.searchResult = [
+      {
+       title: 'Featured Products',
+       type: 'products',
+       children: this.featuredProducts
+      },
+      {
+        title: 'Featured Suppliers',
+        type: 'suppliers',
+        children: this.featuredSuppliers
+      }
+    ];
   }
 
   ngOnInit() {}

@@ -32,10 +32,7 @@ export class SupplierCardComponent implements OnInit, AfterViewInit {
       this.animation.setSpeed(1);
       this.animation.play();
     }
-    this.dataService.setFavorite('supplier', this.supplier.id);
-    console.log('animation before loaded', this.animation);
-
-    console.log('animation loaded', this.animation);
+    // this.dataService.setFavorite('supplier', this.supplier.id);
 
     // let val: boolean = this.getValue();
     // this.updateRow(!val);

@@ -4,6 +4,7 @@ import { LoginComponent } from 'src/app/pages/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Subscription } from 'rxjs';
+import { DataService } from '../../services/data.service';
 declare interface RouteInfo {
     path: string;
     title: string;
@@ -49,8 +50,9 @@ export class SidebarComponent implements OnInit {
 
   loggedIn = false;
   loggedInSubsription: Subscription;
-
-  constructor(private router: Router, private authService: AuthService){
+  isSupplier = false;
+  constructor(private router: Router, private authService: AuthService, private dataService: DataService){
+    this.isSupplier = this.dataService.isSupplier('hier id tom');
   //this.authService.isAuthenticated.subscribe((res) => {
    // this.isAuthenticated = res;
   //});

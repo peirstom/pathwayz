@@ -12,8 +12,8 @@ export class FavoritesComponent implements OnInit {
   suppliers: SearchResult;
   constructor(private dataService: DataService) {
     console.log('hi');
-    this.products = this.dataService.getFavoriteProducts();
-    this.suppliers = this.dataService.getFavoriteSuppliers();
+    // this.products = this.dataService.getFavoriteProducts();
+    // this.suppliers = this.dataService.getFavoriteSuppliers();
   }
 
   ngOnInit() {

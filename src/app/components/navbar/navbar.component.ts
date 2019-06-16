@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   loggedIn = false;
   loggedInSubsription: Subscription;
 
+
   @ViewChild(LoginComponent)
   public login: LoginComponent;
 
@@ -40,6 +41,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.listTitles = routes.filter(listTitle => listTitle);
     this.loggedInSubsription = this.authService.user.subscribe(user => {
       this.loggedIn = !!(user && user.token) ;
+      
     });
   }
   getTitle(){
