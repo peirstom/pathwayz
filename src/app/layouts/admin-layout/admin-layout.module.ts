@@ -32,6 +32,7 @@ import { ProductComponent } from 'src/app/pages/product/product.component';
 import { TenderFormComponent } from '../../pages/tender-form/tender-form.component';
 import { LoginModule } from '../../pages/login/login.module';
 import { LottieAnimationViewModule } from 'ng-lottie';
+import { QuotationFormComponent } from 'src/app/pages/quotation-form/quotation-form.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -68,7 +69,8 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     NotFoundComponent,
     SupplierComponent,
     ProductComponent,
-    TenderFormComponent
+    TenderFormComponent,
+    QuotationFormComponent
   ]
 })
 

@@ -22,7 +22,7 @@ export const ROUTES: RouteInfo[] = [
 export const SUPPLIER_ROUTES: RouteInfo[] = [
   { path: '/catalog', title: 'Catalog',  icon: 'ni-box-2', class: '' },
   { path: '/quotations', title: 'Quotations',  icon: 'far fa-paper-plane', class: '' },
-  { path: '/insights', title: 'Insights',  icon: 'far fa-chart-bar', class: '' }
+  { path: '/dashboard', title: 'Insights',  icon: 'far fa-chart-bar', class: '' }
 ];
 
 @Component({

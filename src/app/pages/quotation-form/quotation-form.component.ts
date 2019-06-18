@@ -4,12 +4,12 @@ import { LottieAnimations } from '../../lottie/lottie-animations';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-tender-form',
-  templateUrl: './tender-form.component.html',
-  styleUrls: ['./tender-form.component.scss']
+  selector: 'app-quotation-form',
+  templateUrl: './quotation-form.component.html',
+  styleUrls: ['./quotation-form.component.scss']
 })
-export class TenderFormComponent implements OnInit {
-  @ViewChild('tenderForm')
+export class QuotationFormComponent implements OnInit {
+  @ViewChild('quotationForm')
   public content: TemplateRef<any>;
 
   @ViewChild('successTemplate')

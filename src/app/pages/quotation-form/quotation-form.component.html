@@ -1,0 +1,259 @@
+<div class="col-md-4">
+  <ng-template #quotationForm let-c="close" let-d="dismiss">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <div class="card bg-secondary shadow border-0">
+
+          <div class="card-header bg-white pb-5">
+              <div class="progress-wrapper">
+                  <div class="progress-percentage">
+                    <span>{{stepWidth}}/3</span>
+                  </div>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" role="progressbar"  aria-valuemin="0"
+                       aria-valuemax="3" [ngStyle]="{'width': stepWidth*33.4+'%'}" ></div>
+                </div>
+              </div>
+              <div class="text-center">
+                  <h1 *ngIf="step == 1" class="display-4">Step 1: Contact Data</h1>
+                  <h1 *ngIf="step == 2" class="display-4">Step 2: Product Data</h1>
+                  <h1 *ngIf="step == 3" class="display-4">Step 3: Summary</h1>
+                </div>
+          </div>
+
+          <div class="card-body px-lg-5 py-lg-5">
+              <ng-container *ngIf="step == 1">
+              <form [formGroup]="form">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputName">Name</label>
+                      <input type="text" class="form-control"  formControlName="name" id="inputName" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputLastName">Last Name</label>
+                      <input type="text" class="form-control" formControlName="lastName" id="inputLastName" placeholder="Last Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="inputEmail">Email</label>
+                      <input type="email" class="form-control" formControlName="email" id="inputEmail" placeholder="user@user.com">
+                    </div>
+                  <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" formControlName="address" id="inputAddress" placeholder="1234 Main St">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" formControlName="address2" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputCity">City</label>
+                      <input type="text" class="form-control" formControlName="city" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputState">State</label>
+                      <select id="inputState" class="form-control" formControlName="state">
+                        <option selected>Choose...</option>
+                        <option>Antigua and Barbuda</option>
+                        <option>The Bahamas</option>
+                        <option>Barbados</option>
+                        <option>Cuba</option>
+                        <option>Dominica</option>
+                        <option>Grenada</option>
+                        <option>Haiti</option>
+                        <option>Jamaica</option>
+                        <option>Saint Lucia</option>
+                        <option>Trinidad and Tobago</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputZip">Zip</label>
+                      <input type="text" class="form-control" formControlName="zip" id="inputZip">
+                    </div>
+                  </div>
+                </form>
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary mt-4" (click)="setStep(2)">Next step</button>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="step == 2">
+                  <form [formGroup]="form">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputProductName">Product Name</label>
+                          <input type="text" class="form-control" formControlName="productName" id="inputProductName" placeholder="Product Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputProductName">Price Per Unit</label>
+                            <input type="number" class="form-control" formControlName="price" id="inputProductName" value="0.00">
+                          </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputProductCategory">Product Category</label>
+                          <select id="inputProductCategory" class="form-control" formControlName="productCategory">
+                            <option selected>Choose...</option>
+                            <option>Produce</option>
+                            <option>Beauty</option>
+                            <option>Construction</option>
+                          </select>
+                        </div>
+                        <div *ngIf="form.get('productCategory').value === 'Produce'" class="form-group col-md-6">
+                          <label for="inputSubProductCategory">Subcategory</label>
+                          <select id="inputSubProductCategory" class="form-control" formControlName="subProductCategory">
+                            <option selected>Choose...</option>
+                            <option>Herbs</option>
+                            <option>Restaurants</option>
+                            <option>Fresh</option>
+                          </select>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputProductDescription">Product Description</label>
+                          <textarea class="form-control" id="inputProductDescription" formControlName="productDescription" rows="3" placeholder="Write an accurate description of the product you are looking for ..."></textarea>
+                        </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <label for="inputQuantity">Quantity</label>
+                          <input type="input" class="form-control" formControlName="quantity" id="inputQuantity" value="0">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputUnit">Unit</label>
+                            <select id="inputUnit" class="form-control" formControlName="unit">
+                                <option selected>KG</option>
+                                <option>Liter</option>
+                                <option>Meter</option>
+                                <option>Pieces</option>
+                              </select>
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label for="inputDate">Due Date</label>
+                              <input id="inputDate" name="inputDate" formControlName="dueDate" type="date" class="form-control">
+                            </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <label for="inputWidth">Width</label>
+                          <input type="number" class="form-control" formControlName="width" id="inputWidth" value="0">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="inputHeight">Height</label>
+                          <input type="number" class="form-control" formControlName="height" id="inputHeight" value="0">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="inputLength">Lenght</label>
+                          <input type="number" class="form-control" formControlName="length" id="inputLength" value="0">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="inputImage">Attach File</label>
+                              <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="customFile" formControlName="fileName">
+                                  <label class="custom-file-label" for="customFile">Choose File</label>
+                              </div>
+                            </div>
+                          <div class="form-group col-md-6">
+                            <label for="inputImage">Attach Image</label>
+                            <div class="custom-file">
+                                <input type="image" class="custom-file-input" id="customFile" formControlName="imageName">
+                                <label class="custom-file-label" for="customFile">Choose Image</label>
+                            </div>
+                          </div>
+                        </div>
+                    </form>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary mt-4" (click)="setStep(1)">Previous Step</button>
+                    <button type="button" class="btn btn-primary mt-4" (click)="setStep(3)">Next Step</button>
+                  </div>
+              </ng-container>
+              <ng-container *ngIf="step == 3">
+                  <form [formGroup]="form">
+                      <div class="text-muted text-center mt-2 mb-4"><small>Contact Details</small></div>
+                      <div class="form-group row">
+                          <label for="staticName" class="col-sm-2 col-form-label">Name</label>
+                          <div class="col-sm-4">
+                            <input type="text" formControlName="name" readonly class="form-control-plaintext" id="staticName" >
+                          </div>
+                          <label for="staticLastname" class="col-sm-2 col-form-label">Last Name</label>
+                            <div class="col-sm-4">
+                              <input type="text" formControlName="lastName" readonly class="form-control-plaintext" id="staticLastname" >
+                            </div>
+                        </div>
+                          <div class="form-group row">
+                              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                              <div class="col-sm-4">
+                                <input type="text" formControlName="email" readonly class="form-control-plaintext" id="staticEmail" >
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticAddress" class="col-sm-2 col-form-label">Address</label>
+                                <div class="col-sm-4">
+                                    <input id="staticAddress" name="address" readonly formControlName="address" type="text" class="form-control-plaintext">
+                                  </div>
+                                <label for="staticAddress2" class="col-sm-2 col-form-label">Address 2</label>
+                                <div class="col-sm-4">
+                                    <input id="staticAddress2" name="address2" readonly formControlName="address2" type="text" class="form-control-plaintext">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="staticCity" class="col-sm-2 col-form-label">City</label>
+                                  <div class="col-sm-2">
+                                    <input type="text" formControlName="city" readonly class="form-control-plaintext" id="staticCity" >
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticState" class="col-sm-2 col-form-label">State</label>
+                                      <div class="col-sm-2">
+                                        <input type="text" formControlName="state" readonly class="form-control-plaintext" id="staticState" >
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label for="staticZip" class="col-sm-2 col-form-label">Zip</label>
+                                      <div class="col-sm-2">
+                                        <input type="text" formControlName="zip" readonly class="form-control-plaintext" id="staticZip" >
+                                      </div>
+                                    </div>
+                            <hr>
+                            <div class="text-muted text-center mt-2 mb-4"><small>Product Details</small></div>
+                            <div class="form-group row">
+                                <label for="staticProductName" class="col-sm-2 col-form-label">Product Name</label>
+                                <div class="col-sm-4">
+                                  <input type="text" formControlName="productName" readonly class="form-control-plaintext" id="staticProductName" >
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="staticProductDescription" class="col-sm-2 col-form-label">Product Description</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" formControlName="productDescription" readonly class="form-control-plaintext" id="staticProductDescription" >
+                                  </div>
+                                </div>
+                    </form>
+                  <div class="text-center">
+                      <button type="button" class="btn btn-primary mt-4" (click)="setStep(2)">Previous Step</button>
+                      <button type="button" class="btn btn-primary mt-4" (click)="onSubmit()">Submit Quotation</button>
+                    </div>
+                </ng-container>
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #successTemplate>
+  <div class="text-center">
+    <lottie-animation-view
+      [options]="sucessAnimationConfig"
+      [width]="260"
+      [height]="250"
+      (animCreated)="handleAnimation($event)">
+    </lottie-animation-view>
+  </div>
+</ng-template>
