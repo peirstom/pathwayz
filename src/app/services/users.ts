@@ -11,7 +11,7 @@ export const users: User[] = [
     quotationsReceived: [],
     quotationsSent: [],
     tendersReceived: [],
-    tendersSent: []
+    tendersSent: ['1', '2', '3']
   },
   {
     id: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',

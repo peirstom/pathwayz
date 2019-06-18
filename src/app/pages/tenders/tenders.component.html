@@ -35,7 +35,8 @@
             </tr>
             </thead>
             <tbody *ngIf="loggedIn">
-            <tr>
+            <tr *ngFor="let tender of tenders" class="tender-list" [class.selected]="tender.id === selectedTenderId"
+                (click)="onSelectTender(tender)">
               <!--<th scope="row">
                 <div class="media align-items-center">
                   <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
@@ -46,26 +47,26 @@
                   </div>
                 </div>
               </th>-->
-              <th> Tomatoes</th>
+              <th> {{tender.productName}}</th>
               <td>
-                Vegetables
+                {{tender.category}}
               </td>
               <td>
-                TT$ 30.00
+                TT$ {{tender.price}}
               </td>
               <td>
                   <span class="badge badge-dot mr-4">
-                      <i class="bg-info"></i> Posted
-                    <i class="bg-success"></i> completed
-                    <i class="bg-warning"></i> Cancelled
+                    <span *ngIf="tender.status === 'posted'"><i class="bg-info"></i> Posted</span>
+                    <span *ngIf="tender.status === 'completed'"><i class="bg-success"></i> completed</span>
+                    <span *ngIf="tender.status === 'canceled'"><i class="bg-warning"></i> Canceled</span>
                   </span>
               </td>
               <td>
-                23/05/2019
+                {{ tender.dueDate }}
               </td>
               <td>
                 <div ngbDropdown placement="bottom-right">
-                  <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                  <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
                     <i class="fas fa-ellipsis-v"></i>
                   </a>
                   <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
@@ -78,14 +79,14 @@
             </tr>
             </tbody>
             <tbody *ngIf="!loggedIn">
-              <tr class="text-center ">
-                <td colspan="6" class="pt-50 pb-50">
-                    <h1>Sign in to see your tenders & quotations.</h1>
-                    <button class="btn  btn-primary  "(click)="openLogin()">
-                      Log in
-                    </button>
-                </td>
-              </tr>
+            <tr class="text-center ">
+              <td colspan="6" class="pt-100 pb-100">
+                <h3>Sign in to see your tenders & quotations.</h3>
+                <button class="btn  btn-primary  " (click)="openLogin()">
+                  Log in
+                </button>
+              </td>
+            </tr>
             </tbody>
           </table>
         </div>
@@ -111,121 +112,41 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr class="text-center " *ngIf="!selectedTenderId">
+              <td colspan="6" class="pt-50 pb-50">
+                <h3 style="color: #f8f9fe;" >Please select a tender from the above list. To see the corresponding quotations</h3>
+              </td>
+            </tr>
+            <tr class="text-center " *ngIf="quotations.length === 0 && selectedTenderId">
+              <td colspan="6" class="pt-50 pb-50">
+                <h1 style="font-size: 5.625rem;">😿</h1>
+                <h3 style="color: #f8f9fe; " >You haven't received any quotations for the selected tender yet.</h3>
+              </td>
+            </tr>
+            <tr *ngFor="let quotation of quotations">
               <th scope="row">
-                    <span class="mb-0 text-sm">Tomatoes</span>
+                <span class="mb-0 text-sm">{{ selectedTenderProductName }}</span>
               </th>
-              <td>
-                  <div class="avatar-group">
-                      <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Picker Farm">
-                        <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
-                      </a>
-                    </div>
-                    <span class="mb-0 text-sm">Picker Farm</span>
+              <td class="avatar-wrapper">
+                <div class="avatar-group">
+                  <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
+                     data-original-title="Picker Farm">
+                    <img alt="Image placeholder" src="{{quotation.supplierImage}}" class="rounded-circle">
+                  </a>
+                </div>
+                <span class="mb-0 ml-2 text-sm ">{{quotation.supplierTitle}}</span>
 
               </td>
               <td>
-                  <span class="mb-0 text-sm">TT$ 250.00</span>
+                <span class="mb-0 text-sm">TT$ {{quotation.price}}</span>
               </td>
               <td>
-                This can be a very long text, it should show the full text on hover?
+                {{quotation.description}}
               </td>
               <td>
                 Reject | Approve
               </td>
             </tr>
-            <tr>
-                <th scope="row">
-                      <span class="mb-0 text-sm">Tomatoes</span>
-                </th>
-                <td>
-                    <div class="avatar-group">
-                        <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Picker Farm">
-                          <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
-                        </a>
-                      </div>
-                      <span class="mb-0 text-sm">Picker Farm</span>
-
-                </td>
-                <td>
-                    <span class="mb-0 text-sm">TT$ 250.00</span>
-                </td>
-                <td>
-                  This can be a very long text, it should show the full text on hover?
-                </td>
-                <td>
-                  Reject | Approve
-                </td>
-              </tr>
-              <tr>
-                  <th scope="row">
-                        <span class="mb-0 text-sm">Tomatoes</span>
-                  </th>
-                  <td>
-                      <div class="avatar-group">
-                          <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Picker Farm">
-                            <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
-                          </a>
-                        </div>
-                        <span class="mb-0 text-sm">Picker Farm</span>
-
-                  </td>
-                  <td>
-                      <span class="mb-0 text-sm">TT$ 250.00</span>
-                  </td>
-                  <td>
-                    This can be a very long text, it should show the full text on hover?
-                  </td>
-                  <td>
-                    Reject | Approve
-                  </td>
-                </tr>
-                <tr>
-                    <th scope="row">
-                          <span class="mb-0 text-sm">Tomatoes</span>
-                    </th>
-                    <td>
-                        <div class="avatar-group">
-                            <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Picker Farm">
-                              <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
-                            </a>
-                          </div>
-                          <span class="mb-0 text-sm">Picker Farm</span>
-
-                    </td>
-                    <td>
-                        <span class="mb-0 text-sm">TT$ 250.00</span>
-                    </td>
-                    <td>
-                      This can be a very long text, it should show the full text on hover?
-                    </td>
-                    <td>
-                      Reject | Approve
-                    </td>
-                  </tr>
-                  <tr>
-                      <th scope="row">
-                            <span class="mb-0 text-sm">Tomatoes</span>
-                      </th>
-                      <td>
-                          <div class="avatar-group">
-                              <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Picker Farm">
-                                <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
-                              </a>
-                            </div>
-                            <span class="mb-0 text-sm">Picker Farm</span>
-
-                      </td>
-                      <td>
-                          <span class="mb-0 text-sm">TT$ 250.00</span>
-                      </td>
-                      <td>
-                        This can be a very long text, it should show the full text on hover?
-                      </td>
-                      <td>
-                        Reject | Approve
-                      </td>
-                    </tr>
             </tbody>
           </table>
         </div>

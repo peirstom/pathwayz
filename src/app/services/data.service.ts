@@ -3,6 +3,8 @@ import { SearchResult } from '../pages/home/home.component';
 import { products } from './products';
 import { users } from './users';
 import { AuthService } from '../auth/auth.service';
+import { tenders } from './tenders';
+import { quotations } from './quotations';
 
 export interface Product {
   image: string;
@@ -39,14 +41,22 @@ export interface Tender {
   productName: string;
   buyerId: string;
   category: string;
-  subCategory: string;
+  subCategory?: string;
+  status: 'posted' | 'canceled' | 'completed';
+  price: number;
+  dueDate: string;
 }
 
 export interface Quotation {
   id: string;
-  buyerId: string;
+  tenderId: string;
+  price: number;
   supplierId: string;
   description: string;
+}
+
+export interface QuotationWithSupplier extends Quotation, Supplier{
+
 }
 
 export interface Supplier {
@@ -71,7 +81,9 @@ export class DataService {
 
   private state: State = {
     products: products,
-    users: users
+    users: users,
+    tenders: tenders,
+    quotations: quotations
   };
 
 
@@ -130,8 +142,17 @@ export class DataService {
     }
     return {
       title: 'Favorite Products',
-        type: 'products',
+      type: 'products',
       children: prods
+    }
+  }
+
+  getSupplierById(id): User {
+
+    for (const supplier of this.state.users) {
+      if (supplier.id === id) {
+        return supplier;
+      }
     }
   }
 
@@ -148,14 +169,39 @@ export class DataService {
         }
       }
     }
-console.log('suppliers', user.favorites);
+    console.log('suppliers', user.favorites);
     return {
       title: 'Favorite Suppliers',
       type: 'suppliers',
-      children:  sups
+      children: sups
     };
   }
 
+  getTenders(): Tender[] {
+    const user = this.getUser();
+    if (!user) {
+      return;
+    }
+    const tendrs: Tender[] = [];
+    for (const item of user.tendersSent) {
+      for (const tender of this.state.tenders) {
+        if (tender.id === item) {
+          tendrs.push(tender);
+        }
+      }
+    }
+    return tendrs;
+  }
+
+  getQuotationsForTender(id): Quotation[] {
+    const quot: Quotation[] = [];
+    for (const item of this.state.quotations) {
+      if (item.tenderId === id) {
+        quot.push(item);
+      }
+    }
+    return quot;
+  }
 
   public isFavorite(id): boolean {
     const user = this.getUser();

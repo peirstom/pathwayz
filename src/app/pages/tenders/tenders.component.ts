@@ -5,6 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
+import { DataService, Quotation, Tender } from '../../services/data.service';
+
+export interface QuotationExtended extends Quotation {
+  supplierTitle: string;
+  supplierImage: string;
+}
+
 
 @Component({
   selector: 'app-tenders',
@@ -22,8 +29,13 @@ export class TendersComponent implements OnInit, OnDestroy {
   loggedInSubsription: Subscription;
   private sub: any;
   private new = false;
+  public selectedTenderId: string;
+  selectedTenderProductName: string;
+  public tenders: Tender[];
 
-  constructor(private route: ActivatedRoute, private authService: AuthService) {
+  public quotations: QuotationExtended[] = [];
+
+  constructor(private route: ActivatedRoute, private authService: AuthService, private dataService: DataService) {
     this.sub = this.route.queryParamMap.subscribe(params => {
       if (params.has('create')) {
         console.log('YES')
@@ -35,8 +47,14 @@ export class TendersComponent implements OnInit, OnDestroy {
     this.loggedInSubsription = this.authService.user.subscribe(user => {
       console.log('user', user);
       this.loggedIn = !!(user && user.token) ;
+      if(this.loggedIn) {
+        this.tenders = this.dataService.getTenders();
+      }
       this.openTenderFormIfNew();
     });
+
+
+    console.log('tenders', this.tenders);
   }
 
   ngOnInit() {
@@ -74,5 +92,18 @@ export class TendersComponent implements OnInit, OnDestroy {
       })
 
     }
+  }
+
+  onSelectTender(item: Tender) {
+    this.selectedTenderId = item.id;
+    this.selectedTenderProductName = item.productName;
+
+    const quotations = this.dataService.getQuotationsForTender(item.id);
+
+    this.quotations = quotations.map(quotation => {
+      const supplier = this.dataService.getSupplierById(quotation.supplierId)
+      return {...quotation, supplierTitle: supplier.title, supplierImage: supplier.image };
+    });
+    console.log('quotations', this.quotations);
   }
 }
