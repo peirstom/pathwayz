@@ -9,7 +9,7 @@
 
   </div>
   <div class="card-footer d-flex justify-content-between">
-    <a class="btn btn-primary btn-sm" [routerLink]="'/supplier'">Learn more</a>
+    <a class="btn btn-primary btn-sm" [routerLink]="'/supplier'"  [queryParams]="{id: supplier.id}">Learn more</a>
     <div class="cell-container">
       <div class="animation-container">
         <lottie-animation-view

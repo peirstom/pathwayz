@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService, User } from '../../services/data.service';
+import { ActivatedRoute } from '@angular/router';
 declare const google: any;
 
 @Component({
@@ -7,8 +9,16 @@ declare const google: any;
   styleUrls: ['./supplier.component.scss']
 })
 export class SupplierComponent implements OnInit {
-
-  constructor() { }
+  public supplier: User;
+  constructor(private route: ActivatedRoute, private dataService: DataService) {
+    this.route.queryParamMap.subscribe(params => {
+      if (params.has('id')) {
+        const userId = params.get('id');
+        this.supplier = this.dataService.getSupplierById(userId);
+        console.log('supplier', this.supplier);
+      }
+    });
+  }
 
   ngOnInit() {
     let map = document.getElementById('map-canvas');

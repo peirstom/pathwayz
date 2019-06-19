@@ -32,7 +32,7 @@
             </tr>
             </thead>
             <tbody *ngIf="loggedIn">
-            <tr *ngFor="let tender of tenders">
+            <tr *ngFor="let tender of tenders" class="tender-list" [class.selected]="tender.id === selectedTenderId"  (click)="onSelectTender(tender)">
               <th> {{tender.productName}}</th>
               <td class="avatar-wrapper">
                 <div class="avatar-group">
@@ -92,24 +92,35 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr class="text-center " *ngIf="!selectedTenderId">
+              <td colspan="6" class="pt-50 pb-50">
+                <h3 style="color: #f8f9fe;" >Please select a tender from the above list. To see the corresponding quotations</h3>
+              </td>
+            </tr>
+            <tr class="text-center " *ngIf="quotations.length === 0 && selectedTenderId">
+              <td colspan="6" class="pt-50 pb-50">
+                <h1 style="font-size: 5.625rem;">😿</h1>
+                <h3 style="color: #f8f9fe; " >You haven't created any quotations for the selected tender yet.</h3>
+              </td>
+            </tr>
+            <tr *ngFor="let quotation of quotations">
               <th scope="row">
-                    <span class="mb-0 text-sm">Tomatoes</span>
+                    <span class="mb-0 text-sm">{{selectedTenderProductName}}</span>
               </th>
-              <td>
+              <td class="avatar-wrapper">
                   <div class="avatar-group">
                       <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Picker Farm">
-                        <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                        <img alt="Image placeholder" src="{{quotation.buyerImage}}" class="rounded-circle">
                       </a>
                     </div>
-                    <span class="mb-0 text-sm">John Doe</span>
+                    <span class="mb-0 ml-2 text-sm">{{quotation.buyerTitle}}</span>
 
               </td>
               <td>
-                  <span class="mb-0 text-sm">TT$ 250.00</span>
+                  <span class="mb-0 text-sm">TT$ {{quotation.price}}</span>
               </td>
               <td>
-                This can be a very long text, it should show the full text on hover?
+                {{quotation.description}}
               </td>
               <td>
                   <div ngbDropdown placement="bottom-right">

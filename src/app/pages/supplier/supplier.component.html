@@ -1,17 +1,38 @@
+<!--<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-size: cover; background-position: center top;"-->
+<!--     [ngStyle]="{'background-image': 'url(../' + supplier.image + ')'}">-->
+
+<!--  &lt;!&ndash; Mask &ndash;&gt;-->
+<!--  <span class="mask bg-gradient-green opacity-8"></span>-->
+<!--  &lt;!&ndash; Header container &ndash;&gt;-->
+<!--  <div class="container-fluid d-flex align-items-center">-->
+<!--    <div class="row">-->
+<!--      <div class="col-lg-7 col-md-10">-->
+<!--        <h1 class="display-2 text-white">{{ supplier.title }}</h1>-->
+<!--        <p class="text-white mt-0 mb-5">{{supplier.description}}</p>-->
+<!--        <a href="#!" class="btn btn-info">contact</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+
 <div class="header bg-gradient-green pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
       <div class="row">
         <div class="col-lg-7 col-md-10">
-          <h1 class="display-2 text-white">Jessica Jones</h1>
-          <p class="text-white mt-0 mb-5">This is some text about the supplier, a short intro</p>
+          <h1 class="display-2 text-white"> {{ supplier.title }}</h1>
+          <p class="text-white mt-0 mb-5">{{supplier.description}}</p>
           <a href="#!" class="btn btn-info">Contact</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <!-- Page content -->
 <div class="container-fluid mt--7">
   <!-- Supplier -->
@@ -20,7 +41,61 @@
 
       <div class="card shadow">
         <div class="card-header border-0">
-          <div _ngcontent-c6="" class="px-4"><div _ngcontent-c6="" class="row justify-content-center"><div _ngcontent-c6="" class="col-lg-3 order-lg-2"><div _ngcontent-c6="" class="card-profile-image"><a _ngcontent-c6="" href="javascript:void(0)"><img _ngcontent-c6="" class="rounded-circle" src="./assets/img/theme/team-4-800x800.jpg"></a></div></div><div _ngcontent-c6="" class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center"><div _ngcontent-c6="" class="card-profile-actions py-4 mt-lg-0"><a _ngcontent-c6="" class="btn btn-sm btn-info mr-4" href="javascript:void(0)">Contact</a><a _ngcontent-c6="" class="btn btn-sm btn-default float-right" href="javascript:void(0)">Message</a></div></div><div _ngcontent-c6="" class="col-lg-4 order-lg-1"><div _ngcontent-c6="" class="card-profile-stats d-flex justify-content-center"><div _ngcontent-c6=""><span _ngcontent-c6="" class="heading">22</span><span _ngcontent-c6="" class="description">Products</span></div><div _ngcontent-c6=""><span _ngcontent-c6="" class="heading">10</span><span _ngcontent-c6="" class="description">Sells</span></div><div _ngcontent-c6=""><span _ngcontent-c6="" class="heading">89</span><span _ngcontent-c6="" class="description">Comments</span></div></div></div></div><div _ngcontent-c6="" class="text-center mt-5"><h3 _ngcontent-c6="">Jessica Jones <span _ngcontent-c6="" class="font-weight-light">, 27</span></h3><div _ngcontent-c6="" class="h6 font-weight-300"><i _ngcontent-c6="" class="ni location_pin mr-2"></i>Bucharest, Romania</div><div _ngcontent-c6="" class="h6 mt-4"><i _ngcontent-c6="" class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer</div><div _ngcontent-c6=""><i _ngcontent-c6="" class="ni education_hat mr-2"></i>University of Computer Science</div></div><div _ngcontent-c6="" class="mt-5 py-5 border-top text-center"><div _ngcontent-c6="" class="row justify-content-center"><div _ngcontent-c6="" class="col-lg-9"><p _ngcontent-c6="">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</p><a _ngcontent-c6="" href="javascript:void(0)">Show more</a></div></div></div></div>
+          <div _ngcontent-c6="" class="px-4">
+            <div _ngcontent-c6="" class="row justify-content-center">
+              <div _ngcontent-c6="" class="col-lg-3 order-lg-2">
+                <div _ngcontent-c6="" class="card-profile-image">
+                  <a _ngcontent-c6="" href="javascript:void(0)">
+                    <div
+                      class="rounded-circle fancy-style"
+                      [ngStyle]="{'background-image': 'url(../' + supplier.image + ')'}"
+                    >
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div _ngcontent-c6="" class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+                <div _ngcontent-c6="" class="card-profile-actions py-4 mt-lg-0"><a _ngcontent-c6=""
+                                                                                   class="btn btn-sm btn-info mr-4"
+                                                                                   href="javascript:void(0)">Contact</a><a
+                  _ngcontent-c6="" class="btn btn-sm btn-default float-right" href="javascript:void(0)">Message</a>
+                </div>
+              </div>
+              <div _ngcontent-c6="" class="col-lg-4 order-lg-1">
+                <div _ngcontent-c6="" class="card-profile-stats d-flex justify-content-center">
+                  <div _ngcontent-c6=""><span _ngcontent-c6="" class="heading">22</span><span _ngcontent-c6=""
+                                                                                              class="description">Products</span>
+                  </div>
+                  <div _ngcontent-c6=""><span _ngcontent-c6="" class="heading">10</span><span _ngcontent-c6=""
+                                                                                              class="description">Sells</span>
+                  </div>
+                  <div _ngcontent-c6=""><span _ngcontent-c6="" class="heading">89</span><span _ngcontent-c6=""
+                                                                                              class="description">Comments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div _ngcontent-c6="" class="text-center mt-5"><h3 _ngcontent-c6="">{{ supplier.title }} <span _ngcontent-c6=""
+                                                                                                    class="font-weight-light"></span>
+            </h3>
+              <div _ngcontent-c6="" class="h6 font-weight-300"><i _ngcontent-c6="" class="ni location_pin mr-2"></i>Bucharest,
+                Romania
+              </div>
+              <div _ngcontent-c6="" class="h6 mt-4"><i _ngcontent-c6="" class="ni business_briefcase-24 mr-2"></i>Solution
+                Manager - Creative Tim Officer
+              </div>
+              <div _ngcontent-c6=""><i _ngcontent-c6="" class="ni education_hat mr-2"></i>University of Computer Science
+              </div>
+            </div>
+            <div _ngcontent-c6="" class="mt-5 py-5 border-top text-center">
+              <div _ngcontent-c6="" class="row justify-content-center">
+                <div _ngcontent-c6="" class="col-lg-9"><p _ngcontent-c6="">An artist of considerable range, Ryan — the
+                  name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his
+                  own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable
+                  range.</p><a _ngcontent-c6="" href="javascript:void(0)">Show more</a></div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

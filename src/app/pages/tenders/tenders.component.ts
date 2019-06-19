@@ -99,6 +99,7 @@ export class TendersComponent implements OnInit, OnDestroy {
   onSelectTender(item: Tender) {
     this.selectedTenderId = item.id;
     this.selectedTenderProductName = item.productName;
+    this.selectedQuotationId = undefined;
 
     const quotations = this.dataService.getQuotationsForTender(item.id);
 
