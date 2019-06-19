@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   //public isAuthenticated = false;
   loggedIn = false;
   loggedInSubsription: Subscription;
-public user: User;
+  public user: User;
 
   @ViewChild(LoginComponent)
   public login: LoginComponent;
@@ -58,6 +58,28 @@ public user: User;
         }
     }
     return 'Dashboard';
+  }
+
+  getUserImg(){
+    if(this.user && this.user.image)
+    {
+      return this.user.image;
+    }
+    return '../../assets/img/theme/profile-default.png';
+  }
+  getUserName(){
+    if(this.user && this.user.name)
+    {
+      return this.user.name;
+    }
+    return 'Tom';
+  }
+  getUserLastName(){
+    if(this.user && this.user.lastName)
+    {
+      return this.user.lastName;
+    }
+    return 'Peirs';
   }
 
   openLogin() {

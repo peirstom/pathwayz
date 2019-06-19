@@ -29,10 +29,10 @@
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
           <div class="media align-items-center">
             <span class="avatar avatar-sm rounded-circle">
-              <img alt="Image placeholder" src="{{user.image}}">
+              <img alt="Image placeholder" src="{{getUserImg()}}">
             </span>
             <div class="media-body ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">{{user.name}}  {{user.lastName}} </span>
+              <span class="mb-0 text-sm  font-weight-bold">{{getUserName()}}  {{getUserLastName()}} </span>
             </div>
             <span>
               <i class="mb-0 text-sm fas fa-chevron-down" style="margin-left: 10px;"></i>
