@@ -32,29 +32,29 @@
             </tr>
             </thead>
             <tbody *ngIf="loggedIn">
-            <tr>
-              <th> Tomatoes</th>
+            <tr *ngFor="let tender of tenders">
+              <th> {{tender.productName}}</th>
               <td class="avatar-wrapper">
                 <div class="avatar-group">
                   <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
                      data-original-title="Picker Farm">
-                    <img alt="Image placeholder" src="" class="rounded-circle">
+                    <img alt="Image placeholder" src="{{tender.buyerImage}}" class="rounded-circle">
                   </a>
                 </div>
-                <span class="mb-0 ml-2 text-sm ">John Doe</span>
+                <span class="mb-0 ml-2 text-sm "> {{tender.buyerTitle}}</span>
               </td>
               <td>
-                TT$ 30.00
+                TT$ {{ tender.price}}
               </td>
               <td>
-                23/05/2019
+                {{tender.dueDate}}
               </td>
               <td>
-                  19/05/2019
-                </td>
+                19/05/2019 TODO
+              </td>
               <td>
-                  <button class="btn btn-sm btn-primary">Create Quotation</button>
-                  <button class="btn btn-sm btn-danger">Delete Tender</button>
+                <button class="btn btn-sm btn-primary">Create Quotation</button>
+                <button class="btn btn-sm btn-danger">Delete Tender</button>
               </td>
             </tr>
             </tbody>

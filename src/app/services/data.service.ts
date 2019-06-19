@@ -210,8 +210,19 @@ export class DataService {
       }
     }
   }
+
   getTendersForSupplier(): Tender[] {
-    return [];
+    const user = this.getUser();
+    if (!user) {
+      return;
+    }
+
+    const tendersForSupplier = this.state.tenders.filter(tender => {
+      if (user.category.indexOf(tender.category) !== -1) {
+        return true;
+      }
+    });
+   return tendersForSupplier;
   }
 
 
