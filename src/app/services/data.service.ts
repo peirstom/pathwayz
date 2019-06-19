@@ -22,10 +22,6 @@ export interface User {
   lastName: string;
   email: string;
   favorites: Array<string>; //product ids
-  tendersReceived: Array<string> //tender ids
-  tendersSent: Array<string> //tender ids
-  quotationsReceived: Array<string> //quotation Ids
-  quotationsSent: Array<string> //quotation Ids
   isSupplier: boolean;
   title?: string;
   description?: string;
@@ -144,7 +140,7 @@ export class DataService {
       title: 'Favorite Products',
       type: 'products',
       children: prods
-    }
+    };
   }
 
   getSupplierById(id): User {
@@ -177,22 +173,20 @@ export class DataService {
     };
   }
 
+  // calls for buyer view
   getTenders(): Tender[] {
     const user = this.getUser();
     if (!user) {
       return;
     }
     const tendrs: Tender[] = [];
-    for (const item of user.tendersSent) {
       for (const tender of this.state.tenders) {
-        if (tender.id === item) {
+        if (tender.buyerId === user.id) {
           tendrs.push(tender);
         }
-      }
     }
     return tendrs;
   }
-
   getQuotationsForTender(id): Quotation[] {
     const quot: Quotation[] = [];
     for (const item of this.state.quotations) {
@@ -202,6 +196,24 @@ export class DataService {
     }
     return quot;
   }
+
+  // calls for supplier view
+  getQuotations(): Quotation[] {
+    const user = this.getUser();
+    if (!user) {
+      return;
+    }
+    const quot: Quotation[] = [];
+    for (const item of this.state.quotations) {
+      if (item.supplierId === user.id) {
+        quot.push(item);
+      }
+    }
+  }
+  getTendersForSupplier(): Tender[] {
+    return [];
+  }
+
 
   public isFavorite(id): boolean {
     const user = this.getUser();

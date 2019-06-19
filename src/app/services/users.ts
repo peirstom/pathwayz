@@ -7,11 +7,7 @@ export const users: User[] = [
     lastName: 'Doe',
     name: 'John',
     email: 'johndoe@gmail.com',
-    favorites: ['3'],
-    quotationsReceived: [],
-    quotationsSent: [],
-    tendersReceived: [],
-    tendersSent: ['1', '2', '3']
+    favorites: ['3']
   },
   {
     id: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
@@ -26,11 +22,7 @@ export const users: User[] = [
     isSupplier: true,
     lastName: 'Farm',
     name: 'Picker',
-    quotationsReceived: [],
-    quotationsSent: [],
     tags: ['jalapeno', 'pepper', 'herbs', 'mint'],
-    tendersReceived: [],
-    tendersSent: []
   },
   {
     id: 'u2',
@@ -46,11 +38,7 @@ export const users: User[] = [
     isSupplier: true,
     lastName: '',
     name: '',
-    quotationsReceived: [],
-    quotationsSent: [],
-    tags: ['habanero', 'pepper', 'herbs', 'basil'],
-    tendersReceived: [],
-    tendersSent: []
+    tags: ['habanero', 'pepper', 'herbs', 'basil']
   },
   {
     id: 'u3',
@@ -67,11 +55,8 @@ export const users: User[] = [
     isSupplier: true,
     lastName: '',
     name: '',
-    quotationsReceived: [],
-    quotationsSent: [],
-    tags: ['Anaheim', 'pepper', 'herbs', 'parsley'],
-    tendersReceived: [],
-    tendersSent: []
+    tags: ['Anaheim', 'pepper', 'herbs', 'parsley']
+
   },
   {
     id: 'u4',
@@ -87,10 +72,6 @@ export const users: User[] = [
     isSupplier: true,
     lastName: '',
     name: '',
-    quotationsReceived: [],
-    quotationsSent: [],
-    tags: ['bell', 'pepper', 'herbs', 'thyme'],
-    tendersReceived: [],
-    tendersSent: []
+    tags: ['bell', 'pepper', 'herbs', 'thyme']
   }
 ];
