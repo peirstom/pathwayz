@@ -53,7 +53,7 @@ export class TenderFormComponent implements OnInit {
       fileName: null,
       imageName: null,
       productCategory: ['Choose...'],
-      subproductCategory : ['Choose...']
+      subProductCategory : ['Choose...']
     });
 
 
@@ -133,8 +133,25 @@ export class TenderFormComponent implements OnInit {
         price: this.form.value.price,
         category: this.form.value.productCategory,
         status: 'posted',
-        subCategory: this.form.value.subproductCategory
-      }
+        subCategory: this.form.value.subProductCategory,
+
+        name: this.form.value.name,
+        lastName: this.form.value.lastName,
+        email: this.form.value.email,
+        address : this.form.value.address ,
+        address2 : this.form.value.address2 ,
+        city : this.form.value.city ,
+        state : this.form.value.state,
+        zip : this.form.value.zip ,
+        productDescription: this.form.value.productDescription,
+        quantity: this.form.value.quantity,
+        unit:  this.form.value.unit ,
+        width: this.form.value.width,
+        height: this.form.value.height,
+        length: this.form.value.length,
+        fileName: this.form.value.fileName,
+        imageName: this.form.value.imageName
+      };
       this.dataService.createTender(tenderItem);
       this.submitting = false;
       this.submitted.emit();

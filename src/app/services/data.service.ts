@@ -41,6 +41,23 @@ export interface Tender {
   status: 'posted' | 'canceled' | 'completed';
   price: number;
   dueDate: string;
+
+  name?: string;
+  lastName?: string;
+  email?: string;
+  address ?: string;
+  address2 ?: string;
+  city ?: string;
+  state ?: string;
+  zip ?: string;
+  productDescription?: string;
+  quantity?: string;
+  unit?: string;
+  width?: string;
+  height?: string;
+  length?: string;
+  fileName?: string;
+  imageName?: string;
 }
 
 export interface Quotation {
