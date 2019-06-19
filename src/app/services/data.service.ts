@@ -3,8 +3,10 @@ import { SearchResult } from '../pages/home/home.component';
 import { products } from './products';
 import { users } from './users';
 import { AuthService } from '../auth/auth.service';
-import { tenders } from './tenders';
+import { Tender } from './tenders';
 import { quotations } from './quotations';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
 
 export interface Product {
   image: string;
@@ -30,17 +32,6 @@ export interface User {
   featured?: boolean;
   category?: string;
   subCategory?: string;
-}
-
-export interface Tender {
-  id: string;
-  productName: string;
-  buyerId: string;
-  category: string;
-  subCategory?: string;
-  status: 'posted' | 'canceled' | 'completed';
-  price: number;
-  dueDate: string;
 }
 
 export interface Quotation {
@@ -74,13 +65,18 @@ export interface State {
 
 @Injectable()
 export class DataService {
-
+  //tenders: Observable<Tender[]>; // Todo remove next line uncomment this line
+  tenders: Observable<any[]>;
   private state: State = {
     products: products,
     users: users,
-    tenders: tenders,
+    tenders: null,
     quotations: quotations
   };
+
+  constructor(private authService: AuthService, public pwDB: AngularFirestore) {
+    this.tenders = this.pwDB.collection('tenders').valueChanges();
+  }
 
 
   getFeaturedProducts() {
@@ -173,8 +169,13 @@ export class DataService {
     };
   }
 
+getTenders(){
+  return this.tenders;
+}
+//todo remove previous function replace by function below.
+
   // calls for buyer view
-  getTenders(): Tender[] {
+ /* getTenders(): Tender[] {
     const user = this.getUser();
     if (!user) {
       return;
@@ -186,7 +187,8 @@ export class DataService {
         }
     }
     return tendrs;
-  }
+  }*/
+
   getQuotationsForTender(id): Quotation[] {
     const quot: Quotation[] = [];
     for (const item of this.state.quotations) {
@@ -276,10 +278,6 @@ export class DataService {
       return user.id === id && user.isSupplier;
     });
     return userIsSupplier.length >= 1;
-  }
-
-  constructor(private authService: AuthService) {
-
   }
 
   getSearchResult(searchQuery: string): SearchResult[] {

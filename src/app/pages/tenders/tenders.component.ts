@@ -5,7 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
-import { DataService, Quotation, Tender } from '../../services/data.service';
+import { DataService, Quotation } from '../../services/data.service';
+import { Tender } from 'src/app/services/tenders';
 
 export interface QuotationExtended extends Quotation {
   supplierTitle: string;
@@ -38,7 +39,7 @@ export class TendersComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private authService: AuthService, private dataService: DataService) {
     this.sub = this.route.queryParamMap.subscribe(params => {
       if (params.has('create')) {
-        console.log('YES')
+        console.log('YES');
         this.new = true;
 
       }
@@ -47,8 +48,11 @@ export class TendersComponent implements OnInit, OnDestroy {
     this.loggedInSubsription = this.authService.user.subscribe(user => {
       console.log('user', user);
       this.loggedIn = !!(user && user.token) ;
-      if(this.loggedIn) {
-        this.tenders = this.dataService.getTenders();
+      if (this.loggedIn) {
+        this.dataService.getTenders().subscribe(tenders => {
+          console.log(tenders);
+          this.tenders = tenders;
+        });
       }
       this.openTenderFormIfNew();
     });

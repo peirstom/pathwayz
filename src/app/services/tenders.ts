@@ -1,5 +1,16 @@
-import { Tender } from './data.service';
+//import { Tender } from './data.service';
 
+export interface Tender {
+  id: string;
+  productName: string;
+  buyerId: string;
+  category: string;
+  subCategory?: string;
+  status: string; //'posted' | 'canceled' | 'completed';
+  price: number;
+  dueDate: string;
+}
+/*
 export const tenders: Tender[] = [
   {
     buyerId: '2doBbUNZtEcqsuPIRxe4Wfc7Z9C3',
@@ -29,3 +40,4 @@ export const tenders: Tender[] = [
     dueDate: '2019/04/09'
   }
 ];
+*/

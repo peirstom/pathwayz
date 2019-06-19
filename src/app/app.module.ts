@@ -15,6 +15,10 @@ import { ComponentsModule } from './components/components.module';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { DataService } from './services/data.service';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -24,7 +28,10 @@ import { DataService } from './services/data.service';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    LottieAnimationViewModule.forRoot()
+    LottieAnimationViewModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
+
   ],
   declarations: [
     AppComponent,
