@@ -110,4 +110,23 @@
     </div>
   </div>
 
+  <div class="row  mt-5">
+    <div class="col">
+      <div class="card shadow border-0">
+        <div class="card-body">
+          <h3>Products</h3>
+        </div>
+        <div class="card-body">
+          <!-- here could come some other thing-->
+          <div class="row">
+            <div class="col-xl-3 col-lg-6" *ngFor="let product of products">
+              <app-product-card [product]="product"></app-product-card>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -114,4 +114,8 @@ export class TendersComponent implements OnInit, OnDestroy {
     console.log("you clicked on:" + JSON.stringify(item));
     this.selectedQuotationId = item.id;
   }
+
+  onSubmitTenderform() {
+    this.tenders = this.dataService.getTenders();
+  }
 }

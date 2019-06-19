@@ -123,18 +123,21 @@
                 <h3 style="color: #f8f9fe; " >You haven't received any quotations for the selected tender yet.</h3>
               </td>
             </tr>
-            <tr *ngFor="let quotation of quotations" class="quotation-list" (click)="onSelectQuotation(quotation)" [class.selected]="quotation.id === selectedQuotationId">
+            <tr *ngFor="let quotation of quotations" class="quotation-list" >
               <th scope="row">
                 <span class="mb-0 text-sm">{{ selectedTenderProductName }}</span>
               </th>
-              <td class="avatar-wrapper">
-                <div class="avatar-group">
-                  <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                     data-original-title="Picker Farm">
-                    <img alt="Image placeholder" src="{{quotation.supplierImage}}" class="rounded-circle">
-                  </a>
+              <td>
+                <div class="avatar-wrapper">
+                  <div class="avatar-group">
+                    <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
+                       data-original-title="Picker Farm">
+                      <img alt="Image placeholder" src="{{quotation.supplierImage}}" class="rounded-circle">
+                    </a>
+                  </div>
+                  <span class="mb-0 ml-2 text-sm ">{{quotation.supplierTitle}}</span>
                 </div>
-                <span class="mb-0 ml-2 text-sm ">{{quotation.supplierTitle}}</span>
+
 
               </td>
               <td>
@@ -171,5 +174,5 @@
     </div>
   </div>
 </div>
-<app-tender-form></app-tender-form>
+<app-tender-form (submitted)="onSubmitTenderform()"></app-tender-form>
 <app-login></app-login>

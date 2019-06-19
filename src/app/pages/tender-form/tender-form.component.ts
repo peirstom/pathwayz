@@ -1,7 +1,8 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal, NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { LottieAnimations } from '../../lottie/lottie-animations';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { DataService, Tender } from '../../services/data.service';
 
 @Component({
   selector: 'app-tender-form',
@@ -14,6 +15,9 @@ export class TenderFormComponent implements OnInit {
 
   @ViewChild('successTemplate')
   public successTemplate: TemplateRef<any>;
+
+  @Output() submitted = new EventEmitter<any>()
+
   closeResult: string;
 
   step = 1;
@@ -26,7 +30,7 @@ export class TenderFormComponent implements OnInit {
   private successAnimation: any;
   private submitting: boolean;
 
-  constructor(private modalService: NgbModal, private fb: FormBuilder) {
+  constructor(private modalService: NgbModal, private fb: FormBuilder, private dataService: DataService) {
 
     this.form = this.fb.group({
       name: null,
@@ -121,9 +125,21 @@ export class TenderFormComponent implements OnInit {
 
 
     setTimeout(() => {
+      const tenderItem: Tender = {
+        id: Date.now().toString(),
+        buyerId: this.dataService.getUser().id,
+        productName: this.form.value.productName,
+        dueDate: this.form.value.dueDate,
+        price: this.form.value.price,
+        category: this.form.value.productCategory,
+        status: 'posted',
+        subCategory: this.form.value.subproductCategory
+      }
+      this.dataService.createTender(tenderItem);
       this.submitting = false;
+      this.submitted.emit();
       this.openSuccessModal();
-    }, 500)
+    }, 500);
 
 
   }

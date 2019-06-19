@@ -187,6 +187,11 @@ export class DataService {
     }
     return tendrs;
   }
+
+  createTender(tenderData: Tender) {
+    this.state.tenders.push(tenderData);
+  }
+
   getQuotationsForTender(id): Quotation[] {
     const quot: Quotation[] = [];
     for (const item of this.state.quotations) {
@@ -412,4 +417,9 @@ export class DataService {
   //   }
   //   return favoriteSuppliers;
   // }
+  getProductsOfSupplier(id: string): Product[] {
+    return this.state.products.filter(product => {
+      return product.supplierId = id;
+    });
+  }
 }

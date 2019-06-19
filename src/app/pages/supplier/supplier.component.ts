@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, User } from '../../services/data.service';
+import { DataService, Product, User } from '../../services/data.service';
 import { ActivatedRoute } from '@angular/router';
 declare const google: any;
 
@@ -10,11 +10,13 @@ declare const google: any;
 })
 export class SupplierComponent implements OnInit {
   public supplier: User;
+  public products: Product[];
   constructor(private route: ActivatedRoute, private dataService: DataService) {
     this.route.queryParamMap.subscribe(params => {
       if (params.has('id')) {
         const userId = params.get('id');
         this.supplier = this.dataService.getSupplierById(userId);
+        this.products = this.dataService.getProductsOfSupplier(this.supplier.id);
         console.log('supplier', this.supplier);
       }
     });

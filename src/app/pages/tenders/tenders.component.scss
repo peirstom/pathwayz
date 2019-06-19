@@ -11,18 +11,19 @@ tr.tender-list:hover {
 }
 
 .avatar-wrapper {
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
 }
 
-tr.quotation-list {
-  transition: all .3s;
-  cursor: pointer;
-}
-
-tr.quotation-list.selected,
-tr.quotation-list:hover {
-  //box-shadow: inset 10px 2px 0px #2dce89, 1px 1px 0px #2dce89;
-  box-shadow: inset 10px 2px 0px #5e72e4, inset -1px -1px 0px #5e72e4;
-  background-color: rgba(45, 206, 137, 0.05);
-}
+//tr.quotation-list {
+//  transition: all .3s;
+//  cursor: pointer;
+//}
+//
+//tr.quotation-list.selected,
+//tr.quotation-list:hover {
+//  //box-shadow: inset 10px 2px 0px #2dce89, 1px 1px 0px #2dce89;
+//  box-shadow: inset 10px 2px 0px #5e72e4, inset -1px -1px 0px #5e72e4;
+//  background-color: rgba(45, 206, 137, 0.05);
+//}
