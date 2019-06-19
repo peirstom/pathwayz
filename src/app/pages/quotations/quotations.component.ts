@@ -5,7 +5,9 @@ import { LoginComponent } from '../login/login.component';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 import { QuotationFormComponent } from '../quotation-form/quotation-form.component';
-import { DataService, Quotation, Tender } from '../../services/data.service';
+import { DataService, Quotation } from '../../services/data.service';
+import { Tender } from 'src/app/services/tenders';
+
 
 export interface TenderExtended extends Tender {
   buyerTitle: string;
