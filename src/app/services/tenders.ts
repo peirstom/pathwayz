@@ -31,12 +31,21 @@ export const tenders: Tender[] = [
     dueDate: '2019/04/09'
   },
   {
-    buyerId: '2doBbUNZtEcqsuPIRxe4Wfc7Z9C3',
+    buyerId: '2',
     category: 'Vegetables',
     status: 'posted',
     id: '3',
     price: 30,
     productName: 'Peppers',
+    dueDate: '2019/04/09'
+  },
+  {
+    buyerId: '2doBbUNZtEcqsuPIRxe4Wfc7Z9C3',
+    category: 'Beauty',
+    status: 'posted',
+    id: '3',
+    price: 30,
+    productName: 'Hair Spray',
     dueDate: '2019/04/09'
   }
 ];

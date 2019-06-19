@@ -6,6 +6,7 @@ import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
 import { concat, Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
+import { DataService, User } from '../../services/data.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   //public isAuthenticated = false;
   loggedIn = false;
   loggedInSubsription: Subscription;
-
+public user: User;
 
   @ViewChild(LoginComponent)
   public login: LoginComponent;
@@ -29,7 +30,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @ViewChild(RegisterComponent)
   public register: RegisterComponent;
 
-  constructor(location: Location,  private authService: AuthService) {
+  constructor(location: Location,  private authService: AuthService, private dataService: DataService) {
     this.location = location;
     //this.authService.isAuthenticated.subscribe((res) => {
       //this.isAuthenticated = res;
@@ -41,7 +42,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.listTitles = routes.filter(listTitle => listTitle);
     this.loggedInSubsription = this.authService.user.subscribe(user => {
       this.loggedIn = !!(user && user.token) ;
-      
+      if (this.loggedIn) {
+        this.user = this.dataService.getUser();
+      }
     });
   }
   getTitle(){

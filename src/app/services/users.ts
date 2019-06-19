@@ -7,14 +7,24 @@ export const users: User[] = [
     lastName: 'Doe',
     name: 'John',
     email: 'johndoe@gmail.com',
-    favorites: ['3']
+    favorites: ['3'],
+    image: '../../assets/img/theme/team-4-800x800.jpg'
+  },
+  {
+    id: '2',
+    isSupplier: false,
+    lastName: 'Dick',
+    name: 'Moby',
+    email: 'mobydick@gmail.com',
+    favorites: ['3'],
+    image: '../../assets/img/theme/team-3-800x800.jpg'
   },
   {
     id: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
     email: 'pickerfarm@gmail.com',
     title: 'Picker Farm',
     description: 'Specialize in jalapenos, anaheim bell peppers, pickling cucumbers, tomatillos, and zucchini.',
-    category: '',
+    category: 'Vegetables',
     subCategory: '',
     favorites: [],
     featured: true,

@@ -1,0 +1,16 @@
+tr.tender-list {
+  transition: all .3s;
+  cursor: pointer;
+}
+
+tr.selected,
+tr.tender-list:hover {
+  //box-shadow: inset 10px 2px 0px #2dce89, 1px 1px 0px #2dce89;
+  box-shadow: inset 10px 2px 0px #2dce89, inset -1px -1px 0px #2dce89;
+  background-color: rgba(45, 206, 137, 0.05);
+}
+
+.avatar-wrapper {
+  display: flex;
+  align-items: center;
+}
