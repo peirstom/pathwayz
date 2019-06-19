@@ -95,7 +95,7 @@
   </div>
   <!-- Dark table -->
   <div class="row mt-5" *ngIf="loggedIn">
-    <div class="col">
+    <div class="col-md-9">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent border-0">
           <h3 class="text-white mb-0">Quotations received</h3>
@@ -123,7 +123,7 @@
                 <h3 style="color: #f8f9fe; " >You haven't received any quotations for the selected tender yet.</h3>
               </td>
             </tr>
-            <tr *ngFor="let quotation of quotations">
+            <tr *ngFor="let quotation of quotations" class="quotation-list" (click)="onSelectQuotation(quotation)">
               <th scope="row">
                 <span class="mb-0 text-sm">{{ selectedTenderProductName }}</span>
               </th>
@@ -149,6 +149,23 @@
             </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">Details</h3>
+        </div>
+        <div class="table-responsive" style="overflow: visible;">
+<dl>
+  <dt>Name</dt>
+  <dd>Tomatoes</dd>
+  <dt>Message</dt>
+  <dd>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</dd>
+  <dt>Price </dt>
+  <dd>300 TT$</dd>
+</dl>
         </div>
       </div>
     </div>

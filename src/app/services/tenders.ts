@@ -24,8 +24,8 @@ export const tenders: Tender[] = [
     category: 'Vegetables',
     status: 'posted',
     id: '3',
-    price: 30,
-    productName: 'Peppers',
+    price: 200,
+    productName: 'Tomatoes & Carrots',
     dueDate: '2019/04/09'
   },
   {

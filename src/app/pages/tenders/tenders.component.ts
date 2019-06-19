@@ -30,8 +30,10 @@ export class TendersComponent implements OnInit, OnDestroy {
   private sub: any;
   private new = false;
   public selectedTenderId: string;
+  public selectedQuotationId: string;
   selectedTenderProductName: string;
   public tenders: Tender[];
+
 
   public quotations: QuotationExtended[] = [];
 
@@ -105,5 +107,10 @@ export class TendersComponent implements OnInit, OnDestroy {
       return {...quotation, supplierTitle: supplier.title, supplierImage: supplier.image };
     });
     console.log('quotations', this.quotations);
+  }
+
+  onSelectQuotation(item: Quotation) {
+    console.log("you clicked on:" + JSON.stringify(item));
+    this.selectedQuotationId = item.id;
   }
 }
