@@ -198,26 +198,16 @@ export class DataService {
   }
 
   // calls for supplier view
-  getQuotationsForTenderOfSupplier(tenderId): Quotation[] {
+  getQuotations(): Quotation[] {
     const user = this.getUser();
     if (!user) {
       return;
     }
     const quot: Quotation[] = [];
     for (const item of this.state.quotations) {
-      if (item.supplierId === user.id && item.tenderId === tenderId) {
+      if (item.supplierId === user.id) {
         quot.push(item);
       }
-    }
-    return quot;
-  }
-
-  getBuyerOfTender(tenderId): User {
-    const tenderArray = this.state.tenders.filter(tender => tender.id === tenderId);
-    if (tenderArray.length > 0) {
-      return this.getSupplierById(tenderArray[0].buyerId);
-    } else {
-      return undefined;
     }
   }
 
