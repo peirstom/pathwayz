@@ -67,10 +67,12 @@ export interface State {
 export class DataService {
   //tenders: Observable<Tender[]>; // Todo remove next line uncomment this line
   tenders: Observable<any[]>;
+
+
   private state: State = {
     products: products,
     users: users,
-    tenders: null,
+    tenders: null, // TODO populate this with tenders.
     quotations: quotations
   };
 
@@ -169,13 +171,11 @@ export class DataService {
     };
   }
 
-getTenders(){
-  return this.tenders;
-}
+
 //todo remove previous function replace by function below.
 
   // calls for buyer view
- /* getTenders(): Tender[] {
+  getTenders(): Tender[] {
     const user = this.getUser();
     if (!user) {
       return;
@@ -187,7 +187,7 @@ getTenders(){
         }
     }
     return tendrs;
-  }*/
+  }
 
   getQuotationsForTender(id): Quotation[] {
     const quot: Quotation[] = [];

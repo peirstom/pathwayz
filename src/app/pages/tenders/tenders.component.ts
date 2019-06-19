@@ -49,10 +49,7 @@ export class TendersComponent implements OnInit, OnDestroy {
       console.log('user', user);
       this.loggedIn = !!(user && user.token) ;
       if (this.loggedIn) {
-        this.dataService.getTenders().subscribe(tenders => {
-          console.log(tenders);
-          this.tenders = tenders;
-        });
+        this.tenders = this.dataService.getTenders();
       }
       this.openTenderFormIfNew();
     });
@@ -66,7 +63,7 @@ export class TendersComponent implements OnInit, OnDestroy {
   }
 
   onCreateTender() {
-    if(!this.loggedIn) {
+    if (!this.loggedIn) {
       this.login.open();
       this.new = true;
     } else {
@@ -86,14 +83,14 @@ export class TendersComponent implements OnInit, OnDestroy {
   private openTenderFormIfNew() {
     if (this.new) {
       setTimeout(() => {
-        if(!this.loggedIn) {
+        if (!this.loggedIn) {
           this.login.open();
         } else {
           this.tenderForm.open();
           this.new = false;
         }
 
-      })
+      });
 
     }
   }
@@ -105,7 +102,7 @@ export class TendersComponent implements OnInit, OnDestroy {
     const quotations = this.dataService.getQuotationsForTender(item.id);
 
     this.quotations = quotations.map(quotation => {
-      const supplier = this.dataService.getSupplierById(quotation.supplierId)
+      const supplier = this.dataService.getSupplierById(quotation.supplierId);
       return {...quotation, supplierTitle: supplier.title, supplierImage: supplier.image };
     });
     console.log('quotations', this.quotations);
