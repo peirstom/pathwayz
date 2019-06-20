@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { ROUTES, SUPPLIER_ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
 import { concat, Subscription } from 'rxjs';
@@ -32,9 +32,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(location: Location,  private authService: AuthService, private dataService: DataService) {
     this.location = location;
-    //this.authService.isAuthenticated.subscribe((res) => {
-      //this.isAuthenticated = res;
-    //});
   }
 
   ngOnInit() {
@@ -80,6 +77,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
       return this.user.lastName;
     }
     return 'Peirs';
+  }
+
+  getUserID(){
+    if(this.user && this.user.id)
+    {
+      return this.user.id;
+    }
   }
 
   openLogin() {

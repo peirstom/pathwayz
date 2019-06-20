@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { DataService, Product, User } from '../../services/data.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 declare const google: any;
 
 @Component({
@@ -11,7 +12,11 @@ declare const google: any;
 export class SupplierComponent implements OnInit {
   public supplier: User;
   public products: Product[];
-  constructor(private route: ActivatedRoute, private dataService: DataService) {
+  public submitting = false;
+  closeResult: string;
+  @ViewChild('contactModal')
+  public contactModal: TemplateRef<any>;
+  constructor(private route: ActivatedRoute, private dataService: DataService, private modalService: NgbModal) {
     this.route.queryParamMap.subscribe(params => {
       if (params.has('id')) {
         const userId = params.get('id');
@@ -64,5 +69,27 @@ export class SupplierComponent implements OnInit {
       infowindow.open(map, marker);
     });
   }
+
+  close(){
+    this.modalService.dismissAll();
+  }
+
+  openContactModal() {
+    const content = this.contactModal;
+    this.modalService.open(content, { windowClass: 'modal-mini', size: 'lg', centered: true }).result.then((result) => {
+      this.closeResult = 'Closed with: $result';
+    }, (reason) => {
+      this.closeResult = 'Dismissed $this.getDismissReason(reason)';
+    });
+  }
+
+  send(){
+    this.submitting = true;
+    setTimeout(() => {
+      this.submitting = false;
+      this.close();
+    }, 400);
+  }
+
 
 }
