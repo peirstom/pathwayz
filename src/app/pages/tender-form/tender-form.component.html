@@ -5,6 +5,9 @@
         <div class="card bg-secondary shadow border-0">
 
           <div class="card-header bg-white pb-5">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+                  <span aria-hidden="true">×</span>
+                </button>
               <div class="progress-wrapper">
                   <div class="progress-percentage">
                     <span>{{stepWidth}}/3</span>
@@ -17,7 +20,7 @@
               <div class="text-center">
                   <h1 *ngIf="step == 1" class="display-4">Step 1: Contact Data</h1>
                   <h1 *ngIf="step == 2" class="display-4">Step 2: Product Data</h1>
-                  <h1 *ngIf="step == 3" class="display-4">Step 3: Summary</h1>
+                  <h1 *ngIf="step == 3" class="display-4">Step 3: Review Tender</h1>
                 </div>
           </div>
 
@@ -27,7 +30,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="inputName">Name</label>
-                      <input type="text" class="form-control"  formControlName="name" id="inputName" placeholder="Name">
+                      <input type="text" class="form-control"  formControlName="name" id="inputName" placeholder="Name" #name>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputLastName">Last Name</label>
@@ -85,10 +88,18 @@
                           <label for="inputProductName">Product Name</label>
                           <input type="text" class="form-control" formControlName="productName" id="inputProductName" placeholder="Product Name">
                         </div>
+
                         <div class="form-group col-md-6">
-                            <label for="inputProductName">Price Per Unit</label>
-                            <input type="number" class="form-control" formControlName="price" id="inputProductName" value="0.00">
-                          </div>
+                            <label for="inputPrice">Price Per Unit</label>
+                            <div class="input-group">
+                            <input type="number" class="form-control" formControlName="inputPrice" id="inputPrice" value="0">
+                            <div class="input-group-append">
+                                <!--<span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>-->
+                                <span class="input-group-text">TT$</span>
+                              </div>
+                            </div>
+                        </div>
+
                       </div>
                       <div class="form-row">
                         <div class="form-group col-md-6">
@@ -117,7 +128,7 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="inputQuantity">Quantity</label>
-                          <input type="input" class="form-control" formControlName="quantity" id="inputQuantity" value="0">
+                          <input type="number" class="form-control" formControlName="quantity" id="inputQuantity" value="0">
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputUnit">Unit</label>
@@ -136,15 +147,31 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="inputWidth">Width</label>
-                          <input type="number" class="form-control" formControlName="width" id="inputWidth" value="0">
+                          <div class="input-group">
+                            <input type="number" class="form-control" formControlName="width" id="inputWidth" value="0">
+                            <div class="input-group-append">
+                              <span class="input-group-text">m</span>
+                            </div>
+                          </div>
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputHeight">Height</label>
-                          <input type="number" class="form-control" formControlName="height" id="inputHeight" value="0">
+                          <div class="input-group">
+                              <input type="number" class="form-control" formControlName="height" id="inputHeight" value="0">
+                              <div class="input-group-append">
+                                  <span class="input-group-text">m</span>
+                                </div>
+                          </div>
+
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputLength">Lenght</label>
-                          <input type="number" class="form-control" formControlName="length" id="inputLength" value="0">
+                          <div class="input-group">
+                              <input type="number" class="form-control" formControlName="length" id="inputLength" value="0">
+                              <div class="input-group-append">
+                                  <span class="input-group-text">m</span>
+                                </div>
+                          </div>
                         </div>
                       </div>
                       <div class="form-row">
@@ -169,68 +196,67 @@
                     <button type="button" class="btn btn-primary mt-4" (click)="setStep(3)">Next Step</button>
                   </div>
               </ng-container>
-              <ng-container *ngIf="step == 3">
-                  <form [formGroup]="form">
-                      <div class="text-muted text-center mt-2 mb-4"><small>Contact Details</small></div>
-                      <div class="form-group row">
-                          <label for="staticName" class="col-sm-2 col-form-label">Name</label>
-                          <div class="col-sm-4">
-                            <input type="text" formControlName="name" readonly class="form-control-plaintext" id="staticName" >
-                          </div>
-                          <label for="staticLastname" class="col-sm-2 col-form-label">Last Name</label>
-                            <div class="col-sm-4">
-                              <input type="text" formControlName="lastName" readonly class="form-control-plaintext" id="staticLastname" >
-                            </div>
-                        </div>
-                          <div class="form-group row">
-                              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                              <div class="col-sm-4">
-                                <input type="text" formControlName="email" readonly class="form-control-plaintext" id="staticEmail" >
-                              </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticAddress" class="col-sm-2 col-form-label">Address</label>
-                                <div class="col-sm-4">
-                                    <input id="staticAddress" name="address" readonly formControlName="address" type="text" class="form-control-plaintext">
-                                  </div>
-                                <label for="staticAddress2" class="col-sm-2 col-form-label">Address 2</label>
-                                <div class="col-sm-4">
-                                    <input id="staticAddress2" name="address2" readonly formControlName="address2" type="text" class="form-control-plaintext">
-                                  </div>
-                              </div>
-                              <div class="form-group row">
-                                  <label for="staticCity" class="col-sm-2 col-form-label">City</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" formControlName="city" readonly class="form-control-plaintext" id="staticCity" >
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticState" class="col-sm-2 col-form-label">State</label>
-                                      <div class="col-sm-2">
-                                        <input type="text" formControlName="state" readonly class="form-control-plaintext" id="staticState" >
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label for="staticZip" class="col-sm-2 col-form-label">Zip</label>
-                                      <div class="col-sm-2">
-                                        <input type="text" formControlName="zip" readonly class="form-control-plaintext" id="staticZip" >
-                                      </div>
-                                    </div>
-                            <hr>
-                            <div class="text-muted text-center mt-2 mb-4"><small>Product Details</small></div>
-                            <div class="form-group row">
-                                <label for="staticProductName" class="col-sm-2 col-form-label">Product Name</label>
-                                <div class="col-sm-4">
-                                  <input type="text" formControlName="productName" readonly class="form-control-plaintext" id="staticProductName" >
-                                </div>
-                              </div>
-                              <div class="form-group row">
-                                  <label for="staticProductDescription" class="col-sm-2 col-form-label">Product Description</label>
-                                  <div class="col-sm-10">
-                                    <input type="text" formControlName="productDescription" readonly class="form-control-plaintext" id="staticProductDescription" >
-                                  </div>
-                                </div>
-                    </form>
+              <ng-container *ngIf="step == 3" >
+                    <hr>
+                            <div class="text-muted text-center mt-2 mb-4"><small>Contact Details</small></div>
+                    <dl class="row">
+                        <dt class="col-sm-3" *ngIf="form.get('name').value">Name</dt>
+                        <dd class="col-sm-9" *ngIf="form.get('name').value">{{form.get('name').value}}</dd>
+
+                        <dt class="col-sm-3" *ngIf="form.get('lastName').value">Last Name</dt>
+                        <dd class="col-sm-9" *ngIf="form.get('lastName').value">{{form.get('lastName').value}}</dd>
+
+                        <dt class="col-sm-3" *ngIf="form.get('email').value">Email</dt>
+                        <dd class="col-sm-9" *ngIf="form.get('email').value">{{form.get('email').value}}</dd>
+
+                        <dt class="col-sm-3" *ngIf="form.get('address').value">Address</dt>
+                        <dd class="col-sm-9" *ngIf="form.get('address').value">{{form.get('address').value}}</dd>
+
+                        <dt class="col-sm-3" *ngIf="form.get('city').value">City</dt>
+                        <dd class="col-sm-9" *ngIf="form.get('city').value">{{form.get('city').value}}</dd>
+
+                        <dt class="col-sm-3" *ngIf="form.get('state').value && (form.get('state').value != 'Choose...')">State</dt>
+                        <dd class="col-sm-9" *ngIf="form.get('state').value && (form.get('state').value != 'Choose...')">{{form.get('state').value}}</dd>
+
+                        <dt class="col-sm-3" *ngIf="form.get('zip').value">ZIP</dt>
+                        <dd class="col-sm-9" *ngIf="form.get('zip').value">{{form.get('zip').value}}</dd>
+                      </dl>
+                      <hr>
+                      <div class="text-muted text-center mt-2 mb-4"><small>Product Details</small></div>
+                      <dl class="row">
+                          <dt class="col-sm-4" *ngIf="form.get('productName').value">Product Name</dt>
+                          <dd class="col-sm-8"*ngIf="form.get('productName').value">{{form.get('productName').value}}</dd>
+
+                          <dt class="col-sm-4" *ngIf="form.get('inputPrice').value">Price Per Unit</dt>
+                          <dd class="col-sm-8" *ngIf="form.get('inputPrice').value">{{form.get('inputPrice').value}} TT$</dd>
+
+                          <dt class="col-sm-4" *ngIf="form.get('productCategory').value && (form.get('productCategory').value != 'Choose...')">Product Category</dt>
+                          <dd class="col-sm-8" *ngIf="form.get('productCategory').value && (form.get('productCategory').value != 'Choose...')">{{form.get('productCategory').value}}</dd>
+
+                          <dt class="col-sm-4" *ngIf="form.get('subProductCategory').value && (form.get('subProductCategory').value != 'Choose...')">Product Sub-Category</dt>
+                          <dd class="col-sm-8" *ngIf="form.get('subProductCategory').value && (form.get('subProductCategory').value != 'Choose...')">{{form.get('subProductCategory').value}}</dd>
+
+                          <dt class="col-sm-4" *ngIf="form.get('productDescription').value">Product Description</dt>
+                          <dd class="col-sm-8" *ngIf="form.get('productDescription').value">{{form.get('productDescription').value}}</dd>
+
+                          <dt class="col-sm-4" *ngIf="form.get('quantity').value">Quantity</dt>
+                          <dd class="col-sm-8" *ngIf="form.get('quantity').value">{{form.get('quantity').value}}</dd> <!-- add Unit-->
+
+                          <dt class="col-sm-4" *ngIf="form.get('dueDate').value">Due Date</dt>
+                          <dd class="col-sm-8" *ngIf="form.get('dueDate').value">{{form.get('dueDate').value}}</dd>
+
+                          <dt class="col-sm-4" *ngIf="form.get('width').value || form.get('height').value || form.get('length').value">Dimensions</dt>
+                          <dd class="col-sm-8" *ngIf="form.get('width').value || form.get('height').value || form.get('length').value"> Width:{{form.get('width').value}} m.     Height:{{form.get('height').value}} m.     Length:{{form.get('length').value}} m.</dd>
+
+                          <!--<dt class="col-sm-4" *ngIf="form.get('productName').value">Attachements</dt>
+                          <dd class="col-sm-8" *ngIf="form.get('productName').value"></dd>-->
+                        </dl>
+
+                      <div class="modal-body">
+                        <p>By placing your tender, you agree to Pathwayz's privacy notice and conditions of use.</p>
+                      </div>
+
+
                   <div class="text-center">
                       <button type="button" class="btn btn-primary mt-4" (click)="setStep(2)">Previous Step</button>
                       <button type="button" class="btn btn-primary mt-4" (click)="onSubmit()">Submit Tender</button>

@@ -42,7 +42,7 @@ export class TenderFormComponent implements OnInit {
       state : ['Choose...'],
       zip : null,
       productName: null,
-      price: null,
+      inputPrice: null,
       productDescription: null,
       quantity: null,
       unit: ['KG'],
@@ -73,6 +73,10 @@ export class TenderFormComponent implements OnInit {
       this.resetForm();
       this.closeResult = 'Dismissed $this.getDismissReason(reason)';
     });
+  }
+
+  close(){
+    this.modalService.dismissAll();
   }
 
   openSuccessModal() {
