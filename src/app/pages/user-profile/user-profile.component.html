@@ -5,7 +5,7 @@
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Hello Jesse</h1>
+        <h1 class="display-2 text-white">Hello {{user.name}} {{user.lastName}}</h1>
         <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
         <a href="#!" class="btn btn-info">Edit profile</a>
       </div>
@@ -20,7 +20,9 @@
           <div class="col-lg-3 order-lg-2">
             <div class="card-profile-image">
               <a href="javascript:void(0)">
-                <img src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                <div class="rounded-circle fancy-style"
+                     [ngStyle]="{'background-image': 'url(../' + user.image + ')'}">
+                </div>
               </a>
             </div>
           </div>
@@ -52,7 +54,7 @@
           </div>
           <div class="text-center">
             <h3>
-              Jessica Jones<span class="font-weight-light">, 27</span>
+              {{user.name}} {{user.lastName}}<span class="font-weight-light">, 27</span>
             </h3>
             <div class="h5 font-weight-300">
               <i class="ni location_pin mr-2"></i>Bucharest, Romania
@@ -90,13 +92,13 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-username">Username</label>
-                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="{{user.name}}.{{user.lastName}}">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-email">Email address</label>
-                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="{{user.email}}">
                   </div>
                 </div>
               </div>
@@ -104,13 +106,13 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name">First name</label>
-                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="{{user.name}}">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-last-name">Last name</label>
-                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="{{user.lastName}}">
                   </div>
                 </div>
               </div>
