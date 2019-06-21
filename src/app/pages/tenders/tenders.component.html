@@ -70,7 +70,7 @@
                     <i class="fas fa-ellipsis-v"></i>
                   </a>
                   <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
+                    <a class="dropdown-item" (click)="onClickDetailsTender(tender)">Details</a>
                     <a class="dropdown-item" href="javascript:void(0)">Export as PDF</a>
                     <a class="dropdown-item" href="javascript:void(0)">Cancel</a>
                   </div>
@@ -176,3 +176,10 @@
 </div>
 <app-tender-form (submitted)="onSubmitTenderform()"></app-tender-form>
 <app-login></app-login>
+
+<ng-template #tenderSummary>
+  <div class="card-body px-lg-5 py-lg-5">
+    <h1 class="text-center">Summary tender</h1>
+  <app-tender-summary [form]="form"></app-tender-summary>
+  </div>
+</ng-template>

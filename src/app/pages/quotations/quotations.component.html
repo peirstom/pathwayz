@@ -55,7 +55,9 @@
               <td>
                 <button class="btn btn-sm btn-primary">Create Quotation</button>
                 <button class="btn btn-sm btn-danger">Delete Tender</button>
+                <button class="btn btn-sm btn-default" (click)="onClickDetailsTender(tender)">Summary</button>
               </td>
+
             </tr>
             </tbody>
             <tbody *ngIf="!loggedIn">
@@ -144,3 +146,10 @@
 </div>
 <app-quotation-form></app-quotation-form>
 <app-login></app-login>
+
+<ng-template #tenderSummary>
+  <div class="card-body px-lg-5 py-lg-5">
+    <h1 class="text-center">Summary tender</h1>
+    <app-tender-summary [form]="form"></app-tender-summary>
+  </div>
+</ng-template>

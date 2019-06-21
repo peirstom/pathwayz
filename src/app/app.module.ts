@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { DataService } from './services/data.service';
+import { TenderSummaryComponent } from './pages/tender-summary/tender-summary.component';
 
 @NgModule({
   imports: [

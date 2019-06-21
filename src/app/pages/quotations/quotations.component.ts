@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 import { QuotationFormComponent } from '../quotation-form/quotation-form.component';
 import { DataService, Quotation, Tender } from '../../services/data.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 export interface TenderExtended extends Tender {
   buyerTitle: string;
@@ -29,16 +31,43 @@ export class QuotationsComponent implements OnInit, OnDestroy {
 
   @ViewChild(LoginComponent)
   public login: LoginComponent;
+  @ViewChild('tenderSummary')
+  public tenderSummary: TemplateRef<any>;
   loggedIn = false;
   loggedInSubsription: Subscription;
   private sub: any;
   private new = false;
   public selectedTenderId: string;
   selectedTenderProductName: string;
+  closeResult;
  public tenders: TenderExtended[] = [];
  public quotations: QuotationsSupplier[]  = [];
+  public form: FormGroup;
+  constructor(private route: ActivatedRoute, private authService: AuthService, private dataService: DataService, private modalService: NgbModal, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      name: null,
+      lastName: null,
+      email: null,
+      address: null,
+      address2: null,
+      city: null,
+      state: ['Choose...'],
+      zip: null,
+      productName: null,
+      inputPrice: null,
+      productDescription: null,
+      quantity: null,
+      unit: ['KG'],
+      dueDate: null,
+      width: null,
+      height: null,
+      length: null,
+      fileName: null,
+      imageName: null,
+      productCategory: ['Choose...'],
+      subProductCategory: ['Choose...']
+    });
 
-  constructor(private route: ActivatedRoute, private authService: AuthService, private dataService: DataService) {
     this.sub = this.route.queryParamMap.subscribe(params => {
       if (params.has('create')) {
         console.log('YES');
@@ -74,6 +103,15 @@ export class QuotationsComponent implements OnInit, OnDestroy {
     }
   }
 
+  openTenderSummary() {
+    const content = this.tenderSummary;
+    this.modalService.open(content, { windowClass: 'modal-mini', size: 'lg', centered: true }).result.then((result) => {
+      this.closeResult = 'Closed with: $result';
+    }, (reason) => {
+      this.closeResult = 'Dismissed $this.getDismissReason(reason)';
+    });
+  }
+
   openLogin() {
     this.login.open();
   }
@@ -96,7 +134,32 @@ export class QuotationsComponent implements OnInit, OnDestroy {
     })
 
   }
-
+  onClickDetailsTender(tender: Tender) {
+    this.form.patchValue({
+      name: tender.name,
+      lastName: tender.lastName,
+      email: tender.email,
+      address : tender.address,
+      address2 : tender.address2,
+      city : tender.city,
+      state : tender.state,
+      zip : tender.zip,
+      productName: tender.productName,
+      inputPrice: tender.price,
+      productDescription: tender.productDescription,
+      quantity: tender.quantity,
+      unit: tender.unit,
+      dueDate: tender.dueDate,
+      width: tender.width,
+      height: tender.height,
+      length: tender.length,
+      fileName: tender.fileName,
+      imageName: tender.imageName,
+      productCategory: tender.category,
+      subProductCategory : tender.subCategory
+    });
+    this.openTenderSummary();
+  }
   private openQuotationFormIfNew() {
     if (this.new) {
       setTimeout(() => {
