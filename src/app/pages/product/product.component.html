@@ -1,37 +1,10 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-size: cover; background-position: center top;"
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 300px; background-size: cover; background-position: center top;"
      [ngStyle]="{'background-image': 'url(../' + product.image + ')'}">
-
   <!-- Mask -->
   <span class="mask bg-gradient-green opacity-8"></span>
   <!-- Header container -->
-  <div class="container-fluid d-flex align-items-center">
-    <div class="row">
-      <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Hello Jesse</h1>
-        <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-        <a href="#!" class="btn btn-info">Edit profile</a>
-      </div>
-    </div>
-  </div>
 </div>
 
-
-
-
-<!--<div class="header bg-gradient-green pb-8 pt-5 pt-md-8">-->
-<!--  <div class="container-fluid">-->
-<!--    <div class="header-body">-->
-<!--      &lt;!&ndash; Card stats &ndash;&gt;-->
-<!--      <div class="row">-->
-<!--        <div class="col-lg-7 col-md-10">-->
-<!--          <h1 class="display-2 text-white">Product Component</h1>-->
-<!--          <p class="text-white mt-0 mb-5">This is some text about the product</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!-- Page content -->
 <div class="container-fluid mt--7">
   <!-- Product -->
   <div class="row">
@@ -39,9 +12,86 @@
       <div class="card shadow">
         <div class="card-header border-0">
           <!-- here comes the product-->
+          <div _ngcontent-c6="" class="px-4">
+            <div _ngcontent-c6="" class="row justify-content-center">
+              <div _ngcontent-c6="" class="col-lg-3 order-lg-2">
+                <div _ngcontent-c6="" class="card-profile-image">
+                  <a _ngcontent-c6="" href="javascript:void(0)">
+                    <div
+                      class="rounded-circle fancy-style"
+                      [ngStyle]="{'background-image': 'url(../' + product.image + ')'}">
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br><br>
+            <br>
+            <div _ngcontent-c6="" class="text-center mt-5"><h1 _ngcontent-c6="">{{ product.title }} <span _ngcontent-c6=""
+                                                                                                    class="font-weight-light"></span>
+            </h1>
+            </div>
+            <div _ngcontent-c6="" class="mt-5 py-5 border-top text-center">
+              <div _ngcontent-c6="" class="row justify-content-center">
+                <div _ngcontent-c6="" class="col-lg-9"><p _ngcontent-c6="">{{product.description}}</p>
+                  </div>
+              </div>
+            </div>
 
-          <h1>{{product.title}}</h1>
-          <h1>{{product.description}}</h1>
+            <!-- Product Characteristics-->
+            <div class="row">
+                <div class="container col-8">
+                    <div class="text-muted mt-2 mb-4">Characteristics</div>
+                    <hr>
+                      <dl class="row">
+                        <dt class="col-sm-3">Name</dt>
+                        <dd class="col-sm-9" >{{ product.title }}</dd>
+
+                        <dt class="col-sm-3">Commodity</dt>
+                        <dd class="col-sm-9" >{{ product.tags }}</dd>
+
+                        <dt class="col-sm-3">Category</dt>
+                        <dd class="col-sm-9" >{{ product.category }}</dd>
+
+                        <dt class="col-sm-3">Appearance</dt>
+                        <dd class="col-sm-9" >{{ product.appearance }}</dd>
+
+                        <dt class="col-sm-3">Flavor</dt>
+                        <dd class="col-sm-9" >{{ product.flavor }}</dd>
+
+                        <dt class="col-sm-3">Size</dt>
+                        <dd class="col-sm-9" >{{ product.size }}</dd>
+
+                        <dt class="col-sm-3">Color</dt>
+                        <dd class="col-sm-9" >{{ product.color }}</dd>
+
+                        <dt class="col-sm-3">Shape</dt>
+                        <dd class="col-sm-9" >{{ product.shape }}</dd>
+
+                        <dt class="col-sm-3">Commonly Cooked</dt>
+                        <dd class="col-sm-9" >{{ product.commonlyCooked }}</dd>
+
+                        <dt class="col-sm-3">Served Raw</dt>
+                        <dd class="col-sm-9" >{{ product.servedRaw }}</dd>
+
+                        <dt class="col-sm-3">Availability</dt>
+                        <dd class="col-sm-9" >{{ product.availability }}</dd>
+
+                    </dl>
+                  </div>
+
+                  <div class="container col-4">
+
+                      <div class="text-muted mt-2 mb-4">Origin</div>
+                      <hr>
+                      <div id="map-canvas" class="map-canvas" data-lat="10.663931" data-lng="-61.528545" style="height: 450px;"></div>
+                    </div>
+            </div>
+
+
+
+          </div>
         </div>
 
       </div>

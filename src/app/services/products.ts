@@ -8,7 +8,16 @@ export const products: Product[] = [
     image: '../../assets/img/products/mint.jpg',
     tags: ['herbs', 'mint', 'restaurant', 'fresh'],
     featured: true,
-    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
+    category : 'Cooking Vegatables',
+    appearance : 'Oval, bright green leaves with toothed edges and a rough, slightly fuzzy texture',
+    flavor : 'Sweet, fresh, tingly; peppermint has a sharper, more menthol flavor, and spearmint is more delicate and sweet',
+    size : '',
+    color : 'Bright green',
+    shape : 'Oval to almond-shaped leaves',
+    commonlyCooked : 'Yes',
+    servedRaw : 'Yes',
+    availability : 'Year-round'
   },
   {
     id: '2',
@@ -18,7 +27,16 @@ export const products: Product[] = [
     image: '../../assets/img/products/thyme.jpg',
     tags: ['herbs', 'italian', 'thyme' , 'restaurant'],
     featured: true,
-    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
+    category : 'Cooking Vegetables',
+    appearance : 'Tiny round green leaves on thin woody stems',
+    flavor : 'A woodsy, spicy, clove and lemon-like flavor',
+    size : 'Tiny leaves on slender woody stems',
+    color : 'Bright to gray-green',
+    shape : 'Tiny round leaves on woody stems',
+    commonlyCooked : 'Yes',
+    servedRaw : 'Yes',
+    availability : 'Year-round'
   },
   {
     id: '5',
@@ -28,7 +46,16 @@ export const products: Product[] = [
     image: '../../assets/img/products/basil.jpg',
     tags: ['herbs', 'restaurant', 'italian', 'basil'],
     featured: false,
-    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
+    category : 'Cooking Vegetables',
+    appearance : 'Heart-shaped bright green leaves on a slender central stem',
+    flavor : 'Slightly peppery or spicy, with warm, sweet notes',
+    size: 'Basil leaves can be about half an inch to four inches long',
+    color : 'Vibrant green',
+    shape : 'Heart-shaped leaves',
+    commonlyCooked : 'Yes',
+    servedRaw : 'Yes',
+    availability : 'Year-Round'
   },
   {
     id: '6',
@@ -38,7 +65,16 @@ export const products: Product[] = [
     image: '../../assets/img/products/parsley.jpg',
     tags: ['herbs', 'parsley', 'restaurant', 'meditarian'],
     featured: false,
-    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
+    category : 'Cooking Vegetables',
+    appearance : 'Green and multi-branched; branches divided in three sections with multiple leaves growing from the stems',
+    flavor : 'Robust, somewhat peppery flavor',
+    size: 'Parsley can grow up to a foot tall',
+    color : 'Bright green',
+    shape : 'Triangular, flat, deeply toothed leaves',
+    commonlyCooked : 'Yes',
+    servedRaw : 'Yes',
+    availability : 'Year-Round'
   },
   {
     id: '3',
@@ -48,7 +84,16 @@ export const products: Product[] = [
     image: '../../assets/img/products/bellpepper.jpg',
     tags: ['pepper', 'sweet', 'red', 'yellow', 'green', 'bell'],
     featured: true,
-    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
+    category : 'Cooking Vegetables, Salad Vegetables',
+    appearance : 'Commonly Red/Green/Orange/Yellow with a thick green stem; blocky or bell-shaped with three to four lobes',
+    flavor : 'Sweet and mild',
+    size : 'A typical bell pepper can weigh ¼ to 1 pound, including the stem and seeds',
+    color : 'There are varieties of Bell Peppers, each with its own accent. Common collors are: Red, Green, Orange and Yellow',
+    shape : 'Blocky or bell-shaped, with three to four lobes',
+    commonlyCooked : 'Yes',
+    servedRaw : 'Yes',
+    availability : 'Year-Round'
   },
   {
     id: '4',
@@ -58,7 +103,16 @@ export const products: Product[] = [
     image: '../../assets/img/products/scorpion.jpg',
     tags: ['Anaheim', 'pepper', 'chili', 'mild', 'sweet'],
     featured: false,
-    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
+    category : 'Cooking Vegetables, Salad Vegetables',
+    appearance : 'Long, narrow, glossy green or red pepper',
+    flavor : 'Mild and sweet when green, slightly spicy when red',
+    size : 'About 4-10 inches long',
+    color : 'Glosse green or red',
+    shape : 'Long, narrow, slightly curved',
+    commonlyCooked : 'Yes',
+    servedRaw : 'Yes',
+    availability : 'Year-round; red anaheims are available in the summer.'
   },
   {
     id: '7',
@@ -68,7 +122,16 @@ export const products: Product[] = [
     image: '../../assets/img/products/jalapeno.jpg',
     tags: ['pepper', 'medium', 'hot', 'jalapeno'],
     featured: true,
-    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
+    category : 'Cooking Vegetables, Salad Vegetables',
+    appearance : 'Smaller, conical, slightly curved pepper with smooth, shiny dark green to red skin',
+    flavor : 'Vegetal and spicy; mature red peppers have a sweeter flavor',
+    size : 'About 2-3 inches long, with stems of about 1 inch long',
+    color : 'Dark green to red',
+    shape : 'Conical, slightly curved',
+    commonlyCooked : 'Yes',
+    servedRaw : 'Yes',
+    availability : 'Year-Round'
   },
   {
     id: '8',
@@ -78,6 +141,15 @@ export const products: Product[] = [
     image: '../../assets/img/products/habanero.jpg',
     tags: ['pepper', 'orange', 'hot'],
     featured: false,
-    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2'
+    supplierId: '9dMXV3fXQKeL6hnkkBMZ5VqcANF2',
+    category : 'Cooking Vegetables, Salad Vegetables',
+    appearance : 'Shiny, lantern-shaped orange peppers about 2 inches long',
+    flavor : 'Fruity and spicy, at about 200,000 to 300,000 Scoville units',
+    size : 'About 2 inches long and a little less than 2 inches wide',
+    color : 'ypically bright orange',
+    shape : 'Lantern-shaped',
+    commonlyCooked : 'Yes',
+    servedRaw : 'Yes',
+    availability : 'Year-Round'
   }
 ];

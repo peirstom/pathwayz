@@ -14,6 +14,15 @@ export interface Product {
   supplierId: string;
   tags: Array<string>;
   featured: boolean;
+  category?: string;
+  appearance?: string;
+  flavor?: string;
+  size?: string;
+  color?: string;
+  shape?: string;
+  commonlyCooked?: string;
+  servedRaw?: string;
+  availability?: string;
 }
 
 export interface User {
@@ -29,6 +38,9 @@ export interface User {
   tags?: Array<string>;
   featured?: boolean;
   category?: string;
+  address?: string;
+  detailedDescription?: string;
+  businessOperations?: Array<string>;
   subCategory?: string;
 }
 
