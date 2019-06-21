@@ -197,70 +197,16 @@
                   </div>
               </ng-container>
               <ng-container *ngIf="step == 3" >
-                    <hr>
-                            <div class="text-muted text-center mt-2 mb-4"><small>Contact Details</small></div>
-                    <dl class="row">
-                        <dt class="col-sm-3" *ngIf="form.get('name').value">Name</dt>
-                        <dd class="col-sm-9" *ngIf="form.get('name').value">{{form.get('name').value}}</dd>
+                <app-tender-summary [form]="form"></app-tender-summary>
 
-                        <dt class="col-sm-3" *ngIf="form.get('lastName').value">Last Name</dt>
-                        <dd class="col-sm-9" *ngIf="form.get('lastName').value">{{form.get('lastName').value}}</dd>
+                <div class="modal-body">
+                  <p>By placing your tender, you agree to Pathwayz's privacy notice and conditions of use.</p>
+                </div>
 
-                        <dt class="col-sm-3" *ngIf="form.get('email').value">Email</dt>
-                        <dd class="col-sm-9" *ngIf="form.get('email').value">{{form.get('email').value}}</dd>
-
-                        <dt class="col-sm-3" *ngIf="form.get('address').value">Address</dt>
-                        <dd class="col-sm-9" *ngIf="form.get('address').value">{{form.get('address').value}}</dd>
-
-                        <dt class="col-sm-3" *ngIf="form.get('city').value">City</dt>
-                        <dd class="col-sm-9" *ngIf="form.get('city').value">{{form.get('city').value}}</dd>
-
-                        <dt class="col-sm-3" *ngIf="form.get('state').value && (form.get('state').value != 'Choose...')">State</dt>
-                        <dd class="col-sm-9" *ngIf="form.get('state').value && (form.get('state').value != 'Choose...')">{{form.get('state').value}}</dd>
-
-                        <dt class="col-sm-3" *ngIf="form.get('zip').value">ZIP</dt>
-                        <dd class="col-sm-9" *ngIf="form.get('zip').value">{{form.get('zip').value}}</dd>
-                      </dl>
-                      <hr>
-                      <div class="text-muted text-center mt-2 mb-4"><small>Product Details</small></div>
-                      <dl class="row">
-                          <dt class="col-sm-4" *ngIf="form.get('productName').value">Product Name</dt>
-                          <dd class="col-sm-8"*ngIf="form.get('productName').value">{{form.get('productName').value}}</dd>
-
-                          <dt class="col-sm-4" *ngIf="form.get('inputPrice').value">Price Per Unit</dt>
-                          <dd class="col-sm-8" *ngIf="form.get('inputPrice').value">{{form.get('inputPrice').value}} TT$</dd>
-
-                          <dt class="col-sm-4" *ngIf="form.get('productCategory').value && (form.get('productCategory').value != 'Choose...')">Product Category</dt>
-                          <dd class="col-sm-8" *ngIf="form.get('productCategory').value && (form.get('productCategory').value != 'Choose...')">{{form.get('productCategory').value}}</dd>
-
-                          <dt class="col-sm-4" *ngIf="form.get('subProductCategory').value && (form.get('subProductCategory').value != 'Choose...')">Product Sub-Category</dt>
-                          <dd class="col-sm-8" *ngIf="form.get('subProductCategory').value && (form.get('subProductCategory').value != 'Choose...')">{{form.get('subProductCategory').value}}</dd>
-
-                          <dt class="col-sm-4" *ngIf="form.get('productDescription').value">Product Description</dt>
-                          <dd class="col-sm-8" *ngIf="form.get('productDescription').value">{{form.get('productDescription').value}}</dd>
-
-                          <dt class="col-sm-4" *ngIf="form.get('quantity').value">Quantity</dt>
-                          <dd class="col-sm-8" *ngIf="form.get('quantity').value">{{form.get('quantity').value}}</dd> <!-- add Unit-->
-
-                          <dt class="col-sm-4" *ngIf="form.get('dueDate').value">Due Date</dt>
-                          <dd class="col-sm-8" *ngIf="form.get('dueDate').value">{{form.get('dueDate').value}}</dd>
-
-                          <dt class="col-sm-4" *ngIf="form.get('width').value || form.get('height').value || form.get('length').value">Dimensions</dt>
-                          <dd class="col-sm-8" *ngIf="form.get('width').value || form.get('height').value || form.get('length').value"> Width:{{form.get('width').value}} m.     Height:{{form.get('height').value}} m.     Length:{{form.get('length').value}} m.</dd>
-
-                          <!--<dt class="col-sm-4" *ngIf="form.get('productName').value">Attachements</dt>
-                          <dd class="col-sm-8" *ngIf="form.get('productName').value"></dd>-->
-                        </dl>
-
-                      <div class="modal-body">
-                        <p>By placing your tender, you agree to Pathwayz's privacy notice and conditions of use.</p>
-                      </div>
-
-
-                  <div class="text-center">
-                      <button type="button" class="btn btn-primary mt-4" (click)="setStep(2)">Previous Step</button>
-                      <button type="button" class="btn btn-primary mt-4" (click)="onSubmit()">Submit Tender</button>
-                    </div>
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary mt-4" (click)="setStep(2)">Previous Step</button>
+                  <button type="button" class="btn btn-primary mt-4" (click)="onSubmit()">Submit Tender</button>
+                </div>
                 </ng-container>
 
 

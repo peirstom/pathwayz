@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 3rdpartylicenses.txt,1561078211138,bd2a021ccd127e7b74c1c3c71f8ec779c551354733ab9d6db4c79c1e14dff8b5
 5.35b21974836bf41f3af4.js,1561078211138,86b70d587ee676e8fbfe234333e4ed086fd07564ef2280bace4db11dca4fcf96
 favicon-16x16.png,1561078211139,403785cc4d1d1ed280a5ef23c057c3c9b5d889df96c9ccba9e16235ae6b01362
@@ -1557,6 +1558,8 @@ assets/vendor/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf,1561078211
 assets/vendor/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg,1561078211560,bc06540b0087b04b2dbe3a230993fdd6f6ce56ab7d9c13857c5dfa6286567840
 assets/vendor/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg,1561078211557,bd66fcda8716e96f938fc000c8c3092d0788d2adc3b5fa81c3d0662a49a6aba4
 =======
+=======
+>>>>>>> 58363394565bfdfd2382683a11bde0f36370d400
 5.8287f3dbb33a2337081e.js,1561094820661,0763d6c9e25a343209a6457bac484de7375b6c0966a490448ec8523a687b5e6d
 android-chrome-192x192.png,1561094820661,f27b873a915e1778a7e07304119e159b46f266e658e16d492bafece6b3c28dd6
 browserconfig.xml,1561094820661,e85bbe5572dbbdf2a762810440c95be503a064d16fb6d934e1616106f3436bee
@@ -3114,4 +3117,7 @@ assets/vendor/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot,1561094820
 assets/vendor/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf,1561094820830,617969cacd275aad309741f74c49a41b4b50f996d5fa6096223c7696d964ac1e
 assets/vendor/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg,1561094820830,e8ad34d476463f6718494253d537f2ed5d16d945667a265def2e5f04ed064ee0
 assets/vendor/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg,1561094820829,29cf015a00d7e95102e8851fd6b0873a4011729dc945ebfba24a5add9dd44e06
+<<<<<<< HEAD
+>>>>>>> 58363394565bfdfd2382683a11bde0f36370d400
+=======
 >>>>>>> 58363394565bfdfd2382683a11bde0f36370d400
