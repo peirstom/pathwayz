@@ -15,6 +15,9 @@ import { ComponentsModule } from './components/components.module';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { DataService } from './services/data.service';
 import { TenderSummaryComponent } from './pages/tender-summary/tender-summary.component';
+import { AngularFireModule} from 'angularfire2';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   imports: [
@@ -25,7 +28,9 @@ import { TenderSummaryComponent } from './pages/tender-summary/tender-summary.co
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    LottieAnimationViewModule.forRoot()
+    LottieAnimationViewModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   declarations: [
     AppComponent,
