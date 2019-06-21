@@ -54,19 +54,16 @@
           </div>
           <div class="text-center">
             <h3>
-              {{user.name}} {{user.lastName}}<span class="font-weight-light">, 27</span>
+              {{user.name}} {{user.lastName}}<span class="font-weight-light"></span>
             </h3>
             <div class="h5 font-weight-300">
-              <i class="ni location_pin mr-2"></i>Bucharest, Romania
+              <i class="ni location_pin mr-2"></i> {{user.address}}
             </div>
             <div class="h5 mt-4">
-              <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-            </div>
-            <div>
-              <i class="ni education_hat mr-2"></i>University of Computer Science
+              <i class="ni business_briefcase-24 mr-2"></i>{{user.businessOperations}}
             </div>
             <hr class="my-4" />
-            <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
+            <p>{{user.detailedDescription}}</p>
             <a href="javascript:void(0)">Show more</a>
           </div>
         </div>
@@ -133,29 +130,29 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-city">City</label>
-                    <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                    <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="Trinidad & Tobago">
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-country">Country</label>
-                    <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
+                    <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="South America">
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-country">Postal code</label>
-                    <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                    <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="150110">
                   </div>
                 </div>
               </div>
             </div>
             <hr class="my-4" />
             <!-- Description -->
-            <h6 class="heading-small text-muted mb-4">About me</h6>
+            <h6 class="heading-small text-muted mb-4">About {{user.title}}</h6>
             <div class="pl-lg-4">
               <div class="form-group">
-                <label>About Me</label>
+                <label>About {{user.title}}</label>
                 <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
               </div>
             </div>
